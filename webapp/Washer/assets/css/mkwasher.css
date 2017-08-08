@@ -24,6 +24,56 @@
     background-size: 100% 100%;
 }
 
+.pulsatorImg {
+    display: none;
+    position: absolute;
+    margin-top: 135px;
+    margin-left: 135px;
+    width: 6rem;
+    height: 6rem;
+    background-image: url(../../../Washer/assets/img/main_status_pulsator.png);
+    background-size: 100% 100%;
+    animation: rotate1 1.33s linear infinite;
+}
+
+@keyframes rotate1 {
+    0% {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+    }
+}
+
+.drumImg {
+    display: none;
+    position: absolute;
+    margin-top: 60px;
+    margin-left: 60px;
+    width: 8.5rem;
+    height: 8.5rem;
+    background-image: url(../../../Washer/assets/img/main_status_drum.png);
+    background-size: 100% 100%;
+    animation: rotate2 4s linear infinite;
+}
+
+@keyframes rotate2 {
+    0% {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-360deg);
+        -webkit-transform: rotate(-360deg);
+        -moz-transform: rotate(-360deg);
+    }
+}
+
 .progress-wrapper {
     width: 10.5rem;
     height: 10.5rem;

@@ -6296,6 +6296,16 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
 
     function updateOperation(operationValues) {
         debugMessage("power value is::" + operationValues.power);
+        console.log("updateOperation::: "+JSON.stringify(operationValues));
+        if(operationValues.progress == "Wash") {
+            console.log("operationValues.progress::: "+operationValues.progress);
+            var count = 0;
+            $(".pulsatorImg").css("display","block");
+            $(".drumImg").css("display","block");
+
+           
+
+        }
         if (!$scope.isDualWasher && operationValues.power === "Off") {
             powerOffPopUp = true;
             $scope.errorList.push({
