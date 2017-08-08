@@ -10230,7 +10230,7 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
     }
     function selectIndexSpin() {
         console.log("selectIndexRinse = "+$scope.currentSpinList.indexOf($scope.setSpin) +"spinTempVal = "+$scope.spinTempVal);
-
+        $(".BottomPopUpImageSpin").removeClass('spinAnimate'+$scope.spinTempVal);
         if ($scope.currentSpinList.indexOf($scope.setSpin) < 0) {
             return;
         }
