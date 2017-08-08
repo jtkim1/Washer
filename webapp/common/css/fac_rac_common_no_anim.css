@@ -1,0 +1,1606 @@
+/* Header start */
+.scrollable_area_others {
+    top: 2.4rem;
+    position: fixed;
+    height: 92.5%;
+    width: 100%;
+    overflow-y: overlay;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+.scrollable_area_others_V2 {
+    top: 3.6rem;
+    height: 88.71%;
+}
+.scrollable_area_in_app_noti {
+    top: 10.45rem;
+    height: 67.34%;
+}
+.scrollable_area_in_app_noti_V2 {
+    top: 11.65rem;
+    height: 64.6%;
+}
+.bg_white {
+    background: #f7f7f7;
+    height: 100%;
+}
+.bg_white-no-height{
+    background: #f7f7f7;   
+}
+input.schedule-input {
+    background: #f7f7f7;
+}
+.header_div_in_app_noti {
+    top:7.65rem;
+}
+.header_div_in_app_noti_V2 {
+    top:8.85rem;
+}
+
+.header_mode_text_on_inner {
+    width: 11.6rem;
+    float: left;
+}
+.statusBarNoBG {
+    height: 1.2rem;
+}
+/* Header end */
+
+/* Center screen start */
+.homescreen_shadow {
+    box-shadow: inset 0px 0.0625rem 0.25rem 0.010rem rgba(0,0,0,0.12);
+}
+.parentDivPlus {    
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: auto;
+    margin-top: 1.05rem;
+}
+.parentDivPlus_fu {
+    display: inline-block;
+}
+.parentDivMinus {    
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: auto;
+    margin-top: 0.8rem;
+}
+.childPlus, .childMinus, .childPlus_fu, .childMinus_fu {
+    width: 2.8rem;
+    height: 2.8rem;
+}
+.childPlus:active {
+    content: url("../img/main_ac_btn_plus_pressed.png");
+}
+.childMinus:active {
+    content: url("../img/main_ac_btn_minus_pressed.png");
+}
+.childPlusDisabed, .childPlusDisabed:active {
+    content: url("../img/main_ac_btn_plus_disabled.png");
+}
+.childMinusDisabed, .childMinusDisabed:active {
+    content: url("../img/main_ac_btn_minus_disabled.png");
+}
+
+.plus-minus-button-bg {
+    width: 2.375rem;
+    height: 2.375rem;
+    background-color: white;
+    border-radius: 50%;   
+    box-shadow: 0 0 0.125rem 0.125rem rgba(0, 0, 0, 0.07);
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+.plus-minus-button-bg:active {
+    background-color: #e5e5e5;
+}
+.plus-button {
+    width: 1.2rem;
+    height: 1.2rem;
+    content: url("../img/ic_title_add.png");   
+}
+.minus-button {
+    width: 1.2rem;
+    height: 1.2rem;
+    content: url("../img/ic_title_minu.png");
+}
+
+.parentDivTemp {
+    height: 2.55rem;
+    margin-top: 0.3rem;
+    text-align: center;
+    font-size: 0;
+    /*padding-left: 0.7rem;*/
+}
+.desiredTemp {
+    font-size: 2.55rem;
+    color: rgb(54, 149, 221);
+    line-height: 2.55rem;
+}
+.desiredTemp_fu {
+    color: rgb(255, 255, 255);
+}
+.desiredTempDisabled {
+    color: rgba(176, 176, 176, 0.5);
+}
+.desiredTempDeg {
+    width: 2.25rem;
+    height: 2.75rem;
+    top: 0.4rem;
+    left: 7.375rem;
+    position: absolute;
+    content: url("../img/main_ac_ic_tem_180x220_c.png");
+}
+.desiredTempDeg_fu {
+    content: url("../img/fu_ic_tem_180x220_c.png");
+}
+.desiredTempFar {
+    width: 2.25rem;
+    height: 2.75rem;
+    top: 0.4rem;
+    left: 7.375rem;
+    position: absolute;
+    content: url("../img/main_ac_ic_tem_180x220_f.png");
+}
+.desiredTempFar_fu {
+    content: url("../img/fu_ic_tem_180x220_f.png");
+}
+
+.desiredTempDegDisabled {
+    content: url("../img/main_ac_ic_tem_180x220_c_disabled.png");
+}
+.desiredTempFarDisabled {
+    content: url("../img/main_ac_ic_tem_180x220_f_disbled.png");
+}
+.desiredTempDegTxt {
+    vertical-align: top;
+    font-size: 0.8rem;
+    line-height: 0.8rem;
+    color: rgb(54, 149, 221);
+    display: inline-block;
+    margin-top: 0.2rem;
+}
+.desiredTempUnit {
+    font-size: 17.2em;
+    color: #00abf1;
+    position: absolute;
+    top: 35%;
+    left: 87%;
+}
+.desiredTempUnitDisabled {
+    color: rgba(176, 176, 176, 0.5);
+}
+
+.parentDivHomeTemp1 {
+    width: 18rem;
+    height: 5.3rem;
+    text-align: center;
+    padding-top: 1.1rem;    
+    font-size: 0;
+}
+.homeTempText1 {
+    max-width: 12.6rem;
+    font-size: .75rem;
+    line-height: .75rem;
+    text-align: center;
+    color: rgb(103, 103, 103);
+}
+.homeTempText1_disabled {
+    color: rgba(103, 103, 103, 0.3);
+}
+.tempDegDiv{
+   width: 18rem;
+   text-align: center; 
+   padding-top: .5rem; 
+}
+.homeTemp1 {    
+    font-size: 1rem;
+    color: rgb(37, 37, 37);
+}
+.homeTemp1_disabled {
+    color: rgba(37, 37, 37, 0.3);
+}
+.homeTempDeg1 {
+    font-size: 0.7rem;
+    color: rgb(37, 37, 37);
+}
+.homeTempDeg1_disabled {
+    color: rgba(37, 37, 37, 0.3);
+}
+/* Center screen end */
+
+.rIframeIOS{
+    zoom: 0.5;
+}
+.rIframeAND{ 
+    zoom: 3; 
+}
+
+/* Volume popup start */
+.volumePopupDivIn {
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    overflow-x: hidden;
+}
+
+.volumePopupDivOut {
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+}
+
+.volumePopupBGIn {
+    width: 18rem;
+    height: 14.05rem;
+    background-color: white;
+    position: absolute;
+    bottom: 0rem;
+    z-index: 999;
+    overflow-x: hidden;
+}
+
+.volumePopupBGOut {
+    width: 18rem;
+    height: 14.05rem;
+    background-color: white;
+    position: absolute;
+    bottom: 0rem;
+    z-index: 999;
+}
+
+.volumePopupTitle {
+    height: 20.99%; /*2.95rem; */
+    border: solid 1px white;
+}
+.volumePopupTitleText{
+    margin-left: 1.3rem;
+    margin-top: 1.525rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    line-height: 1rem;
+}
+.volumePopupCenter{
+    height: 31.67%; /*4.45rem;*/
+    margin-right: 1.3rem;
+    margin-left: 1.3rem;
+}
+.volumeSoundSliderDiv {
+    margin-top: 2.737rem;
+    height: 0.525rem;
+}
+.fontVolume {
+    float: left;
+    width: 1.65rem;
+    height: 1.65rem;
+    fill:rgb(153, 153, 153);
+    stroke: rgb(153, 153, 153);
+}
+.volumePopupSlider {
+    float: right;
+    margin-top: 0.675rem;
+}
+.volumePopupLevelText {
+    width: 12.5rem;
+    float: right;
+    margin-top: 1.225rem;
+    line-height: 0.85rem;
+    font-size: 0.85rem;
+    color: rgb(84, 84, 84);
+    text-align: right;
+}
+.volumePopupBottom {
+    height: 20.64%; /*2.9rem;*/
+    margin-top: 0.9rem;
+}
+/* Slider start*/
+input[type='range'] {
+    -webkit-appearance: none;
+    background-color: #00abf1;
+    width: 13.08rem;
+    height: 0.2rem;
+    vertical-align: middle;
+}
+input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none !important;
+    border-radius: 1.1rem;
+    background-color: #FFF;
+    border: 1px solid #999;
+    height: 1.1rem;
+    width: 1.1rem;
+}
+/* Slider end*/
+/* Volume popup end */
+
+/* Good sleep popup start */
+.guUpDownArrowDivContainer {
+    text-align: center;
+    font-size: 0;
+}
+.guUpDownArrowDiv {
+    width: 5.125rem;
+    height: 2.8rem;
+    padding-top: 1.05rem;
+    padding-left: 0.5rem;
+    display: inline-block;
+}
+.guUpDownArrowDiv_2 {
+    margin-left: 1.3rem;
+}
+.goodSleepPopupDiv {
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+}
+.goodSleepPopupBG {
+    width: 100%;
+    height: 65%;
+    background-color: white;
+    position: absolute;
+    bottom: 0px;
+}
+.goodSleepPopupTitle {
+    height: 32%;
+    border: solid 1px transparent;
+}
+.goodSleepCenter{
+    height: 11.2rem;
+    padding-top: 0.95rem;
+    padding-bottom: 2.4rem;
+}
+.gs-text-center-div{
+    height: 3rem;
+}
+.gs_big_text {
+    display: inline-block;
+    font-size: 2.4rem;
+    color: #3695dd;
+    line-height: 3.25rem;
+    width: 3.6rem;
+    white-space: nowrap;
+    text-align: right;
+}
+.gs_text_unit {
+    display: inline-block;
+    font-size: 1.125rem;
+    color: #3695dd;
+    line-height: 1.25rem;
+    margin-left: 0.45rem;
+    bottom: 0.15rem;
+    position: relative;
+}
+.gs-hr-div {
+    width: 7rem;
+    height: auto;
+    float: left;
+    margin-left: 3rem;
+    font-size: 0;
+}
+.gs-min-div {
+    width: 7rem;
+    height: auto;
+    float: left;   
+    font-size: 0;
+}
+.tu-down-arrow-disable {
+    opacity: 0.3;
+}
+/* Good sleep popup end */
+
+/* Common start */
+.targetUsagePopupTitleText {
+    margin: 0;
+    margin-left: 1.3rem;
+    margin-top: 1.025rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    line-height: 100%;
+}
+.targetUsagePopupMinMax {
+    margin: 0;
+    margin-left: 1.3rem;
+    margin-right: 1.3rem;
+    margin-top: 1.6rem;
+    font-size: 0.95rem;
+    line-height: 1rem;
+    color: rgb(0, 0, 0);
+}
+.tuUpDownArrowDiv {
+    width: 5.125rem;
+    height: 3.1rem;
+    margin: auto;
+    padding-top: 1.05rem;
+}
+.tu-up-arrow {
+    content: url("../img/ws_timepicker_btn_up.png");
+    width: 1.2rem;
+    height: 1.2rem;
+    display: block;
+    margin: auto;
+}
+.tu-down-arrow {
+    content: url("../img/ws_timepicker_btn_down.png");
+    width: 1.2rem;
+    height: 1.2rem;
+    display: block;
+    margin: auto;
+}
+.targetUsagePopupBottom {
+    height: 2.9rem;
+}
+.goodSleepPopupBottomMargin{
+    padding-bottom: 0rem;
+}
+.as-option-right{
+    float: right;
+    width: auto !important;
+}
+.as-cancel-text {
+    float: left;
+    font-size: .7rem;
+    color: #3695dd;
+    line-height: 1rem;
+    margin-top: 0.95rem;
+}
+.as-save-text {
+    float: left;
+    font-size: .7rem;
+    color: #3695dd;
+    line-height: 1rem;
+    margin-top: 0.95rem;
+    margin-left: 1.45rem;
+    margin-right: 1.15rem;
+}
+/* Common end */
+
+.ModeSelectionPopupItem {
+    width: 11.4rem;
+    height: 2.85rem;
+}
+.ModeSelectionPopupCon {
+    position: fixed;
+    top:3.05rem;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+    width: 11.575rem;
+    display: block;
+    max-height: 60%;
+    background-color: white;
+    margin-left: 3.3rem;    
+    box-shadow: 0.1rem 0.1rem 0.35rem rgba(0,0,0,0.25);
+    overflow-y: scroll;
+}
+.ModeSelectionPopupCon_V2 {
+    top:4.25rem;
+}
+.ModeSelectionPopupConInAppNoti {
+    top:8.05rem;
+}
+.ModeSelectionPopupConInAppNoti_V2 {
+    top:9.25rem;
+}
+.ModeSelectionPopupBG {
+    width: 11.4rem;
+    display: block;
+    max-height: 60%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.ModeSelectionPopupItemIcon {
+    margin-left: 0.5rem;
+    margin-top: 0.45rem;
+    width: 1.95rem;
+    height: 1.95rem;
+    float: left;
+}
+.ModeSelectionPopupItemText {
+    font-size: 1rem;
+    width: 7.972rem;
+    margin-left: 0.7rem;
+    margin-top: 0.925rem;
+    color: rgb(74,74,74);    
+    float: left;
+    line-height: 1rem;
+}
+.ModeSelectionPopupTextSelected {
+    color: rgb(0,171,241);
+}
+/* Mode selection popup end */
+
+
+/* Error page start */
+.ErrorPageContainer {
+    margin: 1.2rem;
+}
+.ErrorPageTitle {
+    font-size: 0.9rem;
+    color: rgb(73, 73, 73);
+    line-height: 1.1rem;
+}
+.ErrorPageDescription {
+    font-size: 0.9rem;
+    color: rgb(0, 171, 241);
+    line-height: 1.1rem;
+    margin-bottom: 1.625rem;
+}
+.ErrorPageServiceCall {
+    width: 15.6rem;
+    height: 2rem;
+    margin: auto;
+    font-size: 1rem;
+    border: solid 0.0375em rgb(179, 179, 179);
+    border-radius: 0.15em;
+    text-align: center;
+    line-height: 1.9;
+    position: absolute;
+    bottom: 1.2rem;
+    background: white;
+}
+.ErrorPageServiceCall:active{
+    background: rgba(229, 229, 229, 1);
+    border: solid 0.0375em gray;
+}
+
+/* Error page end */
+.as_bottom_option_margin {
+    margin-top: 3.5rem;
+}
+
+.ventBgIn {
+    position: absolute;
+    bottom: 0;
+    width: 18rem;
+    background: #ffffff;
+    z-index: 4;
+}
+
+.BottomPopupDimBackgroundDivIn {
+    z-index:9;
+    overflow: hidden;
+}
+
+.ventBgOut {
+    position: absolute;
+    bottom: 0;
+    width: 18rem;
+    background: #ffffff;
+    z-index: 4;
+}
+.ventTitle {
+    margin: 0;
+    height: 2.95rem;
+    padding-left: 1.3rem;
+    padding-top: 1.2rem;
+    width: 12.6rem;
+    font-size: 1rem;
+    line-height: 1rem;
+    color: rgb(0, 0, 0);
+}
+.ventContainer {
+    height: 14.35rem;
+}
+.ventBottom {
+    height: 2.9rem;
+    /*border: solid 1px red;*/
+}
+.ventSaveText {
+    margin: 0;
+    float: right;
+    font-size: 1rem;
+    line-height: 1rem;
+    color: #3695dd;
+    margin-right: 0.8rem;
+    padding: 0.5rem;
+}
+.ventLeftImageArea {
+    float:left;
+    width:4.7rem;
+    height:14.35rem;
+    margin-left:5.85rem
+}
+.ventRightTextArea {
+    float: left;
+    height: 8.95rem;
+    width: 5.975rem;
+    margin-left: 0.175rem;
+    margin-top: 1.275rem;
+}
+.ventSectionText {
+    float: left;
+    font-size: 0.95rem;
+    line-height: 2.15rem;
+    color: #000000;
+    margin:0;
+}
+.ventSectionTextON {
+    color: #3695dd;
+}
+.ventUpperDiv {
+    height: 2.15rem;
+    position: relative;   
+}
+.ventUpperDiv-margin-top {
+    margin-top: 0.5rem;
+}
+.ventMiddleDiv,.ventLowerDiv {
+    height: 2.15rem;
+    margin-top: 0.6rem;
+    position: relative;
+}
+.touchUpper {
+    width: 2.5rem;
+    height: 2.5rem;
+    position: absolute;
+    top: 4rem;
+    left: 6.95rem;
+}
+.touchUpperTwoVent {
+    top: 4.5rem;
+}
+.touchMiddle {
+    top: 6.75rem;
+}
+.touchLower {
+    top: 9.46rem;
+}
+.touchLowerTwoVent {
+    top: 7.4rem;
+}
+
+.floatingAddBtn {
+    position: absolute;
+    transition: all 0s;
+}
+
+.vent_3_lower {content: url("../../FAC/assets/fac/main_list_ic_vent_3_lower.svg");}
+.vent_3_middle {content: url("../../FAC/assets/fac/main_list_ic_vent_3_middle.svg");}
+.vent_3_middle_lower {content: url("../../FAC/assets/fac/main_list_ic_vent_3_middle_lower.svg");}
+.vent_3_none {content: url("../../FAC/assets/fac/main_list_ic_vent_3_none.svg");}
+.vent_3_upper {content: url("../../FAC/assets/fac/main_list_ic_vent_3_upper.svg");}
+.vent_3_upper_lower {content: url("../../FAC/assets/fac/main_list_ic_vent_3_upper_lower.svg");}
+.vent_3_upper_middle {content: url("../../FAC/assets/fac/main_list_ic_vent_3_upper_middle.svg");}
+.vent_3_upper_middle_lower {content: url("../../FAC/assets/fac/main_list_ic_vent_3_upper_middle_lower.svg");}
+
+.vent_2_lower {content: url("../../FAC/assets/fac/main_list_ic_vent_2_lower.svg");}
+.vent_2_none {content: url("../../FAC/assets/fac/main_list_ic_vent_2_none.svg");}
+.vent_2_upper {content: url("../../FAC/assets/fac/main_list_ic_vent_2_upper.svg");}
+.vent_2_upper_lower {content: url("../../FAC/assets/fac/main_list_ic_vent_2_upper_lower.svg");}
+/* Vent selection end*/
+
+/* Add wind start */
+input[type='text'].addWindInputField {
+    font-size: 0.8rem;
+    color: rgb(37,37,37);
+    height: 1.925rem;
+    width: 100%;
+    background: rgb(248,248,248);
+}
+
+.btm-line{
+    height:0.075rem;
+    background-color:#3695dd;
+    display:block; 
+    width: 100%;
+}
+
+.addWindBg {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+}
+.addWindInputDiv {
+    width: 100%;
+    height: 3.325rem;    
+    padding-top: 0.3rem;
+    border-bottom: solid 0.05rem rgba(196, 196, 196, 0.5);
+}
+
+.addWindCommDiv {
+    width: 100%;
+    height: 3.4rem;
+    border-bottom: solid 0.05rem rgba(196, 196, 196, 0.5);
+}
+.addWindSettingDiv {
+    height: 4.9rem;
+    border-bottom: solid 0.05rem rgba(196, 196, 196, 0.5);
+}
+.addWindSettingDivDisabled {
+    width: 18rem;
+    height: 3.5rem;
+    background: rgb(248,248,248);
+    opacity: 0.7;
+    position: absolute;
+    top: 7rem;
+    z-index: 100;
+}
+.addWindCommLeft {
+    margin: 0;
+    float: left;
+    margin-top: 0.8rem;
+    font-size: 0.8rem;
+    line-height: 1rem;
+    color: rgb(37,37,37);
+    white-space: nowrap;
+}
+
+.addWindCommLeft_disabled{
+    color: rgba(0,0,0,0.3);
+}
+
+.addWindCommRight {
+    margin-right: 0.7875rem;
+    width: 6.5rem;
+}
+.addWindCommRightChild1 {
+    margin: 0;
+    width: 5.3rem;
+    font-size: 0.7rem;
+    line-height: 0.85rem;
+    color: #3695dd;
+    float: left;
+    white-space: nowrap;
+}
+.addWindCommRightChild2 {
+    width: 1.2rem;
+    height: 1.2rem;
+    margin-left: 0.3125rem;
+    margin-top: .8rem;
+    float: right;
+    /*border: solid 1px red;*/
+}
+.addWindSlider {
+    margin-top: 12%;
+    height: 3.75%;
+    margin-left: 4.72%;
+    margin-right: 4.72%;
+    float: left;
+}
+.addWindDegCel {
+    font-size: 0.75rem;
+    color: #00abf1;
+    position: absolute;
+    top: 0.4875rem;
+}
+.addWindPurityOption {  
+    margin-top: 1.2rem !important;
+}
+.toggle-button_offset {
+    margin-top: 1rem;
+    float: right;
+}
+.addWindSliderMargin{
+    margin-top: -1.1rem;
+    margin-left: 0;
+}
+.addWindTempUnitTxt {  
+    font-size: 0.85rem;
+    color: rgba(0, 0, 0,0.5);
+    line-height: .85rem;
+    float: right;
+    margin-top: 1.3rem;
+}
+.addWindTempUnitDegTxt{
+    vertical-align: top;
+    font-size: 0.5rem;
+    line-height: 0.6rem;
+    color: rgba(0, 0, 0,0.5);
+    display: inline-block;    
+}
+/* Add wind end */
+
+/* Wind list specific start */
+.wind-list-left-item {
+    float: left;
+    margin-left: 0.8rem;
+    width: 12.6rem;
+    /*    border: solid 1px red;*/
+}
+.wind-list-item-mode {
+    width: 12.6rem;
+    font-size: 1.25rem;
+    color: rgb(54, 149, 221);
+    padding-top: 0.6375rem;
+    float: left;
+}
+.emptyWindItem{
+    height: 4.5rem;
+}
+
+.windListEditIcon{
+    width: 1.9rem;
+    height: 1.9rem;
+    float: right;
+    position: relative;
+    margin-top: 3.6rem;
+    margin-right: -1.3rem;
+    content: url("../img/main_ac_ic_mywind_edit.png");
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);   
+    box-shadow: 0 0 0.125rem 0.125rem rgba(0, 0, 0, 0.07);
+}
+/* Wind list specific end */
+
+.addWindCommLeft_multiLine {
+    float: left;
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    line-height: 0.975rem;
+    color: rgb(0,0,0);
+    white-space: pre-wrap;
+    padding-left: 0.85rem;
+}
+
+.disabledImg {
+    visibility: hidden;
+}
+
+.enabledImg {
+    visibility: visible;
+}
+
+/* indoor air data refresh start*/
+.indoorRefreshIcon {
+    height: 1.375rem;
+    width: 1.375rem;
+    border-radius: 50%;
+    position: absolute;
+    left: 7.8rem;
+    background-color: rgba(240, 240, 240, 1);
+}
+
+.indoorRefreshIcon:active {
+    background-color: rgba(223, 223, 223, 1);
+    fill: rgb(0, 0, 0);
+    stroke: rgb(0, 0, 0);
+}
+/* indoor air data refresh end*/
+
+/* First use guide starts here */
+.help-page-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    z-index: 9;
+    background-color: rgba(0,0,0,0.8);
+}
+.help-page-container-noBg {
+    background-color: rgba(0,0,0,0);
+}
+.help-page-close-icon-container {
+   /* position: absolute;
+    top: 0.55rem;
+    right: 0.55rem;
+    height: 1.8rem;
+    width: 1.8rem;
+    padding: 0.3rem */
+     /* position: absolute; */
+    top: 0.55rem;
+    /* right: 0.8rem; */
+    height: 2.2rem;
+    width: 2.2rem;
+    /* padding: 0.3rem; */
+    float: right;
+/*    margin-right: 0.8rem;*/
+    margin-top: 0.8rem;
+}
+.help-page-close-icon-container-V2 {
+    top: 1.75rem;
+}
+.help-page-close-icon {
+    height: 1.2rem;
+    width:  1.2rem;
+    fill: rgb(255,255,255);    
+    stroke: rgb(255,255,255);     
+}
+.help-select-mode-container {
+    width: 100%;
+    height: 2.2rem; 
+}
+.help-select-mode-text {
+    width: 4.5rem;    
+    font-size: 0.8rem;
+    line-height: 1rem;
+    color: #3695dd;
+    margin-top: 1.25rem;
+    margin-left: 3.25rem;
+    display: inline-block;
+}
+.help-select-mode-arrow {
+    width: 1.5rem;
+    height: 1.7rem;   
+    vertical-align: top;
+    margin-top: 1.8rem;
+}
+
+.help-header-mode-div {
+    margin: auto;
+    width: 72%;
+    height: 1.95rem;
+    text-align: center;
+    margin-top: 1.3rem; 
+margin-right:  2.3rem;    
+}
+.help-header-mode-text {
+    font-size: 0.9rem;
+    line-height: 1.95rem;
+    color: #3695dd;
+    white-space: nowrap;
+    display: inline-block;
+}
+.help-header-mode-spinner-icon {
+    height: 0.8rem;
+    width: 0.8rem;
+    display: inline-block;
+    margin-left: 0.2rem;
+    margin-top: 0.575rem;
+    vertical-align: top;
+}
+.help-network-status-container {
+    width: 16.2rem;
+    position: absolute;
+    bottom: 1.15rem;
+    left: 0.9rem;
+}
+.help-network-status-star {
+    width: 0.5rem;
+    font-size: 0.8rem;
+    line-height: 1.2rem;
+    color: rgba(196,196,196,0.9);
+    float: left;
+}
+.help-network-status-text {
+    width: 15.7rem;
+    font-size: 0.8rem;
+    line-height: 1rem;
+    color: rgba(196,196,196,0.9);
+    float: left;
+}
+.help-set-temp-container {
+    float: right;    
+    width: 5.775rem;
+    height: 4rem;    
+    margin-right: 1.6rem;
+    display: table;
+}
+.help-set-temp-text {
+    margin: 0;
+    width: 5.275rem;
+    font-size: 0.8rem;
+    line-height: 1rem;
+    color: #3695dd;
+    display: table-cell;
+    vertical-align: middle;
+}
+.help-set-temp-arrow {
+    width: 1.5rem;
+    height: 1.7rem;
+    display: inline-block;
+    margin-top: 2.3rem;
+}
+.help-check-options-container-offset {
+       margin-left: 2.25rem !important;    
+}
+.help-check-options-container {
+    width: 9.5rem;
+    height: 3rem;
+    margin-top: 1.6rem;
+    margin-left: 3.75rem;
+    font-size: 0;
+}
+.help-check-options-text {
+    margin: 0;
+    width: 8rem;
+    font-size: 0.8rem;
+    line-height: 1rem;
+    color: rgba(0,171,241,0.9);
+    display: inline-block;    
+}
+.help-check-options-arrow-pos {    
+    float: left !important;    
+}
+.help-check-options-arrow {
+    width: 1.5rem;
+    height: 1.7rem;
+    display: inline-block;
+    float: right;
+    margin-top: 1.3rem;
+}
+
+.help-recomm-mode-container {
+    width: 12.925rem;
+    height: 3rem;
+    margin-top: 1.75rem;
+    margin-left: 2.25rem;
+    font-size: 0;
+}
+.help-recomm-mode-text {
+    margin: 0;
+    width: 11.425rem;
+    font-size: 0.8rem;
+    line-height: 1rem;
+    color: #3695dd;
+    display: inline-block;
+    text-align: left;
+    margin-top: .4rem
+}
+.help-recomm-mode-arrow {
+    width: 1.5rem;
+    height: 1.7rem;
+    display: inline-block;
+    float: left;
+    margin-top: 1.3rem;
+}
+
+.help-bottom_item {
+    height: 3.4rem;
+    width: 18rem;
+}
+
+.help-bottom_item_vent {
+    margin-top:5.3rem;
+}
+
+.help-bottom_item_multiline_1{
+    margin: 0;
+    font-size: 0.85rem;
+    line-height: 0.85rem;
+    color: white;
+    margin-top: .6rem;
+}
+
+.help-bottom_item_multiline_offset{
+    margin-top: 0.9rem;
+}
+
+.help-bottom_item_multiline_2{
+    margin: 0;
+    color: #3695dd;
+    font-size: 0.7rem;
+    line-height: 0.7rem;
+    padding-top: 0.25rem;
+}
+.help-bottem_item_image{
+    margin-left: 1.2rem;
+    width: 2rem;
+    height: 2rem;
+    margin-top: 1.3rem;
+    float: left;
+    background-color: #3695dd;
+    border-radius: 50%;
+}
+.help-bottem_item_image_offset{
+    margin-top: 1.4rem;
+}
+.help_bottom_item_multiline{
+    padding-top: 0.8rem;
+    margin-left: .8rem;
+    float: left;
+}
+.help-bottom-img-offset{
+    margin-top: 1.1rem !important;
+}
+.help-bottom-txt-offset{
+    padding-top: 0.9rem !important;
+}
+.help_bottom_item_multiline_text{
+    padding-top: 0.6rem;
+    margin-left: .8rem;
+    float: left;
+}
+.parentDivTempHelp {
+    height: 2.55rem;
+    margin-top: 0.3rem;
+    text-align: center;
+    font-size: 0;
+    padding-left: 0.7rem;
+}
+/* First use guide ends here */
+
+/* Add schedule starts here */
+.addScheduleTopDiv {
+   width: 18rem;
+    position: relative;
+    height: 2.4rem; 
+}
+
+.addScheduleSave {
+    color: #3695dd;
+    font-size: .7rem;
+}
+
+.addScheduleCancel {
+    color: #3695dd;
+    font-size: .7rem;
+}
+
+.settingsBroder-schedule {
+    width: 18rem;
+    height: 2.4rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+}
+
+.schedule-separator {
+    height: 0.05rem;
+    background-color: rgba(196, 196, 196, 0.5);    
+}
+
+.addScheduleOptionLeftMargin {
+    margin-left: 0.6rem; 
+    width: 7.4rem;
+}
+
+.scrollable_area_no_header {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top : 0;
+    overflow-y: overlay;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+.scrollable_area_no_header_V2 {
+    top: 1.2rem;
+    height: 97%;
+}
+.as-week-text-style {
+    line-height: 1.7rem;
+    font-size: 0.6rem; 
+}
+/* Add schedule ends here */
+
+/* In-App Panel popup starts here */
+.mainscreenpopupRef {
+    margin-top:-1px;
+    padding-top:1px;
+    height:5rem;
+    width:18rem;
+    margin-bottom:0;
+    margin-left:0;
+    border-radius:.1rem;
+    background-color: rgb(248,248,248);
+    box-shadow:0 0 .25rem rgba(0,0,0,0.3);
+    position:fixed;
+    top:2.65rem;
+}
+.mainscreenpopupRef_V2 {
+    top:3.85rem;
+}
+.mainscreenpopupRef_error {
+    height: 3rem !important;
+    z-index: 8;
+}
+.popupdiv_ref {
+    position:relative;
+    height:2rem;
+    width:18rem;
+    margin-top:1.225rem
+}
+.popupdiv_error {
+    width: 100%;
+    height: 3rem !important;
+    position:relative;
+}
+.error-icon-ref {
+    float:left;
+    margin-left:1.225rem;
+    width:1.5rem;
+    height:1.5rem
+}
+.error-icon-fac {
+    margin-left:1.225rem;
+    width:1.5rem;
+    height:3rem;
+    fill: rgb(239,59,26);
+    stroke: rgb(239,59,26);
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    float: left;
+}
+.popup-body-text-ref {
+    float:left;
+    font-size:.9rem;
+    line-height:.9rem;
+    width:13.4rem;
+    height:2rem;
+    margin-left:.55rem;
+    color:rgb(131,131,131)
+}
+.popup-body-text-fac {
+    font-size:.9rem;
+    line-height:.9rem;
+    width:13.4rem;
+    max-height: 3rem;
+    margin-left:.55rem;
+    color:rgb(131,131,131);
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    float: left;
+}
+.popup-body-text-ref p {
+    margin-top:0;
+    margin-bottom:0
+}
+.notificationOkBtnRef {
+    font-size:.9rem;
+    text-align:right;
+    right:1.375rem;
+    padding-top:.25rem;
+    bottom:.75rem;
+    width:1.225rem;
+    color:rgb(0,171,241);
+    height:1rem;
+    position:absolute;
+    white-space:nowrap
+}
+/* In-App Panel popup ends here */
+
+.BottomPoupItemRadioButton {
+    content: none;
+    margin-left: 1.3rem !important;
+}
+
+.higher-z-index {
+    z-index: 1000;
+}
+
+.center{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); 
+    -webkit-transform: translate(-50%, -50%); 
+    margin:0;
+}
+.center_relative {
+    position: relative;
+}
+
+.extraHeight {
+    height: 110%;
+}
+
+.favorText{    
+    color: #676767;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    width: auto;   
+    display: inline-block;
+}
+
+/* ai learning page starts */
+
+.ai_page_contents_div {
+    width: 100%;
+    height: auto;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+}
+
+.ai_page_description_div {
+    width: 100%;
+    height: auto;
+    padding-top: 0.9rem;
+    padding-bottom: 0.9rem;
+}
+
+.ai_page_icon {
+    margin-bottom: 0.9rem;
+    width : 4.55rem;
+    height: 4.55rem;
+}
+
+.ai_page_sub_title {
+    margin: 0 0 0.9rem 0;
+    color: #252525;
+    font-size: 0.8rem;
+    line-height: 1rem;
+}
+
+.ai_page_description {
+    margin: 0;
+    color: #676767;
+    font-size: 0.8rem;
+    line-height: 0.9rem;
+}
+
+.ai_tab_area {
+    width: 100%;
+    height: 2.35rem;
+}
+
+.ai_tab_div {
+    width: 50%;
+    height: 2.35rem;
+    position: relative;
+    float: left;
+}
+
+.ai_tab_left {
+    background: url('../../FAC/assets/img/main_ai_tab_left_unselected_l.png') left no-repeat,
+    url('../../FAC/assets/img/main_ai_tab_unselected_c.png') center no-repeat,
+    url('../../FAC/assets/img/main_ai_tab_left_unselected_r.png') right no-repeat;
+    background-size: 0.4rem 2.35rem, 7.4rem 2.35rem, 0.4rem 2.35rem;
+}
+
+.ai_tab_left_active {
+    background: url('../../FAC/assets/img/main_ai_tab_left_selected_l.png') left no-repeat,
+    url('../../FAC/assets/img/main_ai_tab_selected_c.png') center no-repeat,
+    url('../../FAC/assets/img/main_ai_tab_left_selected_r.png') right no-repeat;
+    background-size: 0.4rem 2.35rem, 7.4rem 2.35rem, 0.4rem 2.35rem;
+}
+
+.ai_tab_right {
+    background: url('../../FAC/assets/img/main_ai_tab_right_unselected_l.png') left no-repeat,
+    url('../../FAC/assets/img/main_ai_tab_unselected_c.png') center no-repeat,
+    url('../../FAC/assets/img/main_ai_tab_right_unselected_r.png') right no-repeat;
+    background-size: 0.4rem 2.35rem, 7.4rem 2.35rem, 0.4rem 2.35rem;
+}
+
+.ai_tab_right_active {
+    background: url('../../FAC/assets/img/main_ai_tab_right_selected_l.png') left no-repeat,
+    url('../../FAC/assets/img/main_ai_tab_selected_c.png') center no-repeat,
+    url('../../FAC/assets/img/main_ai_tab_right_selected_r.png') right no-repeat;
+    background-size: 0.4rem 2.35rem, 7.4rem 2.35rem, 0.4rem 2.35rem;
+}
+
+.ai_tab_text_selected {
+    padding: 0 0.4rem 0 0.4rem;
+    font-size: 0.85rem;
+    color: #3695dd !important;
+}
+
+.ai_tab_text_disabled {
+    padding: 0 0.4rem 0 0.4rem;
+    font-size: 0.85rem;
+    color: rgba(37, 37, 37, 0.7);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.force-render {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+.ai_page_chart_div {
+    width: 100%;
+    height: 20.7rem;
+}
+
+.ai_page_chart_contents_div {
+    width: 100%;
+    height: 16.2rem;
+    background: url('../../FAC/assets/img/main_ai_tab_body_l.png') left top no-repeat,
+                url('../../FAC/assets/img/main_ai_tab_body_c.png') center top no-repeat,
+                url('../../FAC/assets/img/main_ai_tab_body_r.png') right top no-repeat,
+                url('../../FAC/assets/img/main_ai_tab_bottom_l.png') left bottom no-repeat,
+                url('../../FAC/assets/img/main_ai_tab_bottom_c.png') center bottom no-repeat,
+                url('../../FAC/assets/img/main_ai_tab_bottom_r.png') right bottom no-repeat;
+    background-size: 0.4rem 15.8rem, 15.6rem 15.8rem, 0.4rem 15.8rem,
+                     0.4rem 0.4rem, 15.6rem 0.4rem, 0.4rem 0.4rem;
+}
+
+.aiCoolLearningDesc{
+    margin-top: 1.65rem;
+    margin-bottom: 2.5rem;
+    font-size: 0.7rem;
+    color: #676767;
+    line-height: 0.9rem;
+}
+
+.ai_chart_div {
+    width: 14.65rem !important;
+    height: 10.35rem !important;
+    position: relative;
+}
+
+.aiChartWrap {
+    width: 14.65rem !important;
+    height: 10.35rem !important;
+    margin: 0 0.9rem 0 0.85rem;
+    position: absolute;
+    /*border: 0.1rem solid blue;*/
+}
+
+.aiChartStyle{
+    width: 14.65rem !important;
+    height: 10.35rem !important;
+}
+
+.aiChart_connectionFail_div {
+    width: 13.25rem;
+    height: 9.2rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    position: absolute;
+    z-index: 8;
+    /*border: 0.1rem solid red;*/
+    margin-left: 2.15rem;
+    display: table;
+}
+
+.aiChart_connectionFail_text {
+    margin: 0;
+    color: rgb(99, 99, 99);
+    font-size: 0.85rem;
+    line-height: 0.9rem;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.ai_graph_refer_div {
+    width: 100%;
+    height: auto;
+    min-height: 2.1rem;
+    padding-top: 0.6rem;
+    padding-bottom: 0.7rem;
+}
+
+.ai_graph_refer_x {
+    text-align: left;
+    margin-left: 0.8rem;
+}
+.ai_graph_refer_y {
+    text-align: right;
+    margin-top: 0.45rem;
+    margin-bottom: 0.5rem;
+    margin-right: 0.9rem;
+}
+.ai_graph_refer_text {
+    font-size: 0.7rem;
+    line-height: 0.8rem;
+    color: rgb(178, 178, 178);
+}
+
+.ai_graph_data_date {
+    font-size: 0.7rem;
+    text-align: right;
+    color: rgb(137, 137, 137);
+    margin-right: 1.5rem;
+}
+
+.ai_graph_axis_div {
+    width: auto;
+    height: auto;
+    margin-left: 2.15rem;
+    position: relative;
+    display: table;
+}
+
+.ai_graph_axis_dot_div {
+    width: 0.65rem;
+    height: auto;
+    position: relative;
+    display: table-cell;
+    vertical-align: middle;
+    padding-right: 0.2rem;
+}
+
+.ai_graph_axis_ai_dot_padding {
+    padding-left: 1.2rem;
+}
+
+.ai_graph_axis_manual_dot {
+    width: 0.65rem;
+    height: 0.65rem;
+    background-color: rgb(172, 210, 115);
+    border-radius: 0.275rem;
+}
+
+.ai_graph_axis_ai_dot {
+    width: 0.65rem;
+    height: 0.65rem;
+    background-color: rgb(85, 175, 229);
+    border-radius: 0.275rem;
+}
+
+.ai_graph_axis_text {
+    font-size: 0.75rem;
+    line-height: 0.8rem;
+    color: rgb(137, 137, 137);
+    margin: 0;
+    position: relative;
+    display: table-cell;
+}
+
+/* ai learning page ends */
+
+/* One App related start here */
+.power-button-margin-offset{
+    margin-top: 0.7rem !important;
+}
+.power-button-margin {
+    margin-left: 1.2rem;
+}
+.set-text {
+    font-size: 0.75rem;
+    line-height: 0.75rem;
+    color: rgb(103, 103, 103);
+    text-align: center;
+    margin-top: 0.85rem;
+}
+.border_bottom{
+    border-bottom: solid 0.05rem rgb(214,216,218);
+}
+/* One App related ends here */
+
+@media screen and (max-width: 360px) {
+    .addWindInputDiv {
+        border-bottom: solid 1px rgba(196, 196, 196, 0.5);
+    }
+    .addWindCommDiv {
+        border-bottom: solid 1px rgba(196, 196, 196, 0.5);
+    }
+    .addWindSettingDiv {
+        border-bottom: solid 1px rgba(196, 196, 196, 0.5);
+    }
+    .schedule-separator {
+        height: 1px;
+    }
+}
+
+@media screen and (device-width: 320px) {
+    .ErrorPageServiceCall {
+        border: solid 1px rgb(179, 179, 179);
+    }
+}
+
+/* iPhone 4 height is not proper, last item is not displayed totally */
+@media screen and (device-width: 320px) and (device-height: 480px) {
+    .scrollable_area_others {
+        height: 89.6%;
+    }
+    .scrollable_area_others_V2 {
+        height: 86.6%;
+    }
+    .scrollable_area_in_app_noti {
+        height: 65.34%;
+    }
+    .scrollable_area_in_app_noti_V2 {
+        height: 62.6%;
+    }
+}
+
+/* Note Edge height is not proper, last item is not displayed totally */
+@media screen and (device-width: 400px) {
+    .scrollable_area {
+        height: 81.86875%;
+    }
+    .scrollable_area_V2 {
+        height: 77.96875%;
+    }    
+    .scrollable_area_in_app_noti {
+        height: 65.34%;
+    }
+    .scrollable_area_in_app_noti_V2 {
+        height: 61.6%;
+    }
+}

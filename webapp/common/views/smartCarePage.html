@@ -1,0 +1,9 @@
+<!-- Smart Care start -->
+<div ng-show="showSmartCarePage()">
+    <p class="smartcarepagetext Regular" ng-bind-html="smartCareGuideText()"></p>
+    <p class="smartcarestartbutton Regular" ng-click="smartcareerrorcheck()" ng-bind-html="smartCareDiagnosisStarText()"></p>
+</div>
+<div ng-show="showSmartCareErrorPage()">
+    <p class="smartcareerrortext Regular" ng-bind-html="smartCareErrorText()"></p>
+</div>
+<!-- Smart Care end -->

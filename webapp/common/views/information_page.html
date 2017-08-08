@@ -1,0 +1,13 @@
+<div>
+    <img class="information_icon" src="common/img/ic_dp_ac_info.png">
+    <span class="information_device_name Medium" ng-bind-html="deviceNameInitial" ng-click=""></span>
+    <div class="information_verion_info_div">
+        <span class="information_firmware_version Regular" ng-bind-html="currentDeviceName + ' ' + translationCommon.WEBMOB_common_device_device_type_firmware_version" ng-click=""></span>
+        <span class="information_sub_text Regular" ng-bind-html="firmwareVersion !== undefined ? firmwareVersion.replace('Unknown', '') : ''" ng-click=""></span>
+        <span class="information_firmware_version margin_top Regular" ng-bind-html="translationCommon.WEBMOB_common_device_controller_version" ng-click=""></span>
+        <span class="information_sub_text Regular" ng-bind-html="(appVersionInitial !=='')?appVersion + '/'+appVersionInitial:appVersion" ng-click=""></span>
+        <span class="information_firmware_version open_source_text_color Regular" ng-click="clickOpenSource()" ng-bind-html="translationCommon.WEBMOB_common_device_open_source_license"></span>
+        <span class="information_firmware_version Regular" ng-click="" ng-bind-html="isOCFDevice ? translationCommon.WEBMOB_common_device_information_legacy_knox : translationCommon.WEBMOB_common_device_information_legacy_smarthome"></span>
+        <img class="information_knox_image" src="common/img/info_knox_wordmark.png" ng-if="isOCFDevice">
+    </div>
+</div>

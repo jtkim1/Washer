@@ -1,0 +1,147 @@
+<!--Add schedule start-->
+<div ng-show="addSchedulePage" class="bg_white scrollable_area_add_schedule" ng-class="{'extraHeight': inputFocusHoursMin}">
+<!--    
+        <div class="addScheduleTopDiv">
+        <p class="addScheduleCancel Regular ripple-container" ng-click="onBackPressed()">
+            <span class="ripple-press-effect"></span>
+            {{translation.WEBMOB_common_cancel_capital}}
+        </p>
+        <p class="addScheduleSave Regular ripple-container" ng-click="saveSchedule()">
+            <span class="ripple-press-effect"></span>
+            {{translation.WEBMOB_common_save_capital}}
+        </p>
+    </div>-->
+    
+    <div class="as-sub-header-title Regular upperCase" ng-bind-html="translation.WEBMOB_common_schedule_action" ng-click="" ></div>
+    
+    <div class="as-turn-on-off-container">
+<!--        <span class="as-turn-on-radio-btn" ng-class="{'radio_off_countrySelection': selectedSchedule.power === 'Off', 'radio_on_countrySelection': selectedSchedule.power === 'On'}" ng-click ="asTabSelected(true)">
+            <span class="radio_on_inner" ng-if="selectedSchedule.power === 'On'"></span>
+        </span>-->
+        <div class="turn-on-text-div" aria-label="{{translation.WEBMOB_common_schedule_turn_on}}, {{selectedSchedule.power === 'On'?translationCommon.WEBMOB_common_TB_selected:translationCommon.WEBMOB_common_TB_not_selected}} " role="button" ng-click ="asTabSelected(true)">
+           <span class="as-turn-on-off-text Regular" ng-bind-html="translation.WEBMOB_common_schedule_turn_on" ng-click ="asTabSelected(true)"></span>
+           <img class="radio-button-off " ng-class="{'radio-button-on turn-on-off-btn-offset': selectedSchedule.power === 'On', 'turn-on-off-btn-offset': selectedSchedule.power !== 'On'}" ng-click ="asTabSelected(true)" >    
+        </div>        
+        
+<!--        <span class="as-turn-off-radio-btn" ng-class="{'radio_off_countrySelection': selectedSchedule.power === 'On', 'radio_on_countrySelection': selectedSchedule.power === 'Off'}" ng-click ="asTabSelected(false)">
+            <span class="radio_on_inner" ng-if="selectedSchedule.power === 'Off'"></span>
+        </span>-->
+        <div class="turn-off-text-div" aria-label="{{translation.WEBMOB_common_schedule_turn_off}}, {{selectedSchedule.power === 'Off'?translationCommon.WEBMOB_common_TB_selected:translationCommon.WEBMOB_common_TB_not_selected}} " role="button" ng-click ="asTabSelected(false)">
+           <span class="as-turn-on-off-text" ng-bind-html="translation.WEBMOB_common_schedule_turn_off" ng-click ="asTabSelected(false)"></span>
+           <img class="radio-button-off Regular" ng-class="{'radio-button-on turn-on-off-btn-offset': selectedSchedule.power === 'Off', 'turn-on-off-btn-offset': selectedSchedule.power !== 'Off'}" >        
+        </div> 
+    </div>
+    
+    <div class="as-sub-header-title Regular" ng-bind-html="translation.WEBMOB_common_schedule_date_time" ng-click=""></div>
+
+    <div class="as-week-div-style">
+        <div aria-label="{{translationCommon.WEBMOB_common_TB_sunday}}" class="as-week-text-style as-week-text-color-sunday Regular" ng-click="daySelected('Sun')" 
+             ng-class="{
+                         'as-week-text-background Regular'
+                                 : dayColorSelected('Sun')}">
+            {{translation.WEBMOB_common_schedule_sunday}}
+        </div>
+        <div aria-label="{{translationCommon.WEBMOB_common_TB_monday}}" class="as-week-text-style as-week-text-color-weekdays Regular as-week-div-style-offset" ng-click="daySelected('Mon')" 
+             ng-class="{
+                         'as-week-text-background as-week-text-color-selected Regular'
+                                 : dayColorSelected('Mon')}">
+            {{translation.WEBMOB_common_schedule_monday}}
+        </div>
+        <div aria-label="{{translationCommon.WEBMOB_common_TB_tuesday}}" class="as-week-text-style as-week-text-color-weekdays Regular as-week-div-style-offset" ng-click="daySelected('Tue')" 
+             ng-class="{
+                         'as-week-text-background as-week-text-color-selected Regular'
+                                 : dayColorSelected('Tue')}">
+            {{translation.WEBMOB_common_schedule_tuesday}}
+        </div>
+        <div aria-label="{{translationCommon.WEBMOB_common_TB_wednesday}}" class="as-week-text-style as-week-text-color-weekdays Regular as-week-div-style-offset" ng-click="daySelected('Wed')"
+             ng-class="{
+                         'as-week-text-background as-week-text-color-selected Regular'
+                                 : dayColorSelected('Wed')}">
+            {{translation.WEBMOB_common_schedule_wednesday}}
+        </div>
+        <div aria-label="{{translationCommon.WEBMOB_common_TB_thursday}}" class="as-week-text-style as-week-text-color-weekdays Regular as-week-div-style-offset" ng-click="daySelected('Thu')" 
+             ng-class="{
+                         'as-week-text-background as-week-text-color-selected Regular'
+                                 : dayColorSelected('Thu')}">
+            {{translation.WEBMOB_common_schedule_thursday}}
+        </div>
+        <div aria-label="{{translationCommon.WEBMOB_common_TB_friday}}" class="as-week-text-style as-week-text-color-weekdays Regular as-week-div-style-offset" ng-click="daySelected('Fri')" 
+             ng-class="{
+                         'as-week-text-background as-week-text-color-selected Regular'
+                                 : dayColorSelected('Fri')}">
+            {{translation.WEBMOB_common_schedule_friday}}
+        </div>
+        <div aria-label="{{translationCommon.WEBMOB_common_TB_saturday}}" class="as-week-text-style as-week-text-color-weekdays Regular as-week-div-style-offset" ng-click="daySelected('Sat')" 
+             ng-class="{
+                         'as-week-text-background as-week-text-color-selected Regular'
+                                 : dayColorSelected('Sat')}">
+            {{translation.WEBMOB_common_schedule_saturday}}
+        </div>
+    </div>
+
+    <div class="as-time-div-parent">
+         <div class="as-time-div-child " ng-show="selectedLanguage.toUpperCase().indexOf('KO') !== -1">
+             <div class="as-up-arrow_div" ng-touchstart="changeMeridian()">
+                <img class="as-up-arrow" alt="{{translationCommon.WEBMOB_common_TB_change_meridian}}" role="button"/>
+             </div>
+            <div class="as-time-text-style-mer Regular" ng-bind="selectedSchedule.amPm === 'AM' ? translation.WEBMOB_common_am : translation.WEBMOB_common_pm"></div>
+             <div class="as-up-arrow_div" ng-touchstart="changeMeridian()">
+                <img class="as-down-arrow" alt="{{translationCommon.WEBMOB_common_TB_change_meridian}}" role="button" />
+              </div>
+                  
+        </div>
+        <div class="as-time-div-child" ng-class="{'as_time_div_child_margin' : selectedLanguage.toUpperCase().indexOf('KO') !== -1}">
+            <div class="as-up-arrow_div" ng-touchstart="increaseHours()" st-hold="increaseHrContinuously()" st-release="stopLongPressEvent()">
+                <img class="as-up-arrow" alt="{{translationCommon.WEBMOB_common_TB_increase_hour}}" role="button"/>
+            </div>
+            <div class="as-time-text-style">
+                <input class="schedule-input Regular" id="asHoursID" type="tel" pattern="[0-9]*" oninput="maxLengthCheck(this, 2)" ng-blur="onHoursLostFocus()" ng-focus="onHoursMinsFocusGain()" ng-model="selectedSchedule.hours" value="{{selectedSchedule.hours}}" onclick="this.select()"/>
+            </div>
+            <div class="as-up-arrow_div" ng-touchstart="decreaseHours()" st-hold="decreaseHrContinuously()" st-release="stopLongPressEvent()">
+                <img class="as-down-arrow" alt="{{translationCommon.WEBMOB_common_TB_decrease_hour}}" role="button"/>
+            </div>
+        </div>
+        <div class="as-time-div-child_colon Regular" >
+            <span class="colon_span">:</span>
+        </div>
+        <div class="as-time-div-child">
+            <div class="as-up-arrow_div" ng-touchstart="increaseMinutes()" st-hold="increaseMinContinuously()" st-release="stopLongPressEvent()">
+                <img class="as-up-arrow" alt="{{translationCommon.WEBMOB_common_TB_increase_minute}}" role="button"/>
+            </div>
+            <div class="as-time-text-style">
+                <input class="schedule-input Regular" id="asMinutesID" type="tel" pattern="[0-9]*" oninput="maxLengthCheck(this, 2)" ng-blur="onMinsLostFocus()" ng-focus="onHoursMinsFocusGain()" ng-model="selectedSchedule.minutes" value="{{selectedSchedule.minutes}}" onclick="this.select()"/>
+            </div>
+            <div class="as-up-arrow_div" ng-touchstart="decreaseMinutes()" st-hold="decreaseMinContinuously()" st-release="stopLongPressEvent()">
+                <img class="as-down-arrow" alt="{{translationCommon.WEBMOB_common_TB_decrease_minute}}" role="button"/>
+            </div>
+        </div>       
+         <div class="as-time-div-child" ng-class="{'as_time_div_child_margin' : selectedLanguage.toUpperCase().indexOf('KO') === -1}" ng-show="selectedLanguage.toUpperCase().indexOf('KO') === -1">
+             <div class="as-up-arrow_div" ng-touchstart="changeMeridian()">
+                <img class="as-up-arrow" alt="{{translationCommon.WEBMOB_common_TB_change_meridian}}" role="button" />
+             </div>
+            <div class="as-time-text-style-mer Regular" ng-bind="selectedSchedule.amPm === 'AM' ? translation.WEBMOB_common_am : translation.WEBMOB_common_pm"></div>
+            <div class="as-up-arrow_div" ng-touchstart="changeMeridian()">
+                <img class="as-down-arrow" alt="{{translationCommon.WEBMOB_common_TB_change_meridian}}" role="button"/>
+            </div>
+        </div>
+    </div>
+    
+    <div class="schedule-separator" style="margin-top: 1.625rem;"></div>
+    <div class="as-repeat-weakly-div">
+        <div class="settingsBroder-schedule" ng-click="onAsRepeatWeakly()" aria-label="{{translation.WEBMOB_common_schedule_repeat_weekly}}" role="button">
+            <p class="optionLeftItem Regular addScheduleOptionLeftMargin">{{translation.WEBMOB_common_schedule_repeat_weekly}}</p>
+             <div class="optionLeftItemToggle">          
+                    <img class="toggle-button-off" ng-class="{'toggle-button-on': !selectedSchedule.disposable}" />
+             </div>
+<!--            <switch-on-off
+                st-on-text="{{switchON}}"
+                st-off-text="{{switchOff}}"
+                model="{{!selectedSchedule.disposable}}"
+                ng-click="onAsRepeatWeakly()">
+            </switch-on-off>-->
+        </div>
+        <div class="schedule-separator" ></div> 
+    </div>
+
+</div>  
+<!--Add schedule end-->

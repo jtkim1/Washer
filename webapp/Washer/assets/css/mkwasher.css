@@ -1,0 +1,500 @@
+/* 
+ * Copyright (c) 2017 by Samsung Electronics, Inc.,
+ *
+ * This software is the confidential and proprietary information
+ * of Samsung Electronics, Inc. ("Confidential Information").  You
+ * shall not disclose such Confidential Information and shall use
+ * it only in accordance with the terms of the license agreement
+ * you entered into with Samsung.
+ *
+ */
+
+.div-progress-outer {
+    margin: auto;
+    padding-top: 1.3875rem;
+    height: 10.5rem;
+    width: 10.5rem;
+}
+
+.div-progress-inner {
+    position: absolute;
+    width: 10.5rem;
+    height: 10.5rem;
+    background-image: url("../../../washer/assets/img/main_status_bg_stroke.png"), url("../../../washer/assets/img/main_status_bg.png"), url("../../../washer/assets/img/main_status_mask.png");
+    background-size: 100% 100%;
+}
+
+.progress-wrapper {
+    width: 10.5rem;
+    height: 10.5rem;
+}
+
+.home_center_area {
+    top: 2.8rem;
+    height: 23.0875rem;
+    box-shadow: none;
+}
+
+.centralAreaStatusInfoDiv {
+    width: 100%;
+    height: 4.3rem;
+}
+.centralAreaProgressDiv {
+    width: 100%;
+    height: 13.275rem;
+}
+.centralAreaButtonDiv {
+    width: 100%;
+    height: 5.5125rem;
+}
+.centralAreaButtonDivReady {
+    padding-top: 1.45rem;
+}
+.centralAreaButtonDivRun {
+    padding-top: 1.45rem;
+    text-align: center;
+}
+.readyButtonBoxatReadyScreen {
+    margin: auto;
+    width: 100%;
+}
+.readyButtonBoxatRunScreenCancel {
+    display: inline-block;
+}
+.readyButtonBoxatRunScreenPause {
+    margin-left: 0.875rem;
+    display: inline-block;
+}
+.centralAreaStatusInfoTitleText {
+    margin: 0;
+    color: #000000;
+    font-size: 1rem;
+    line-height: 1.1rem;
+    margin-top: 0.7rem;
+    margin-left: 1.2rem;
+    max-width: 15.6rem;
+    float: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.centralAreaStatusInfoTitleReadyText {
+    margin: 0;
+    color: #000000;
+    font-size: 1rem;
+    line-height: 1.1rem;
+    margin-top: 0.7rem;
+    margin-left: 1.2rem;
+    width: 8.1rem;
+    max-width: 8.1rem;
+    float: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.laundryRecipeButtonReadyPage {
+    margin-top: 0.7rem;
+    width: 7.5rem;
+    height: 1.5rem;
+    background-color: #3695dd;
+    border-top-left-radius: 0.75rem;
+    border-top-right-radius: 0%;
+    border-bottom-left-radius: 0.75rem;
+    border-bottom-right-radius: 0%;
+    float: right;
+}
+.laundryRecipeTextReadyPage {
+    margin: 0;
+    color: #ffffff;
+    font-size: 0.75rem;
+    line-height: 1.5rem;
+    margin-left: 0.85rem;
+    width: 5.15rem;
+    max-width: 5.15rem;
+    float: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.laundryRecipeImgReadyPage {
+    margin-left: 0.15rem;
+    margin-top: 0.375rem;
+    width: 0.75rem;
+    height: 0.75rem;
+}
+.modeButtonBox {
+    margin: auto;
+    margin-top: 2.9875rem;
+    width: 4.875rem;
+    height: 1.65rem;
+    background-color: #ffffff;
+    border-radius: 0.825rem;
+}
+.modeButotnText {
+    margin: 0;
+    color: #3695dd;
+    font-size: 0.9625rem;
+    line-height: 1.65rem;
+    margin-left: 0.725rem;
+    width: 3.425rem;
+    max-width: 3.425rem;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.modeButotnTextCycFinish {
+    margin: 0;
+    color: #252525;
+    opacity: 0.3;
+    font-size: 0.9625rem;
+    line-height: 1.65rem;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.setEndTimeText {
+    margin: 0;
+    margin-top: 1.9rem;
+    color: #3695dd;
+    font-size: 0.75rem;
+    line-height: 0.75rem;
+    width: 10.5rem;
+    max-width: 10.5rem;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.drawBottomLineForSetEndTime {
+    margin: auto;
+    margin-top: 0.125rem;
+    width: 4.575rem;
+    height: 0.05rem;
+    background-color: #3695dd;
+}
+
+.common-btn-text {
+    max-width: none;
+}
+
+.transparentBackColor {
+    background-color: transparent;
+}
+.ModeSelectionPopupDiv {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+.mkpopupboxmode {
+    max-height: 28rem;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    width: 16rem;
+    box-shadow: 0.1rem 0.1rem 0.35rem rgba(0,0,0,0.25);
+    background: rgba(255,255,255,1);
+    border-radius: 0.5rem;
+}
+.modePopUpCycleListDiv {
+    height: 3.1rem;
+    width: 13.6rem;
+    margin-left: 1.2rem;
+}
+.cycleListText {
+    margin: 0;
+    color: #000000;
+    font-size: 1rem;
+    line-height: 3.1rem;
+    width: 13rem;
+    max-width: 13rem;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.BottompopupButtonBox{
+    width : 100%;
+    height: 168px;
+
+}
+.BottomPopupButton{
+    text-align: center;
+    width: 25%;
+    height:100%;
+    font-size : 0.95rem;
+    position : relative;
+    float: right;
+}
+
+
+.mkModeOtions {
+    max-height: 25rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.BottomPopUpImage {
+    margin: auto;
+    margin-top: 0.7rem;
+    width: 320px; /*4rem;*/
+    height: 320px; /*4rem;*/
+    background-image: url("../../../washer/assets/img/mk_control_popup_temp_cold.png");
+}
+.BottomPopUpImageProgress{
+    border-radius: 8px;
+    position : absolute;
+    overflow: hidden;
+    width: 12px;
+    height: 167px;
+    margin-left : 155px;
+    margin-top : 46px;
+}
+#tempSlider .noUi-vertical .noUi-handle{
+    width : 12px;
+}
+.BottomPopUpImageTemp {
+    background-image: url("../../../washer/assets/img/mk_control_popup_temp_cold.png");
+    background-repeat: no-repeat;
+}
+.BottomPopUpImageRinse {
+    background-image: url("../../../washer/assets/img/mk_control_popup_rinse.png");
+}
+.BottomPopUpImageMask{
+    width: 100%; /*4rem;*/
+    height: 100%; /*4rem;*/
+    -webkit-mask-image: url("../../../washer/assets/img/mk_control_popup_rinse_mask.png");
+    -webkit-mask-position: center center;
+    -webkit-mask-size: auto;                /* initial value */
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-origin: border-box;        /* initial value */
+    -webkit-mask-clip: border-box;          /* initial value */
+}
+.BottomPopUpImageWave {
+    width: 664px; /*4rem;*/
+    height: 320px; /*4rem;*/
+    background-image: url("../../../washer/assets/img/mk_control_popup_wave.png");
+}
+.waveAnimate1{
+    -webkit-animation-duration: 0.6s;
+    -webkit-animation-name: waveAnimate;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: Linear.easeNone;
+}
+.waveAnimate2{
+    -webkit-animation-duration: 0.6s;
+    -webkit-animation-name: waveAnimate;
+    -webkit-animation-iteration-count: 2;
+    -webkit-animation-timing-function: Linear.easeNone;
+}
+.waveAnimate3{
+    -webkit-animation-duration: 0.6s;
+    -webkit-animation-name: waveAnimate;
+    -webkit-animation-iteration-count: 3;
+    -webkit-animation-timing-function: Linear.easeNone;
+}
+.waveAnimate4{
+    -webkit-animation-duration: 0.6s;
+    -webkit-animation-name: waveAnimate;
+    -webkit-animation-iteration-count: 4;
+    -webkit-animation-timing-function: Linear.easeNone;
+}
+.waveAnimate5{
+    -webkit-animation-duration: 0.6s;
+    -webkit-animation-name: waveAnimate;
+    -webkit-animation-iteration-count: 5;
+    -webkit-animation-timing-function: Linear.easeNone;
+}
+@keyframes waveAnimate {
+  from { margin-left: 0px; }
+  to { margin-left: -266.5px; }
+}
+
+.BottomPopUpImageSpin {
+    background-image: url("../../../washer/assets/img/mk_control_popup_spin.png");
+}
+.spinAnimate1{
+    -webkit-animation-name: spinAnimate;
+    -webkit-animation-duration: 5.2s;
+    -webkit-animation-timing-function: Quart.easeInOut;
+}
+.spinAnimate2{
+    -webkit-animation-name: spinAnimate;
+    -webkit-animation-duration: 4.4s;
+    -webkit-animation-timing-function: Quart.easeInOut;
+}
+.spinAnimate3{
+    -webkit-animation-name: spinAnimate;
+    -webkit-animation-duration: 3.6s;
+    -webkit-animation-timing-function: Quart.easeInOut;
+}
+.spinAnimate4{
+    -webkit-animation-name: spinAnimate;
+    -webkit-animation-duration: 2.8s;
+    -webkit-animation-timing-function: Quart.easeInOut;
+}
+.spinAnimate5{
+    -webkit-animation-name: spinAnimate;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-timing-function: Quart.easeInOut;
+}
+@keyframes spinAnimate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(2520deg); }
+}
+
+.BottomPopUpImageSoil {
+    background-image: url("../../../washer/assets/img/mk_control_popup_temp_cold.png");
+}
+
+.energyValueBox  {
+    width: 10rem;
+}
+.setEndTimePopUpTexttDiv {
+    height: 3.15rem;
+}
+.setEndTimePopUpText {
+    line-height: 3.15rem;
+}
+.setEndTimeCurrentTimeText {
+    margin: 0;
+    color: #252525;
+    font-size: 0.6rem;
+    line-height: 0.6rem;
+    width: 100%;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    opacity: 0.54;
+}
+.nightIconInfoDiv {
+    margin-top: 0.9rem;
+    height: 0.8rem;
+    text-align: center;
+}
+.dayIconInfoDiv {
+    height: 0.8rem;
+    text-align: center;
+}
+.nighticon {
+    width: 0.8rem;
+    height: 0.8rem;
+    background-image: url("../../../washer/assets/img/washer_list_ic_spinner.png");
+    display: inline-block;
+}
+.timeTextSetEndTime {
+    margin: 0;
+    margin-left: 0.15rem;
+    width: auto;
+    height: 0.8rem;
+    color: #252525;
+    font-size: 0.8rem;
+    line-height: 0.8rem;
+    opacity: 0.54;
+    display: inline-block;
+}
+.timeTextSetEndTimeLeft {
+    position: absolute;
+    top: 5rem;
+    left: 1rem;
+}
+.timeTextSetEndTimeRight {
+    position: absolute;
+    top: 5rem;
+}
+.noscrollY {
+    overflow-y: hidden;
+}
+.msgTxtContainerKitchenTimer{
+    -webkit-overflow-scrolling: touch;
+}
+.cTopTimerContainer {
+    width: 16rem;
+    height: 11.1rem;
+    text-align: center;
+    -webkit-transform: translate3d(0,0,0);
+}
+.cTopTimerControl{
+    width: 11.1rem;
+    height: 11.1rem;
+    display: inline-block;
+}
+.setEndTimeMsgBox {
+    margin-top: 1.125rem;
+    margin-left: 1.2rem;
+    width: 13.6rem;
+    height: 2.4rem;
+}
+.setEndTimeMsgText {
+    margin: 0;
+    font-size: 0.7rem;
+    line-height: 0.8rem;
+    color: #000000;
+    opacity: 0.54;
+}
+.cancelSaveButtonBox {
+    margin-top: 0.8rem;
+    height: 2.6rem;
+    text-align: right;
+}
+.cancelSaveSetEndTimeText {
+    margin: 0;
+    margin-right: 2.45rem;
+    font-size: 1rem;
+    line-height: 2.6rem;
+    color: #3695dd;
+    display: inline-block
+}
+.cancelSetEndTimeText {
+    margin-right: 1rem;
+}
+.setEndTimeClockBox {
+    position: absolute;
+    top: 0rem;
+    left: 2.45rem;
+    width: 11.1rem;
+    height: 11.1rem;
+    z-index: 99;
+}
+.setEndTimeClockBoxEndTimeText {
+    margin: 0;
+    text-align: center;
+    width: 100%;
+    margin-top: 3.75rem;
+    font-size: 0.6rem;
+    line-height: 0.6rem;
+    color: #3695dd;
+    display: inline-block;
+}
+.setEndTimeClockBoxMiddleAreaBox {
+    text-align: center;
+    width: 100%;
+    height: 2.25rem;
+}
+.setEndTimeClockBoxMiddleAreaBoxTodayText {
+    margin: 0;
+    font-size: 0.6rem;
+    line-height: 0.6rem;
+    color: #3695dd;
+    display: inline-block;
+}
+.setEndTimeClockBoxMiddleAreaBoxTimeText {
+    margin: 0;
+    margin-left: 0.35rem;
+    font-size: 2.25rem;
+    line-height: 2.25rem;
+    color: #3695dd;
+    display: inline-block;
+}
+.setEndTimeClockBoxMiddleAreaBoxAMText {
+    margin: 0;
+    margin-left: 0.225rem;
+    font-size: 1.15rem;
+    line-height: 1.15rem;
+    color: #3695dd;
+    display: inline-block;
+}
+.setEndTimeClockBoxCycleTimeText {
+    margin: 0;
+    margin-top: 1.4rem;
+    font-size: 0.6rem;
+    line-height: 0.6rem;
+    color: #3695dd;
+}

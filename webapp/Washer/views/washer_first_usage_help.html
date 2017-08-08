@@ -1,0 +1,98 @@
+<div ng-show="bUsageHelpPage" class="help-page-container_V2" ng-class="{'help-page-container_normal': !isAppV2}">   
+    <div class="help-page-inner" ng-show="homePage">
+        <div class="help-page-dual-mainWasher-info-div">
+            <div class="help-page-close-icon-container_V2" ng-class="{'help-page-close-icon-container_normal': !isAppV2}" ng-click="closeUsageHelpPage()">
+                <svg viewBox="0 0 96 96" class="help-page-close-icon" role="button">
+                <title>{{translationCommon.WEBMOB_common_TB_close}}</title>
+                <use xlink:href="common/img/ws_sb_ic_delete.svg#Layer_1"></use>
+                </svg>
+            </div>
+            <div class="help-page-dual-mainWasher-info-div_textBox">
+                <p class="help-page-dual-Washer-info-div_text Regular" ng-bind-html="translation.WEBMOB_device_washer_help_guide_tap_to_select" ng-click=""></p>
+            </div>
+            <div class='help_page_dual-mainWasher-info-arrow help-page-arrow-image'></div>
+
+        </div>
+        <div class="help-page-dual-mainWasher-div">
+            <div class="help-page-dual-mainWasher-buttonInfo-div_textBox">
+                <p class="help-page-dual-Washer-info-div_text Regular" ng-bind-html="translation.WEBMOB_device_washer_help_guide_press_start_button" ng-click=""></p>
+            </div>
+            <div class='help_page_dual-mainWasher-ButtonInfo-arrow help-page-arrow-image-straight'></div>
+            <div class="dualLoader-progress-wrapper-help">
+                <!--                <img class="dualLoader-progress-wrapper-img_play no_click" alt=""/>-->
+                <svg viewBox="0 0 276 276" class="dualInnerCircle_play_pause dualInnerCircle_play_help play_pause_icon align_centre no_click" role="button">
+                    <title>{{translationCommon.WEBMOB_common_TB_play}}</title>
+                    <use xlink:href="Washer/assets/img/ic_dp_play.svg#Layer_1"></use>
+                </svg>
+            </div>
+        </div>
+        <div class="help-page-dual-subWasher-info-div">
+            <div class="help-page-dual-subWasher-info-div_textBox">
+                <p class="help-page-dual-Washer-info-div_text Regular" ng-bind-html="translation.WEBMOB_device_washer_help_guide_front_loader_mode_and_options_washer" ng-click=""></p>
+            </div>
+            <div class='help_page_dual-mainWasher-info-arrow help-page-arrow-image'></div>
+        </div>
+        <div class="help-page-dual-subWasher-div">
+            <div class="help-page-dual-mainWasher-buttonInfo-div_textBox">
+                <p class="help-page-dual-Washer-info-div_text Regular" ng-bind-html="translation.WEBMOB_device_washer_help_guide_press_start_button" ng-click=""></p>
+            </div>
+            <div class='help_page_dual-mainWasher-ButtonInfo-arrow help-page-arrow-image-straight'></div>
+            <div class="dualLoader-progress-wrapper-help">
+                <!--                <img class="dualLoader-progress-wrapper-img_play no_click" alt=""/>-->
+                <svg viewBox="0 0 276 276" class="dualInnerCircle_play_pause dualInnerCircle_play_help play_pause_icon align_centre no_click" role="button">
+                <title>{{translationCommon.WEBMOB_common_TB_play}}</title>
+                <use xlink:href="Washer/assets/img/ic_dp_play.svg#Layer_1"></use>
+                </svg>
+            </div>
+        </div>
+        <div class='network_info_bottom_position help_page_network_alert_info' ng-bind-html="translation.WEBMOB_device_washer_help_guide_network_status" ng-click=""></div>
+    </div>
+    <div class="help-page-inner" ng-show="detailPage">
+        <!-- Help page close icon-->
+        <div class="help-page-close-icon-container_V2" ng-class="{'help-page-close-icon-container_normal': !isAppV2}" ng-click="closeUsageHelpPage()">
+            <svg viewBox="0 0 96 96" class="help-page-close-icon" role="button">
+                <title>{{translationCommon.WEBMOB_common_TB_close}}</title>
+                <use xlink:href="common/img/ws_sb_ic_deleve.svg#Icon"></use>
+            </svg>
+        </div>
+        <div class='help_page_mode_info_text help-text-blue Regular' ng-bind-html="translation.WEBMOB_device_washer_help_guide_select_mode" ng-click=""></div>
+        <div class='help_page_mode_info_arrow help-page-arrow-image'></div>
+        <div class="header_div mode_selection_div_property header_div_help" ng-class="{'header_div_V2': isAppV2}">
+            <div class="header_mode_div_no_power margin_nil upperCase BoldCondensed" ng-click="">
+                <svg viewBox="0 0 100 100" class="header_ecotton_icon commonSelectedIcon" ng-if="getEcottonCourse(currentCourseHex)">
+                    <title>{{translationWEBMOB_device_washer_course_9a}}</title>
+                    <use xlink:href="Washer/assets/img/main_washer_mode_selection_ecotton.svg#Layer_1"></use>
+                </svg>
+                <p id="modeNameSelected"
+                   rt-fixed-width 
+                   rt-multiline-cls="header_mode_text_multi_line"
+                   rt-singleline-cls="header_mode_text_single_line"
+                   rt-change-font-size="true"
+                   rt-min-font-size="0.9rem"
+                   rt-max-width="15rem"
+                   ng-class="{'header_mode_text_single_line_eCotton':getEcottonCourse(currentCourseHex)}"
+                   ng-bind-html="translation[currentCourseEnum]"></p>
+                <svg viewBox="0 0 64 64" class="header_spinner_icon header_spinner_icon no_click">
+                <use xlink:href="common/img/btn_dp_spinner.svg#Layer_1"></use>
+                </svg>
+            </div>
+        </div>
+        <div class="help_page_start_operation_info_text_box" ng-click="">
+            <div class='help_page_start_operation_info_text help-text-blue Regular' ng-bind-html="translation.WEBMOB_device_washer_help_guide_press_start_button"></div>
+        </div>
+        <div class='help_page_start_operation_info_arrow help-page-arrow-image'></div>
+        <svg viewBox="0 0 276 276" class="help_page_start_operation_icon no_click">
+        <use xlink:href="common/img/ic_dp_pause.svg#Layer_1"></use>
+        </svg>
+        <div class="top-margin">
+            <div class='help_page_cancel_info_text help-text-blue Regular' ng-bind-html="translation.WEBMOB_device_washer_help_guide_cancel_cycle" ng-click=""></div>
+            <div class='help_page_cancel_info_arrow help-page-arrow-image'></div>
+        </div>
+        <round-button btn-text="{{translation.WEBMOB_common_cancel}}" class="no_click">
+            <div class="common-btn-bg" ng-click="">                            
+                <span class="common-btn-text BoldCondensed upperCase" ng-bind-html="translation.WEBMOB_common_cancel"></span>                        
+            </div>
+        </round-button>
+        <div class='network_info_bottom_position help_page_network_alert_info' ng-bind-html="translation.WEBMOB_device_washer_help_guide_network_status" aria-label="{{translationCommon.WEBMOB_common_TB_overlay_screen}},{{translation.WEBMOB_device_washer_help_guide_network_status}}" ng-click=""></div>
+    </div>
+</div>

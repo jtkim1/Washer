@@ -1,0 +1,3252 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jun 27, 2015, 1:39:51 PM
+    Author     : SRI
+*/
+body {
+    background: rgb(248,248,248);
+}
+
+.scrollable_area_others {
+    top: 2.65rem;
+    height: 91.67%;
+    background: rgb(248,248,248);
+    margin-top: .05rem;
+}
+
+.scrollable_area_others_V2 {
+    top: 3.85rem;
+    height: 88.67%;
+}
+
+.bg_white{
+    background: rgb(248,248,248);
+}
+
+.mode_selection_div_property {
+    text-align: center;
+    background-color: #f7f7f7;
+    /*    z-index: 99;*/
+    /*border: solid 1px red;*/
+}
+.guide-message-remaining-time{
+    color: #676767;
+    font-size: 0.75rem;
+    line-height: 0.75rem;
+    padding-bottom: 0.8875rem;
+}
+.guide-message-remaining-time-state {
+    color: #252525;
+    font-size: 1.25rem;
+    line-height: 1.35rem;
+    /*padding-bottom: 0.225rem;*/
+}
+.header_mode_div_no_power {
+    margin: 0;
+    margin-top: 0.375rem;
+    /*min-width: 11rem;*/
+    max-width: 16.95rem;
+    height: 2.05rem;
+    text-align: center;
+    /*background-color: rgb(232, 240, 244);*/
+    display: inline-block;
+    /*border: solid 1px blue;*/
+}
+
+.header_mode_text_single_line {
+    font-size: 1rem;
+    max-width: 15.7rem;
+    padding-left: 1.25rem;
+    line-height: 2.05rem;
+    display: inline-block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: rgb(54, 149, 221);
+}
+
+.header_mode_text_single_line_no_spinner {
+    max-width: 16.95rem;
+    padding-left: 0;
+}
+
+.header_mode_text_single_line_eCotton {
+    padding-left: 0;
+    min-width: 0;
+}
+
+.header_spinner_icon {
+    /*margin-top: 0.8rem;
+    margin-left: 0rem;*/
+    float: right;
+}
+
+.washerHeading {
+    height: 1.2rem;/*3.225rem;*/
+    display: -webkit-box;
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
+    /*border:solid 1px red;*/
+}
+.washerHeadingText {
+    text-align: center;
+    font-size: 0.75rem;
+    line-height: 0.75rem;
+    position: relative;
+    width:12.6rem;
+    color: #252525;
+    /*border: solid 2px green;*/
+}
+.toggle-button-margin {
+    display: inline-block;
+    float: right;
+    margin-top: 0.5rem;/*0.9rem;*/
+}
+.div-progress-outer {
+    margin: 0 auto;
+    height: 10rem;
+    width: 10rem;
+    /*    position: relative;
+        left: 3.75rem;*/
+    /*border: solid 1px red;*/
+}
+.div-wrinkle-prevent {
+    height: 7.9rem;
+    width: 7.9rem;
+    position: relative;
+    left: 5.05rem;
+    margin-top: 2rem;
+}
+.div-wrinkle-prevent-runState-margin {
+    margin-top: 1.3rem;
+}
+.div-progress-inner {
+    position: absolute;
+    width: 10rem;
+    height: 10rem;
+    /*border: solid 1px red;*/
+}
+.outerCircle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;   
+    width: 10rem;
+    height: 10rem;
+    background-color: #ebebed;
+    border-radius: 50%;
+}
+.circleBackground {
+/*    position: absolute;
+    left: 2.775rem;
+    top: 2.775rem;
+    width: 4.95rem;
+    height: 4.95rem;*/
+    position: absolute;
+    left: 3.1rem;
+    top: 3.1rem;
+    width: 3.75rem;
+    height: 3.75rem;
+    /*border: solid 1px red;*/
+}
+.innerCircle_play {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    width: 3.75rem; /*4.95rem;*/
+    height: 3.75rem; 
+    background-color: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0 0.95rem rgba(0, 0, 0, 0.3);
+    /*content: url("../img/main_control_btn_ic_play.png");*/
+}
+.innerCircle_pause {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    width: 3.75rem; /*4.95rem;*/
+    height: 3.75rem; 
+    background-color: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0 0.95rem rgba(0, 0, 0, 0.3);
+    /*content: url("../img/main_control_btn_ic_stop.png");*/
+}
+.play_pause_icon {
+    /*content: url("../img/main_control_btn_ic_play.png");*/
+    fill: #3695dd;
+    stroke: #3695dd;
+}
+.play_pause_icon_dim {
+    /*content: url("../img/main_control_btn_ic_play.png");*/
+    fill: rgba(176, 176, 176, 0.5);
+    stroke: rgba(176, 176, 176, 0.5);
+}
+.innerCircle_play:active {
+    /*content: url("../img/main_control_btn_ic_play_pressed.png");*/
+    background-color: #e5e5e5;
+}
+.innerCircle_play_disabled {
+    /*content: url("../../../common/img/main_control_btn_ic_play_disabled.png");*/
+    /*background-color: #e5e5e5;*//*rgba(176, 176, 176, 0.5);*/
+}
+.pause_icon {
+    /*content: url("../img/main_control_btn_ic_stop.png");*/
+}
+.innerCircle_pause:active {
+    /*content: url("../img/main_control_btn_ic_stop_pressed.png");*/
+    background-color: #e5e5e5;
+}
+.innerCircle_pause_disabled {
+    /*content: url("../../../common/img/main_control_btn_ic_stop_disabled.png");*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    width: 3.75rem; /*4.95rem;*/
+    height: 3.75rem; 
+    background-color: #e5e5e5;/*rgba(176, 176, 176, 0.5);*/
+    border-radius: 50%;
+    /*box-shadow: 0 0 0.95rem rgba(0, 0, 0, 0.3);*/
+}
+
+.prelaod {
+    display:none;
+}
+.playButton {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    width: 3.75rem; /*4.95rem;*/
+    height: 3.75rem; 
+    /*border: solid 2px black;*/
+}
+
+.progress-wrapper {
+    position: absolute;
+    visibility: hidden;
+    width: 10rem; /*9.55rem*/
+    height: 10rem;
+/*    margin-top: 0.2rem;0.4875rem;
+    margin-left: 0.2rem;*/
+    z-index: 2;
+}
+.progressPatch {
+    position: absolute;
+    left: 4.51rem;
+    width: 2rem;
+    height: 2rem;
+}
+
+/*.onPause {
+    content: url("../images/washer/main_control_btn_ic_stop.png");
+}
+.onPause:active {
+    content: url("../images/washer/main_control_btn_ic_stop_pressed.png");
+}*/
+.onPauseOuter {
+    content: url("../../../common/img/main_control_btn_large.png");
+}
+.textBoxAreaDetailPage {
+    padding-top: 1.7355rem;
+    height: 6.575rem;
+    margin-bottom: 1.55rem;
+}
+.textBoxAreaDetailPageRemoteOff {
+    padding-top: 2.7rem;
+    /*border: solid 1px red;*/
+}
+.textBoxAreaDetailPageRunState {
+    padding-top: 0.8rem;
+    height: 8.4rem; /*8.125rem;*/
+}
+.textBoxAreaDetailPageWrinklePreventRun {
+    padding-top: 0.4rem;
+    height: 4.575rem;
+}
+.timeText {
+    height: 7.725rem;
+}
+.estTime {
+    text-align: center;
+    width: 18rem;
+    /*border: solid 1px blue;*/
+}
+.remTimeText {
+    color: #676767;
+    font-size: 0.75rem;
+    line-height: 0.75rem;
+    /* border: solid 1px black;*/
+}
+.dualWashRemTimeTextStyle {
+    color: #252525;
+    font-size: 1.75rem;
+    line-height: 2rem;
+    /* border: solid 1px black;*/
+}
+.remHrMinText {
+    color: #252525;
+    font-size: 1rem;
+    line-height: 2rem;
+    /* border: solid 1px black;*/
+}
+.washingText {
+    color: #252525;
+    font-size: 0.75rem;
+    line-height: 0.75rem;
+    /*border:solid 1px black;*/
+}
+.leftmarginmin {
+    margin-left: 0.275rem;
+}
+.leftmarginminNoLeft {
+    margin-left: 0;
+}
+.estTimeDisplay{
+    /*margin: auto;*/
+    width: 18rem;
+    line-height: 0.35rem;
+    text-align: center;
+    /*border: solid 1px black;*/
+    margin-top: 0.325rem;
+    /*white-space: nowrap;*/
+}
+.estTimeText{
+    /*float: left;*/
+    color: rgb(103, 103, 103);
+    font-size: 0.75rem;
+    line-height: 0.75rem;
+    /*border: solid 1px red;*/
+}
+.ampm{
+    /*float: left;*/
+    color: rgb(103, 103, 103);
+    font-size: 0.75rem;
+    /*margin-left: 0.125rem;*/
+    line-height: 0.75rem;
+}
+.estTimeText1{
+    color: #676767; /*rgb(103, 103, 103);*/
+    font-size: 1.1rem;
+    text-align: center;
+    line-height: 1.55rem;
+    width: 14.4rem;
+    margin-left: 1.8rem;
+    /*    margin-right: 3.33%;*/
+    /*border: solid 2px black;*/
+}
+.guideDescriptionText {
+    font-size: 1.25rem;
+    line-height: 1.25rem;
+    width: 14.4rem;
+    text-align: center;
+    margin-left: 1.8rem;
+    color: #252525; 
+    /*border: solid 1px red;*/
+}
+/*.common-btn-text {
+    margin-top: 1rem;
+    margin-left: 5.425rem;
+}*/
+.cancelButtonDiv{
+    margin-top: 0.9rem;
+    text-align: center;
+    height: 2.5rem;
+}
+.cancelButton{
+    color: black;
+    width: 7.5rem;
+    height: 2.5rem;
+    -webkit-border-radius: 1.875rem;
+    border-radius: 1.875rem;
+    font-size: 0.9rem;
+    background: white;
+    border:solid 0.0125rem gray;
+    box-shadow: 0px 0px 0.25rem rgba(0,0,0,0.4);
+}
+.cancelButton:active {
+    background: rgba(229, 229, 229, 1);
+    border:solid 0.0125rem gray;
+    box-shadow: 0px 0px 0.25rem rgba(0,0,0,0.4);
+}
+
+/***************************************************************************/
+/*Dryer Start*/
+.cancelWrinkleDiv {
+    display: table;
+    text-align: center;
+    margin: auto;
+    margin-top: 1.3875rem;
+    height: 1.9rem;
+    /*border: solid 1px green;*/
+}
+.goToReadyButtonDiv {
+    display: table;
+    text-align: center;
+    margin: auto;
+    margin-top: 2.5rem;
+    height: 1.9rem;
+}
+.cancelWrinkleDivmargin{
+    margin-top: 0;
+    margin-bottom: 2.5rem;
+}
+.DryercancelButton{
+    color: black;
+    width: 7.5rem;
+    height: 2.5rem;
+    -webkit-border-radius: 1.875rem;
+    border-radius: 1.875rem;
+    font-size: 0.9rem;
+    background: white;
+    border:solid 0.0125rem gray;
+    box-shadow: 0px 0px 0.25rem rgba(0,0,0,0.4);
+}
+.DryerwrinkleButton{
+    color: #4b4b4b;
+    margin-left: 0.2rem;
+    width: 7.5rem;
+    height: 2.5rem;
+    -webkit-border-radius: 1.875rem;
+    border-radius: 1.875rem;
+    font-size: 0.9rem;
+    background: white;
+    border:solid 0.0125rem gray;
+    box-shadow: 0px 0px 0.25rem rgba(0,0,0,0.4);
+}
+.DryerwrinkleButton:active{
+    color: #4b4b4b;
+    -webkit-border-radius: 1.875rem;
+    border-radius: 1.875rem;
+    font-size: 0.9rem;
+    background:rgba(229, 229, 229,0.2);
+    border:solid 0.0125rem gray;
+    box-shadow: 0px 0px 0.25rem rgba(0,0,0,0.4);
+}
+.DryerwrinkleButton_selected{
+    color: white;
+    margin-left: 0.2rem;
+    width: 7.5rem;
+    height: 2.5rem;
+    -webkit-border-radius: 1.875rem;
+    border-radius: 1.875rem;
+    font-size: 0.9rem;
+    background: rgb(0,171,241);
+    border:solid 0.0125rem gray;
+    box-shadow: 0px 0px 0.25rem rgba(0,0,0,0.4);
+}
+.DryerwrinkleButton_disable{
+    color: black;
+    opacity: 0.3;
+    margin-left: 0.2rem;
+    width: 7.5rem;
+    height: 2.5rem;
+    -webkit-border-radius: 1.875rem;
+    border-radius: 1.875rem;
+    font-size: 0.9rem;
+    background: white;
+    border:solid 0.0125rem gray;
+    box-shadow: 0px 0px 0.25rem rgba(0,0,0,0.4);
+}
+.DryerwrinkleButton_disable:active{
+    background: white;
+}
+/*Dryer End*/
+
+/*---------------------- Font Icon ---------------------*/
+
+/* ------------------------------ Start POPUps --------------------------------- */
+/*.popUpBackground{
+    height: 2560px;
+    width: 1440px;
+    background: rgba(0,0,0,0.25);
+}*/
+/*.popUpBox{
+    margin: 28px;
+    box-shadow: 8px 8px 28px rgba(0,0,0,0.25);
+    max-height: 1800px;
+    overflow-y: scroll;
+    overflow-x: hidden; 
+    width: 1384px;
+}*/
+/*.popUpBoxTemp{
+    position: absolute;
+    left: 0px;
+    bottom:0px;
+    margin: 24px;
+    overflow-y: scroll;
+    overflow-x: hidden; 
+    box-shadow: 8px 8px 28px rgba(0,0,0,0.25);
+}*/
+/*.modeOptionsPopup{
+    height: 224px;
+    width: 1384px;
+    border-top: solid 1px #ffffff;
+    background: rgba(255,255,255,1);
+
+}*/
+/*.modeOptionsPopupModes{
+    font-size: 80px;
+    color: #545454;
+    margin-top: 70px;    
+    margin-left: 372px;
+    height: 92px;
+    width: 1352px;
+    border: solid 2px red;   
+    padding-top: 10px;
+}*/
+/*.modeOptionsPopupText{
+    font-size: 80px;
+    color: rgba(0,0,0,0.4);
+    margin-top: 70px;    
+    margin-left: 372px;
+    height: 92px;
+    width: 1352px;
+    border: solid 2px red;   
+    padding-top: 10px;
+
+}*/
+.modeOptionsPopupTextDisable{
+    /*border: solid 2px blue;*/
+    color:#545454;
+}
+.modeOptionsPopupTextHighlight{
+    /*border: solid 2px blue;*/
+    color:rgb(0,171,241);
+}
+/*------------------------------ End POPUps -------------------------------------*/
+
+/*------------------------ Start Dialog box ------------------------------------*/
+/*.OkCancelHeader{
+    font-size: 70px;
+    margin-top: 3%;
+    left: 10%
+}
+.buttonOKCancel{
+    width:100%;
+    margin-top: 20%;
+    text-align: center;
+}
+.buttonOk{
+    font-size: 65px;
+    width: 50%;
+    display: inline-block;
+    color: #17aa9d;
+    border: solid 2px red;
+}
+
+.buttonCancel{
+    font-size: 65px;
+    width: 50%;
+    display: inline-block;
+    color: #17aa9d;
+    border: solid 2px green;
+}
+.popUpBoxCancel{
+    position: absolute;
+    font-size: 60px;
+    line-height: 60px;
+    color: #545454;
+    text-align: center;
+    left: 10%;
+    top:40%;
+    right: 10%;
+    height: 20%;
+    background: rgba(255, 255, 255, 1);
+    margin: 24px;
+    box-shadow: 8px 8px 28px rgba(0,0,0,0.25);
+}*/
+/*------------------------ Start Dialog box ------------------------------------*/
+/* mode popup*/
+/*.ModeSelectionPopupDiv {
+    width: 18rem;
+    height: 32rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-top: 2%;
+    z-index: 999;
+}*/
+
+.ModeSelectionPopupDiv{
+    z-index : 12;
+}
+
+
+.popupboxmode {
+    position: fixed;
+    top: 3.1rem;
+    /* margin-top: 0.4rem; */
+    margin-left: 0.65rem;
+    /* padding-bottom: 3.25%; */
+    max-height: 66%;  /*21.35rem;*/
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 16.7rem;
+    box-shadow: 0.1rem 0.1rem 0.35rem rgba(0,0,0,0.25);
+    background: rgba(255,255,255,1);
+}
+.popupboxmode_V2 {
+    top: 4.3rem;
+}
+.popupmodemaindiv {
+    height: 2.85rem;
+    width: auto;    
+    background: rgba(255,255,255,1);
+    clear:both;
+}
+.popupmodemaindivEnergyLevel {
+    height: 3.225rem;
+}
+.popupmodemaindivEnergyLevelFav {
+    height: 3.225rem;
+}
+.selectedmodeicon {
+    border-radius: 0.975rem;
+    background: #00abf1;
+    width: 1.95rem;
+    height: 1.95rem;     
+}
+.popupboxgap {
+    height: 0.35rem;
+    background: rgba(255,255,255,1);
+}
+.popupmodeicon {
+    margin-top: 0.45rem;
+    margin-left: 0.5rem;
+    width: 1.95rem;
+    height: 1.95rem;
+    float: left;
+}
+/*.commonSelectedIcon {
+    fill: rgb(184, 184, 184);
+    stroke: rgb(184, 184, 184);
+}*/
+.popupmodeiconEnergyLevel {
+    margin-top: 0.6375rem;
+    margin-left: 0.8rem;
+}
+.popupmodeiconEnergyLevelFav {
+    margin-top: 0.6375rem;
+    margin-left: 0.8rem;
+}
+.popupmodetext {
+    margin: 0;
+    margin-top: 0.95rem;
+    font-size: 0.85rem;
+    width: 11rem;
+    margin-left: 0.7rem;
+    color: #252525;
+    float: left;
+    line-height: 1rem;   
+}
+.popupmodetextEnergyLevel {
+    margin-top: 0.3125rem;
+    margin-left: 0.4rem;
+    line-height: 1.475rem;    
+}
+.popupmodetextEnergyLevelFav {
+    margin-top: 0.6375rem;
+    margin-left: 0.4rem;
+    /*line-height: 1.475rem;*/
+}
+.popupmodetext_twoline {
+    margin: 0;
+    float: left;
+    margin-top: 0.7rem;
+    margin-left: 0.7rem;
+    font-size: 0.9rem;
+    line-height: 0.9rem;
+    color: rgb(74,74,74);
+    width: 8rem;
+}
+.popupmodetext_twoline_energyLevel {
+    margin-top: 0.1rem;
+    width: 11rem;
+}
+.energyValueBox {
+    margin-top: 0rem;
+    width: 11rem;
+    height: 1.125rem;
+    margin-left: 0.4rem;
+    float: left;
+}
+.energyValueIcon {
+    width: 1.125rem;
+    height: 1.125rem;
+    float: left;
+    fill: rgb(83,194,89);
+    stroke: rgb(83,194,89);
+}
+.energyUsageTxt {
+    margin: 0;
+    float: left;
+    font-size: 0.675rem;
+    line-height: 1.125rem;
+    color: rgb(131,135,139);
+}
+.energyLevelCircle {
+    width: 0.3rem;
+    height: 0.3rem;
+    margin-top: 0.4125rem;
+    margin-left: 0.25rem;
+    float: left;
+    /* border-radius: 0.2375rem; */
+    border: solid #d5d5d5 0.05rem;
+    background-color: #ffffff;
+    opacity: 1;
+}
+.energyLevelCircleFirstItem {
+    margin-left: 0.325rem;
+}
+.energyLevelCircleFill {
+    border: solid #83878b 0.05rem;
+    background-color: #83878b;
+    opacity: 1;
+}
+.washerCycleMostUsedIcon {
+    height: 1.5rem;
+    width: 1.5rem;
+    float: right;
+    margin-top: -0.8625rem;
+    margin-right: 0.8rem;
+    content: url(../../../Washer/assets/img/washer_ic_most_used.png);
+}
+.washerCycleMostUsedIconMargin {
+    margin-top: 0.8rem;
+}
+/************     error screen ****************************/
+.errorPageMain {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 29.2rem;
+}
+.errorImage {
+    margin: 0 auto;
+    padding-top: 1.225rem;
+    height: 5.5rem;
+    content: url(../../../common/img/main_ov_error.png);
+}
+.errorImageDualPageDiv {
+    padding-top: 0.65rem;
+    padding-bottom: 0.75rem;
+}
+.errorImageDualPage {
+    margin: auto;
+    display: block;
+    height: 4.35rem;
+    width: 4.35rem;
+    /*content: url(../../../Washer/assets/img/main_aod_error.png);*/
+}
+.errorDualPageImage{
+    fill: #b8b8b8;
+    stroke: #b8b8b8;
+}
+.errortitleText {
+    margin-top: 1.25rem;
+    margin-left: 1.2rem;
+    width: 15.6rem;
+    text-align: center;
+    font-size: 1rem;
+    color: rgb(0,0,0);
+    line-height: 1rem;
+}
+.errortitleTextDual {
+    margin-left: 0.975rem;
+    margin-right: 0.975rem;
+    width: 15.05rem;
+    height: 3rem;
+    text-align: left;
+    font-size: 0.85rem;
+    color: rgba(103,103,103,0.8);
+    opacity: 0.8rem;
+    line-height: 1rem;
+}
+.errorSubTextDual {
+    /*margin-top: 0.775rem;*/
+    margin-left: 0.775rem;
+    margin-right: 0.775rem;
+    width: 100%;
+    font-size: 0.65rem;
+    color: #676767; /*rgb(99,99,99);*/
+    line-height: 0.75rem;
+    float: right;
+    text-align: right;
+}
+.errorresultText {
+    margin-left: 1.2rem;
+    margin-top: 1rem;
+    width: 15.6rem;
+    font-size: 0.85rem;
+    color: rgb(99,99,99);
+    line-height: 1rem;
+}
+.erroractionText {
+    margin-left: 1.2rem;
+    max-height: 10rem; /*12rem;*/
+    margin-top: 1rem;
+    width: 15.6rem;
+    font-size: 0.85rem;
+    color: rgb(99,99,99);
+    line-height: 1rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+.errorbottombuttons {
+    margin: 0 auto;
+    width: 18rem;
+    height: 5.275rem;
+    bottom: 0rem;
+    position: absolute;
+}
+.errorTutorial {
+    margin: 0 auto;
+    height: 2rem;
+    width: 15.6rem;
+    border: solid 0.0375em rgb(179, 179, 179);
+    font-size: 1rem;
+    text-align: center;
+    line-height: 2rem;
+    border-radius: 0.15rem;
+    background: white;
+}
+.errorTutorial:active {
+    background: rgba(229, 229, 229, 1);
+    /*box-shadow: 0px 0px 0.25rem rgba(0,0,0,0.4);*/
+    border: solid 0.0375em gray;
+}
+
+.errorservice {
+    margin: 0 auto;
+    margin-top: 0.5rem;
+    height: 2rem;
+    width: 15.6rem;
+    border: solid 0.0375em rgb(179, 179, 179);
+    font-size: 1rem;
+    text-align: center;
+    line-height: 2rem;
+    border-radius: 0.15rem;
+    background: white;
+}
+.errorservice:active{
+    background: rgba(229, 229, 229, 1);
+    /*box-shadow: 0px 0px 0.25rem rgba(0,0,0,0.4);*/
+    border: solid 0.0375em gray;
+}
+.devicepowerOff {
+    position: absolute;
+    top: 4rem;
+    font-size: 1.5rem;
+    color: rgba(0, 171, 241, 0.5);
+    line-height: 2rem;
+    height:2rem;
+    margin-left: 2rem;
+    width: 14rem;
+    text-align: center;
+    /*border: solid 1px black;*/
+}
+.errorcycleconfirm{
+    position: absolute;
+    margin: auto;
+    width: 15.25rem;
+    left:  1.375rem; 
+    bottom: 1.2rem;
+    height: 2rem;
+    border: solid 0.0375em rgb(179, 179, 179);
+    font-size: 1rem;
+    text-align: center;
+    line-height: 1.7rem;
+    border-radius: .2em;
+}
+.errorcycleconfirm:active{
+    background-color: rgba(229, 229, 229, 1);
+    box-shadow: inset 0 0 0.00625rem rgb(158, 158, 158);
+}
+
+
+.iconbottom {
+    fill: #252525;/*rgb(255,255,255);*/
+    stroke: #252525;
+}
+.iconbottom_disabled {
+    fill: rgba(255,255,255,0.3);
+    stroke: rgba(255,255,255,0.3);
+}
+.iconmode {
+    fill: rgb(111,139,151);
+    stroke: rgb(111,139,151);
+}
+.iconmode_selected {
+    fill: rgb(255,255,255);
+    stroke: rgb(255,255,255);
+}
+.addwashlist {
+    width: 18rem;
+    border-bottom: solid 0.05rem #dfdfdf;
+    height: 3.35rem;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+    /* background: gray; */
+    display: table-cell;
+    vertical-align: middle;
+}
+.addWashDesc{
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+    padding-top: 0.95rem;
+    padding-bottom: 0.95rem;
+    font-size: 0.8rem;
+    /* height: 4.825rem; */
+    color: #636363;
+    line-height: 1.2;
+    border-bottom: solid 0.05rem #dfdfdf;
+}
+.addWashItem{
+    height: 2.45rem;
+    width: 18rem;
+    /* background: rgb(248,248,248); */
+    border-bottom: solid 0.05rem #dfdfdf;
+    /* margin-left: 0.8rem; */
+    /* margin-right: 0.8rem; */
+}
+.addWashCheckBox {
+    float: left;
+    width: 1.1rem;
+    height: 1.1rem;
+    margin-left: 1.125rem;
+    margin-right: 0.625rem;
+    margin-top: 1.2rem;
+}
+.addWashBottom {
+    height: 2.9rem;
+    /*border: solid 1px red;*/
+}
+.addWashSaveText {
+    float: right;
+    font-size: 1rem;
+    color: #00abf1;
+    margin-top: 0.85rem;
+    margin-right: 1.3rem;
+    line-height: 1rem;
+}
+.addwashindicator {
+    margin-top: -0.3rem;/*0.7rem; */
+    height: 1.75rem;
+    width: 1.75rem;
+    margin-left: 0.8rem; 
+    float: left;
+}
+.addwashindicatornoti{
+    top: 7.5rem;
+}
+.laundryDesc{
+    padding: 1rem;
+    font-size: 0.8rem;
+    color: #636363;
+    line-height: 1rem;
+    border-bottom: solid 0.05rem #dfdfdf;
+}
+.lineSeperator{
+    border: solid 1px rgb(196,196,196);
+}
+.liSepe_leftmargin{
+    margin-left: 3.6rem;
+}
+.laundryradio {
+    float: left;
+    width: 1.1rem;
+    height: 1.1rem;
+    margin-left: 0.8rem;
+    margin-right: 0.8rem;
+    margin-top: 1.2rem;
+}
+.radio_checkbox_text_wrap {
+    width: 15.6rem;
+    height: 2.45rem;
+    float: left;
+    padding-left: 0.8rem;
+    /* border-bottom: solid 0.05rem #dfdfdf; */
+}
+.radio_checkbox_text_wrap_serviceCallItem {
+    width: auto;
+    height: 1.1rem;
+    float: left;
+    border-bottom: none;
+}
+.radio_checkbox_Text {
+    font-size: 0.8rem;
+    color: rgba(0,0,0,0.87);
+    float: left;
+    line-height: 100%;
+    padding-top: 0.8rem;
+    white-space: nowrap;
+    max-width: 12.4rem;
+}
+.radio_checkbox_Text_serviceCallItem {
+    margin-left: 0.7rem;
+    padding-top: 0;
+    font-size: 0.925rem;
+    color: rgb(74, 74, 74);
+}
+
+.no_wrap{
+    white-space: nowrap;
+}
+
+/*.bottom_item_multiline_1 {
+    font-size: 0.8rem;
+    max-width: 12.6rem;
+}*/
+
+.BottomPopupTitle {
+    padding-top: 1.2rem;
+}
+
+.BottomPoupItemTextNoIcon {
+    margin-top: 0rem;
+    padding-top: 1.2rem;
+    font-size: 0.95rem;
+    line-height: 0.95rem;
+}
+
+.radio_on {
+    margin-top: 1.1rem;
+    margin-left: 0.8rem;
+    height: 1.1rem;
+    width: 1.1rem;
+    border: rgb(83,194,89) solid 0.09rem;
+    border-radius: 2rem;
+    position: relative;
+    -webkit-animation: radio-scale 0.065s cubic-bezier(0.895, 0.030, 0.685, 0.220);
+    animation: radio-scale 0.065s cubic-bezier(0.895, 0.030, 0.685, 0.220);
+    background-color: #fff;
+    display: inline-block;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.radio_on_callService {
+    margin-top: 0;
+    margin-left: 0;
+    float: left;
+}
+
+.radio_off {
+    margin-top: 1.1rem;
+    margin-left: 0.8rem;
+    height: 1.1rem;
+    width: 1.1rem;
+    border:rgba(112,112,112,0.7) solid 0.09rem; 
+    border-radius: 2rem;
+    position: relative;
+    -webkit-animation: radio-scale 0.065s cubic-bezier(0.895, 0.030, 0.685, 0.220);
+    animation: radio-scale 0.065s cubic-bezier(0.895, 0.030, 0.685, 0.220);
+    background-color: #fff;
+    display: inline-block;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.radio_off_callService {
+    margin-top: 0;
+    margin-left: 0;
+    float: left;
+}
+
+.radio_off_disbled {
+    margin-top: 1.1rem;
+    margin-left: 0.8rem;
+    height: 1.1rem;
+    width: 1.1rem;
+    border:rgba(112,112,112,0.7) solid 0.09rem; 
+    border-radius: 2rem;
+    position: relative;
+    -webkit-animation: radio-scale 0.065s cubic-bezier(0.895, 0.030, 0.685, 0.220);
+    animation: radio-scale 0.065s cubic-bezier(0.895, 0.030, 0.685, 0.220);
+    background-color: #fff;
+    display: inline-block;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    opacity: 0.4;
+}
+
+.BottomPopupDimBackgroundDivIn {
+    overflow: hidden;
+}
+
+.ecotton_svg_color {
+    fill:rgb(74,74,74);
+    stroke: rgb(74,74,74);
+}
+.ecotton_svg_image{
+    margin-top: 0.75rem;
+    margin-left: 0.7rem;
+    width: 1.25rem;
+    height: 1.25rem;
+    float: left;
+    /*border: solid 1 px black;*/
+}
+.header_ecotton_icon {
+    height: 1.25rem;
+    width: 1.25rem;
+    margin-left: 0.2rem;
+    margin-bottom: 0.6rem;
+}
+.course_icon_disabled {
+    fill: rgba(0, 171, 241, 0.5);
+    stroke: rgba(0, 171, 241, 0.5);
+}
+.popupmodetext_ecotton{
+    margin-left: 0.2rem;
+}
+/*.bottom_item {
+    border-bottom: solid 0.05rem rgb(214,214,214);
+}*/
+.rIframeIOS{
+    zoom: 0.5;
+}
+.rIframeAND{
+    zoom: 3;
+}
+.detailedSubTextContainer2{
+    margin-top: 0.9rem;
+}
+.headerTxtContainer{
+    top: 2rem;
+}
+.noti_popup {
+    width: 18rem;
+    display: inline-block;
+    padding-top: 1.225rem;
+    background: rgb(250,250,250);
+    box-shadow: 0px 0px 0.25rem rgba(0, 0, 0, 0.3);
+    /*height: 5rem;*/
+    /*top:2.65rem;*/
+    /*position: absolute;*/
+    /*overflow-y: scroll;*/
+}
+.noti_popup_text{
+    float: left;
+    margin-left: 0.55rem;
+    margin-right: 1.375rem;
+    /*margin-top: 1.225rem;*/
+    /*margin-bottom: 0.95rem;*/
+    font-size: 0.9rem;
+    width:13.35rem;
+    /*height: 4.825rem;*/
+    color: rgb(131,131,131);
+    line-height: 1;
+}
+.noti_indicator{
+    float: left;
+    margin-left: 1.225rem;
+    /*margin-top: 1.225rem;*/
+    height: 1.5rem;
+    width: 1.5rem;
+    left: 15.5rem;
+}
+.noti_ok{
+    float: right;
+    text-align: right;
+    /*width: 16.625rem;*/
+    line-height: 1rem;
+    margin-right: 1.375rem;
+    margin-top: 0.25rem;
+    font-size: 0.9rem;
+    color: rgb(0,171,241);
+    margin-bottom: 0.67rem;
+}
+.wrinkleImg{
+    width: 7.9rem;
+    height: 7.9rem;
+}
+.cycleFinishIcon {
+    fill: #b8b8b8;
+    stroke: #b8b8b8;
+}
+.cycCompImg {
+    width: 4.35rem;/*7.9rem;*/
+    height: 4.35rem;/*7.9rem;*/
+    display: block;
+    margin: auto;
+    margin-top: 2.125rem; /*4.125rem;*/
+    margin-left: 7.05rem;/*5.05rem;*/
+    content: url("../../../Washer/assets/img/wo_mt_ic_complete.png");
+}
+.cycCompText {
+    color: #252525;
+    font-size: 1.25rem;
+    line-height: 1.25rem;
+    text-align: center;
+    margin-top: 2.1125rem;
+}
+.cycLoadsOut {
+    color: rgb(111,139,151);
+    font-size: 0.85rem;
+    line-height: 0.85;
+    text-align: center;
+    margin-top: 0.75rem;
+}
+.optionsRightItem_addwash {
+    width: 20%;
+}
+.optionsRightItem1_addwash {
+    width: 62%;
+}
+/*.bottom_item_singleline {
+    width: 12.4rem;
+}*/
+.header_mode_text_on_inner {
+    width: 11.6rem;
+}
+.header_div_help {
+    background-color: transparent;
+    position: inherit;
+    top: 0;
+    height: 2.5rem;
+}
+
+.help-page-container_V2 {
+    position: absolute;
+    top: 0;
+    left: 0;  
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    z-index: 9;
+    background-color: rgba(0,0,0,0.8);
+    overflow-y: overlay;
+}
+
+.help-page-container_normal {
+    top: -1.2rem;
+    height: 103.9%;
+}
+
+.help-page-inner {
+    position: relative;
+    left: 0;
+    height: 100%;
+    overflow-y: overlay;
+    overflow-x: hidden;
+}
+
+.help-page-close-icon-container_V2 {
+    position: absolute;
+    margin-top: 1.825rem;
+    right: 0.825rem;
+    height: 1.2rem;
+    width: 1.2rem;
+}
+
+.help-page-close-icon-container_normal {
+    margin-top: 2.025rem;
+}
+
+.help-page-close-icon {
+    height: 1.2rem;
+    width:  1.2rem;
+    fill: rgb(255,255,255);    
+    stroke: rgb(255,255,255);     
+}
+
+.help-text-blue {
+    font-size: 0.8rem;
+    color: rgb(0,171,241);
+}
+
+.help_page_mode_info_text {
+    padding-top: 0.825rem;
+    margin-left: 0.9rem;
+    width: 6.85rem;
+    height: 3rem;
+    text-align: right;
+    line-height: 3rem;
+}
+
+.top-margin{
+    margin-top: 4rem; /*3.9125rem;*/
+}
+
+.help_page_cancel_info_text{
+    padding-top: 2rem;/*2.5125rem;*/
+    margin-left: 1.7rem;/*0.8rem;*/
+    width: 7.85rem;
+    height: 3rem;
+    /* text-align: right; */
+    line-height: 1rem;
+}
+
+.help_page_cancel_info_arrow {
+    background-image: url(../../../common/img/fu_ic_arrow_01.png);
+    background-size: 100% 100%;
+    margin-bottom: 0.5rem;
+    margin-left: 8.55rem;
+}
+
+.help-page-arrow-image {
+    height: 1.7rem;
+    width: 1.5rem;
+}
+
+.help-page-arrow-image-straight {
+    width: 1.975rem;
+    height: 0.875rem;
+}
+
+.help_page_mode_info_arrow {
+    background-image: url(../../../common/img/fu_ic_arrow_01.png);
+    background-size: 100% 100%;
+    margin-top: -0.7rem;
+    margin-left: 7.75rem;
+}
+
+.help_page_start_operation_info_text_box {
+    /*margin-top: 1rem;*/ 
+    margin-left: 11rem;
+    width: 6rem;
+    height: 3.3rem;
+    display: table;
+    /* padding-top: 0.3rem; */
+}
+
+.help_page_start_operation_info_text {
+    margin-right: 1.275rem;
+    width: 6rem;
+    line-height: 1rem;
+    display: table-cell;
+    /*vertical-align: bottom;*/
+}
+
+.help_page_start_operation_info_arrow {
+    height: 1.7rem;
+    width: 1.5rem;
+    background-image: url(../../../common/img/fu_ic_arrow_02.png);
+    background-size: 100% 100%;
+    margin-right: 7rem;
+    margin-top: -3em;
+    float: right;
+}
+
+.help_page_start_operation_icon {
+    z-index: 3;
+    width: 3.75rem;
+    height: 3.75rem;
+    /*margin-top: 0.3rem;*/
+    margin-left: 7.1rem;
+    fill: #3695dd;
+    stroke: #3695dd;
+    border-radius: 50%;
+    background-color: rgb(255,255,255);
+    /* content: url(../img/main_control_btn_ic_stop.png);*/ 
+}
+
+.cancelWrinkleDiv_help {
+    margin-top: 0.35rem;
+    text-align: center;
+    width: 100%;
+}
+
+.help_page_network_alert_info{
+    width: 16.4rem;
+    height: 2rem;
+    position: absolute;
+    left: 1rem;
+    bottom: 1.15rem;/*2.15rem;*/
+    color: rgb(196,196,196);
+    text-align: left;
+    line-height: 1rem;
+    font-size: 0.8rem;
+}
+
+.network_info_bottom_position{
+    top: 29rem; /*2.15rem*/
+}
+.washerSmartControlPopupInner{   
+    background-color: rgb(252,252,252);
+    width: 100%;
+    position: absolute;
+    left: 0;
+    max-height: 24rem;
+    bottom: 0;
+    overflow: scroll;
+    overflow-x: hidden;
+    animation-duration:  .3s;
+    animation-name:  dimbackgound-opacity-in;
+    animation-timing-function: cubic-bezier(0.390, 0.575, 0.565, 1.000);
+}
+
+.BottomPoupItemText {
+    /*margin-top: 1rem; */
+    margin-bottom: 0.95rem;
+    font-size: 0.7rem;
+    margin-left: 1.15rem;
+    margin-right: 1.15rem;
+    width: 15.7rem;
+    color: rgba(0,0,0,0.54);
+    line-height: 0.9rem;
+}
+
+.BottomPoupItemTextStayConnect {
+    margin: 0rem;
+    font-size: 0.7rem;
+    /* margin-left: 0.5rem; */
+    max-width: 10rem;
+    color: rgba(0,0,0,0.54);
+    line-height: 1.6rem;
+}
+
+.custPopupButton {
+    height: 2rem;
+    float: right;
+    font-size: 1rem;
+    color: #3695dd;/*#00abf1;*/
+    line-height: 100%;
+    padding-top: 0.5rem;
+}
+.main_header-text_multiLine {
+    width: 13.5rem;
+    float: left;
+    margin-top: 0.425rem;
+    line-height: 0.9rem;
+}
+.call_number{
+    font-size: 1rem;
+    line-height: 1.1rem;
+    margin-left: 1.15rem;
+    margin-right: 1.15rem;
+}
+.ser_cal_num{
+    /*    text-decoration: underline;*/
+    color: rgb(74, 74, 74);
+}
+/* Button CSS */
+
+.multi-img {
+    /* background: url(../../../common/img/main_btn_bg_normal_1.png), url(../../../common/img/main_btn_bg_normal_3.png); */
+    margin-top: 1.3875rem;
+    margin-left: 5.425rem;
+     height: 2.5rem; 
+     background-position: left top, right top; 
+     background-repeat: no-repeat, no-repeat; 
+     background-size: auto 2.5rem; 
+     padding: 0 1.49rem; 
+     padding-left: 0.5rem; 
+     position: relative; 
+     width: 7.35rem; 
+}
+.multi-img-inner{
+    /*background:url('../../../common/img/main_btn_bg_normal_2.png');*/
+    height:2.5rem;
+    background-size: 1.5rem 2.5rem;
+    background-position: left top;
+    background-repeat: repeat;
+}
+
+.multi-img .txt{
+    font-size:0.9rem; /*0.9rem;*/
+    line-height: 0.9;
+    width:7.35rem;
+    height:2.5rem;
+    /*display:block;*/
+    text-align:center;
+    position: relative;
+    top: 0.8rem;
+    color: #3695dd;
+
+}
+.multi-img .txt_multi{
+    font-size:0.8rem;
+    width:7.35rem;
+    height:2.5rem;
+    /*display:block;*/
+    text-align:center;
+    position: relative;
+    top: 0.3rem;
+    line-height:2.2;
+
+}
+.multi-img .minus {
+    position: relative;
+    top: -0.2rem;
+    margin-left: 0.5rem;
+    width: 0.975rem;
+    height: 0.15rem;
+    border-radius: 0.15rem;
+    background-color: rgb(74,74,74);
+    display: inline-block;
+}
+
+.multi-sel .txt{color: rgb(54, 149, 221);}
+.multi-sel .txt_multi{color: rgb(54, 149, 221);}
+.multi-sel .minus{background-color: rgb(54, 149, 221);}
+.multi-pressed{
+/*    background:url('../../../common/img/main_btn_bg_pressed_1.png'),
+        url('../../../common/img/main_btn_bg_pressed_3.png');*/
+    margin-top: 1rem;
+    margin-left: 5.425rem;
+    height:2.5rem;
+    background-position: left top, right top;
+    background-repeat: no-repeat, no-repeat;
+    background-size: auto 2.5rem;
+    padding:0 1.49rem;
+    position:relative;
+    width:7.35rem;
+}
+
+.multi-pressed .multi-img-inner {
+    /*background:url('../../../common/img/main_btn_bg_pressed_2.png');*/
+    height:2.5rem;
+    background-size: 1.5rem 2.5rem;
+    background-position: left top;
+    background-repeat: repeat;
+}
+/* Button CSS End */
+
+.wrinklepreText2div {
+    width: 17rem;
+    text-align: center;
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
+    height: 3.5rem;
+}
+.wrinklepreText2divWrinklePreventStarted {
+    width: 18rem;
+    text-align: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-top: 1.5rem;
+    height: 3.5rem;
+}
+
+.wrinklepreTextMsgRunState {
+    width: 18rem;
+    text-align: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    height: 3.5rem;
+}
+.wrinklepreText2 {
+    color: rgba(85,91,99,0.9);
+    font-size: 0.85rem;
+    line-height: 1rem;    
+}
+.ModeSelectionPopupCon {
+    position:fixed;
+    top:3rem;
+    /*padding-top:.4rem;*/
+    padding-bottom:.4rem;
+    width:16.35rem;
+    display:block;
+/*    height:21rem;*/
+    background-color:white;
+    margin-left:0.75rem;
+    max-height: 66%; /*21rem;*/
+    height:66%;/*auto;*/
+    box-shadow: .1rem .1rem 0.5rem rgba(0,0,0,0.25);
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.ModeSelectionPopupCon_V2{
+    top:4.2rem; 
+}
+.custPopupText{
+    line-height: 1.2;
+    margin-bottom: 0.8rem;
+    margin-top: 1.3rem;
+}
+
+/*Checkbox effect*/
+.PC_UsageLimitCheckBox {
+    /*float: right;*/
+    width: 1.6rem;
+    height: 1.6rem;
+    /* margin-left: 0.8rem; */
+    margin-right: 0.45rem;
+    margin-top: .425rem;
+    /* box-shadow: 0px 0px 0px 2px rgba(112,112,112,0.7) inset; */
+    /* background: rgba(255,255,255,1); */
+    border-radius: 2px;
+}
+
+.PC_UsageLimitCheckBox.chekbox-unselected {
+/*    box-shadow: rgba(112, 112, 112, 0.701961) 0px 0px 0px 0.1rem inset;
+    background-color: rgba(255, 255, 255, 0);
+    margin-left: 1.15rem;*/
+}
+
+._common_checkbox_container.chekbox-unselected-disable {
+/*    box-shadow: rgba(112, 112, 112, 0.7) 0px 0px 0px 2px inset;
+    background-color: rgba(255, 255, 255, 0.7);*/
+    content: url(../../../common/img/btn_component_chk_off.png);
+    opacity: 0.3;
+}
+
+.stay-connect-chekbox-margin {
+    margin-top: 0rem;
+    margin-right: 0rem;
+    margin-left: 0.8rem;
+}
+.fullscreenpopup {
+    z-index: 0;
+}
+.custPopupDiv {
+    z-index: 0;
+}
+.bottom_item_singleline_addWash {
+    float: left;
+    margin-top: 0.8rem;
+    font-size: 0.975rem;
+    line-height: 0.975rem;
+    color: rgb(0,0,0);
+    width: 10rem;
+    /*margin-left: 0.75rem;*/   
+}
+
+/*dual washer starts here*/
+.subLoaderTitleDiv {
+    height: 2.975rem; /*2.85rem;*/
+    width: 100%;
+    padding-top: 1.025rem;
+    padding-left: 0.85rem;
+}
+
+.mainLoaderTitleDiv {
+    height: 3.5rem;
+    width: 100%;
+    padding-top: 1.675rem;
+    padding-left: 0.85rem;
+}
+
+.dualCircleBackground {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    width: 3.75rem;
+    height: 3.75rem;
+    /*border: solid 1px red;*/
+}
+
+.dualInnerCircle_play_pause {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    width: 3.75rem; /*4.95rem;*/
+    height: 3.75rem; 
+    background-color: #ffffff;
+    border-radius: 50%;
+    /*box-shadow: 0 0 0.95rem rgba(0, 0, 0, 0.3);*/
+}
+.dualInnerCircle_play_pause_disable {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    width: 3.75rem; /*4.95rem;*/
+    height: 3.75rem; 
+    background-color: #ffffff; /*#e5e5e5*/
+    border-radius: 50%;
+    /*box-shadow: 0 0 0.95rem rgba(0, 0, 0, 0.3);*/
+}
+
+.dualInnerCircle_play_help{
+    left: 1.3rem;
+    top: 1.1rem;
+}
+
+.dualInnerCircle_play_pause:active {
+    background-color: #e5e5e5;
+}
+
+/*.dualInnerCircle_pause {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    width: 3.75rem; 4.95rem;
+    height: 3.75rem; 
+    background-color: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0 0.95rem rgba(0, 0, 0, 0.3);
+}
+
+.dualInnerCircle_pause:active {
+    background-color: #e5e5e5;
+}*/
+
+.dualWasherSubTitleIcon {
+    height: 1.125rem;
+    width: 0.9375rem;
+    float: left;
+    content: url(../../../Washer/assets/img/aod_ws_title_ic_top.png);
+}
+
+.dualWasherSubTitleIcon_dim {
+    content: url(../../../Washer/assets/img/aod_ws_title_ic_top_dim.png);
+}
+
+.dualWasherMainTitleIcon {
+    height: 1.125rem;
+    width: 0.9375rem;
+    float: left;
+    content: url(../../../Washer/assets/img/aod_ws_title_ic_front.png);
+}
+
+.dualWasherMainTitleIcon_dim {
+    content: url(../../../Washer/assets/img/aod_ws_title_ic_front_dim.png);
+}
+
+.dualCycleCompleteIcon {
+    position: absolute;
+    top: 2.3rem;
+    right: 5.5rem;
+    height: 4.35rem;
+    width: 4.35rem;
+    fill: none;
+    stroke: #3695dd;
+}
+
+.smartControlIcon {
+    position: absolute;
+    top: 0.725rem;
+    right: 0.675rem;
+    height: 1.2rem;
+    width: 1.2rem;
+    fill: #252525;
+    stroke: #252525;
+}
+
+.deviceOffText {
+    width: 100%;
+    font-size: 0.975rem;
+    line-height: 1rem;
+    text-align: center;
+    color: #676767;
+}
+
+.loaderOffIcon {
+    margin: auto;
+    margin-top: 2.3rem;
+    display: block;
+    width: 4.35rem;
+    height: 4.35rem;
+    fill: none;
+    stroke: #818181;
+}
+.dualHomePageTitleText {
+    font-size: 0.8rem;
+    width: auto;
+    margin-left: 0.325rem;
+    color: #252525;
+    float: left;
+    line-height: 1.125rem;
+}
+
+.dualPageLoaderDiv {
+    padding-top: 1px;
+    margin-top: -1px;
+    margin-left: 0.8rem;
+    width: 16.4rem;
+    height: 10.6rem;
+    background-color: rgb(250,250,250);
+    box-shadow: 0.025rem 0.025rem 0.35rem #c0c0c0;
+    border-radius: 0.175rem;
+    position: relative;
+}
+
+.dualPageLoaderDivRun {
+    background-color: #e4f1f7;
+}
+
+.dualPageLoaderDivRunCycleFinish {
+    background-color: rgb(250,250,250);
+}
+
+.dualHomePageModeBox {
+    height: 3.65rem;
+    margin-left: 0.975rem;
+    max-width: 9.15rem;
+    display: table;
+}
+
+.dualHomePageModeBoxText {
+    max-width: 9.15rem;
+    max-height: 2.3rem;
+    font-size: 1rem;
+    line-height: 1.15rem;
+    color: #252525;
+    display: table-cell;
+    vertical-align: bottom;
+}
+
+.dualHomePageStateBox {
+    margin-top: 0.175rem;
+    margin-left: 0.975rem;
+    max-width: 9.15rem;
+}
+
+.dualHomePageStateBoxText {
+    max-width: 9.15rem;
+    max-height: 2rem;
+    font-size: 0.875rem;
+    line-height: 0.975rem;
+    color: #3695dd;
+}
+
+.dualHomePageProgressButtonDiv {
+    position: absolute;
+    top: 2.5rem;
+    right: 0.975rem;
+    height: 5.725rem;
+    width: 5.725rem;
+    background-color: #ebebed;
+    border-radius: 50%;
+/*    content: url(../../../Washer/assets/img/aod_btn_play_nor.png);*/
+    
+}
+
+.dualHomePageProgressButtonDiv:active {
+    /*content: url(../../../Washer/assets/img/aod_btn_play_pre.png);*/
+}
+
+.dualHomePageWrinklePreventImageDiv {
+    position: absolute;
+    top: 2.5rem;
+    right: 0.975rem;
+    height: 5.725rem;
+    width: 5.725rem;
+    content: url(../../../Dryer/assets/img/aod_btn_play_nor.png);
+}
+
+.dualHomePageProgressButtonDimDiv {
+    position: absolute;
+    top: 2.5rem;
+    right: 0.975rem;
+    height: 5.725rem;
+    width: 5.725rem;
+    background-color: #ebebed;
+    border-radius: 50%;
+    /*content: url(../../../Washer/assets/img/aod_btn_play_dim.png);*/
+}
+
+.dualLoader-progress-wrapper {
+    position: absolute;
+    width: 5.725rem;
+    height: 5.725rem;
+/*    top: 0.26rem;
+    left: 0.25rem;*/
+    z-index: 2;
+}
+
+.dualLoader-progress-wrapper-front {
+    /*top: 0.25rem;*/
+}
+
+.dualLoader-progress-wrapper-help {
+    position: absolute;
+    width: 5.725rem;
+    height: 5.725rem;
+    top: 2.5rem;
+    right: 1.25rem;
+    z-index: 2;
+}
+
+.dualLoader-progress-wrapper-img_play {
+    position: absolute;
+    width: 5.725rem;
+    height: 5.725rem;
+    background-color: #ebebed;
+    border-radius: 50%;
+    /*content: url(../../../Washer/assets/img/aod_btn_play_nor.png);*/
+}
+
+.dualLoader-progress-wrapper-img_play:active {
+    /*content: url(../../../Washer/assets/img/aod_btn_play_pre.png);*/
+}
+
+.dualLoader-progress-wrapper-img_play_dim {
+    position: absolute;
+    width: 5.725rem;
+    height: 5.725rem;
+    content: url(../../../Washer/assets/img/aod_btn_play_dim.png);
+}
+
+.dualLoader-progress-wrapper-img_pause {
+    position: absolute;
+    width: 5.725rem;
+    height: 5.725rem;
+    content: url(../../../Washer/assets/img/aod_btn_pause_nor.png);
+}
+
+.dualLoader-progress-wrapper-img_pause:active {
+    content: url(../../../Washer/assets/img/aod_btn_pause_pre.png);
+}
+
+.dualLoader-progress-wrapper-img_pause_dim {
+    position: absolute;
+    width: 5.725rem;
+    height: 5.725rem;
+    content: url(../../../Washer/assets/img/aod_btn_pause_dim.png);
+}
+
+
+.dualLoader-progressPatch {
+    position: absolute;
+    left: 2.45rem;
+}
+
+.dualHomePageAddWasherAvailableMsgDiv {
+    position: absolute;
+    bottom: 0.5rem;
+    height: 1.75rem;
+}
+
+.dualHomePageAddwashindicator {
+    height: 1.75rem;
+    width: 1.75rem;
+    margin-left: 0.9rem;
+    float: left;
+}
+
+.dualHomePageAddWasherAvailableMsgTxt {
+    margin-left: 0.8rem;
+    line-height: 1.75rem;
+    font-size: 0.85rem;
+    color: #252525;
+    float: left;
+    width: 12.375rem;
+}
+
+.help-page-dual-mainWasher-info-div {
+    height: 6.7rem;
+    width: 100%;
+}
+
+.help-page-dual-mainWasher-info-div_textBox {
+    width: 12.125rem;
+    height: 3.5rem;
+    padding-top: 4rem;
+    margin-left: 0.5rem;
+    text-align: right;
+    display: table;
+}
+
+.help-page-dual-Washer-info-div_text {
+    line-height: 1rem;
+    font-size: 0.8rem;
+    color: rgb(0,171,241);
+    display: table-cell;
+    vertical-align: bottom;
+}
+
+.help_page_dual-mainWasher-info-arrow {
+    content: url(../../../common/img/fu_ic_arrow_01.png);
+    margin-top: -1.2rem;
+    margin-left: 12.75rem;
+}
+
+.help_page_dual-mainWasher-ButtonInfo-arrow {
+    content: url(../../../Washer/assets/img/fu_ic_arrow_06.png);
+    margin-top: -0.9rem;
+    margin-left: 8.425rem;
+}
+
+.help-page-dual-mainWasher-div {
+    position: relative;
+    height: 10.6rem;
+    width: 16.4rem;
+    margin-left: 0.8rem;
+    border-radius: 0.175rem;
+    border: solid 0.025rem rgba(192,192,192,0.5);
+}
+
+.help-page-dual-mainWasher-buttonInfo-div_textBox {
+    width: 6.625rem;
+    height: 4rem;
+    padding-top: 4rem;
+    margin-left: 1.9rem;
+    text-align: right;
+    display: table;
+}
+
+.help-page-dual-subWasher-info-div {
+    height: 3.5rem;
+    width: 100%;
+}
+
+.help-page-dual-subWasher-info-div_textBox {
+    width: 12.125rem;
+    height: 2.5rem;
+    margin-left: 0.5rem;
+    text-align: right;
+    display: table;
+    padding-top: 1rem;
+}
+
+.help-page-dual-subWasher-div {
+    position: relative;
+    height: 10.6rem;
+    width: 100%;
+    width: 16.4rem;
+    margin-left: 0.8rem;
+    border-radius: 0.175rem;
+    border: solid 0.025rem rgba(192,192,192,0.5);
+}
+
+.cycleFinishTextDual {
+    width: 100%;
+    padding-top: 7.5rem;
+    font-size: 0.975rem;
+    line-height: 1rem;
+    color: #676767;
+    text-align: center;
+}
+
+.remainingTimeBoxDualPage {
+    margin-top: 1.1rem;
+    max-width: 9.15rem;
+    height: 2rem;
+    margin-left: 0.975rem;
+}
+
+.custPopupTitleNoPadding {
+    padding-top: 0;
+}
+
+.addWasherAvailableMsgDiv {
+    margin-left: 0.8rem;
+    /* height: 4.2rem; */
+    width: 16.4rem;
+    /* margin-bottom: 0.8rem; */
+    background: #fcfcfc;
+    padding-top: 0.7rem;
+    border: 2px solid rgb(192, 192, 192);
+    vertical-align: middle;
+    /* display: table-cell; */
+    min-height: 1.5rem;
+    /* margin-top: 1.1rem; */
+    clear: both;
+    display: inline-block;
+    padding-bottom: 0.5rem; /*1.2rem; */
+    
+}
+
+.addWasherAvailableMsgDivTxt {
+    margin-left: 0.8rem; /*0.525rem;*/
+    /* margin-top: 0.6rem; */
+    font-size: 0.9rem;
+    line-height: 0.9rem;
+    max-width: 11.1rem; /*13.1*rem/
+    /*max-height: 3.2rem;*/
+    min-width: 11.1rem;
+    color: #252525;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    float: left;
+}
+
+
+.indicator-margin-expand-icon-down {
+    margin-top: -0.2rem;
+}
+
+.indicator-margin-expand-icon-up {
+}
+
+.indicator-expand-icon {
+    width: 1.6rem;
+    height: 1.6rem;
+/*    margin-top: -3.1rem;-0.3rem;*/
+}
+
+.expand-area {
+    overflow: visible;
+    height: auto;
+}
+
+.home_center_area {
+    top: 2.8rem;
+    height: 18.85rem;/*21.85rem;*/
+    box-shadow: none;
+    /*border: solid 1px green;*/
+}
+
+.home_center_area_AddWashIndicator {
+    height: 23rem; /*23.4rem;*//*26.85rem;*/
+}
+
+.margin_nil{
+    margin: 0;
+}
+
+.screenAreaDiv {
+    width: 100%;
+    height: 100%;
+}
+
+.custokcanceldivSmartControl {
+    margin-right: 1.15rem;
+}
+
+.detailPageScrollableArea {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    /*    top: 2.8rem;*/
+}
+
+.cycFinishDiv, .cycNotFinishDiv {
+    width: 100%;
+    height: 100%;
+}
+
+.serviceCallItem {
+    height: 1.1rem;
+    width: 100%;
+    margin-bottom: 1.3rem;
+}
+
+.serviceCallItemLast {
+    margin-bottom: 0;
+}
+
+.right {
+    float: right;
+}
+
+.left{
+    float: left;
+}
+
+.checkBoxSelectedItemTextColor {
+    color:rgb(54, 149, 221) !important;
+}
+
+.optionsRightItem1 {
+    line-height: 337%   /*400%;*/
+}
+
+.koreanComboSelectionItemOuter {
+    height: 3.35rem;
+    width: 100%;
+    padding-top: 1.125rem;
+}
+
+.koreanComboSelectionItemInner {
+    height: 100%;
+    width: 100%;
+}
+
+.borderOptions {
+    width: 85%;
+    height: 0.05rem;
+    margin-left: 15%;
+    background-color: rgba(196, 196, 196, 0.5);
+}
+
+.spinnerIconKoreanComboOption {
+    height: 1.1rem;
+    width: 1.1rem;
+    float: right;
+    margin-right: 0.9rem;
+    content: url(../../../Washer/assets/img/washer_list_ic_spinner.png);
+}
+
+.koreanCombosubOptionVal {
+    margin: 0;
+    height: 1.1rem;
+    font-size: 0.85rem;
+    color: rgb(54, 149, 221);
+    margin-right: 0.15rem;
+    line-height: 1.1rem;
+    float: right;
+}
+
+.koreanCombosubOptionVal_disabled {
+    height: 1.1rem;
+    font-size: 0.85rem;
+    color: rgba(54, 149, 221, 0.3);
+    margin-right: 0.15rem;
+    line-height: 100%;
+    float: right;
+}
+
+/*.header_noti{
+    top: 7.65rem;
+}*/
+/*.scrollable_area_noti{
+    top: 10.45rem;
+    height: 67.34375%;
+}*/
+
+
+/*.bottom_item_multiline_2{
+    color: rgb(0,0,0);
+    font-size: 1.1rem;
+    line-height: 100%;
+    padding-top: 0.3rem;
+    width: 12.6rem;
+//    border: solid 1px black;
+}*/
+.bottom_item_multiline_2 {
+    font-size: 0.7rem;
+    height: 1.85rem;
+    margin: 0;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    box-sizing: inherit;
+    color: rgb(54, 149, 221);
+}
+
+.bottom_item_multiline_2_1 {
+    color: rgb(0,0,0);
+    font-size: .85rem;
+    line-height: 100%;
+    /*padding-top: 0.3rem;*/
+    width: 12.6rem;
+    /*border: solid 1px black;*/
+}
+
+.bottom_item_multiline_1_disabled {
+    color: rgba(0, 0, 0, 0.3);
+}
+
+/*.bottom_item_multiline_2_disabled {
+    color: rgba(54, 149, 221, 0.3);
+}*/
+
+.header_mode_text_multi_line {
+    max-width: 15.7rem;
+    padding-left: 1.25rem;
+    margin: 0;
+}
+
+.header_mode_text_multi_line_no_spinner {
+    max-width: 16.95rem;
+    padding-left: 0;
+    margin: 0;
+}
+
+/*claases added for help page cancel button*/
+.cancelWrinkleDivHelpPage {
+    margin-top: 0.9rem;
+    text-align: center;
+    height: 2.5rem;
+}
+.multi-img_help_page {
+    background: url('../../../common/img/fu_btn_cancel.png');
+    margin-left: 5rem;
+    height: 2.2rem;
+    background-position: left top, right top;
+    background-repeat: no-repeat, no-repeat;
+    background-size: auto 2.5rem;
+    padding: 0 1.5rem;
+    width: 8rem;
+}
+
+.div-progress-outer-dual {
+    position: absolute;
+    width: 5.725rem;
+    height: 5.725rem;
+    top: 2.5rem;
+    right: 0.975rem;
+    z-index: 2;
+    background-color: #ebebed;
+    border-radius: 50%;
+}
+
+.div-progress-inner-dual {
+    width: 100%;
+    height: 100%;
+}
+
+/*Css for my favorite page*/
+
+.scrollable_area_no_header {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top : 0;
+    overflow-y: overlay;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    background: rgb(248,248,248);
+}
+.scrollable_area_no_header_V2 {
+    top: 1.2rem;
+    height: 97%;
+}
+
+.no_item_data {
+    margin-top: 14.55rem;
+    margin-left : 1.2rem;
+    margin-right :1.2rem;
+}
+.myFavScreenEmptyScreen {
+    width: 100%;
+    height: 100%;
+    display: table;
+}
+.myFavScreenEmptyText {
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+}
+.myFavEmptyImage {
+    height: 11.45rem;
+    width: 18rem;
+    fill: rgb(149,153,160);
+    stroke: rgb(149,153,160);
+}
+.myFavEmptyTextMain {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.35rem;
+    color: rgb(0,0,0);
+    width: 18rem;
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+}
+
+.myFavEmptyTextSub {
+    margin: 0;
+    margin-top: 0.875rem;
+    font-size: 0.85rem;
+    color: rgb(99,99,99);
+    line-height: 0.85rem;
+    width: 18rem;
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+}
+.tabButtonArea {
+    height: 2.85rem;
+    width: 18rem;
+    max-width: 18rem;
+    /*background-color: rgb(0,171,241);*/
+}
+.tabButton{
+    height: 2.85rem;
+    width: 9rem;
+    font-size: 0.7rem;
+    line-height: 2.85rem;
+    color: #3695dd;
+    text-align: center;
+}
+.myFavoriteScreenSubHeader {
+    /*background: rgb(236,236,236);*/
+    height: 1.4rem;
+}
+.myFavoriteScreenSubHeaderText {
+    margin: 0;
+    font-size: 0.8rem;
+    line-height: 1.4rem;
+    color: #3695dd;
+    margin-left: 0.8rem;
+    text-align: left;
+    margin-top: 0.6875rem;
+}
+.myFavoriteInputBoxAreaDiv {
+    height: 2rem;   /*3.35rem;*/
+    width: 100%;
+    background: rgb(248,248,248);
+}
+.myFavoriteInputBoxArea {
+    font-size: 0.8rem;
+    color: #3695dd; 
+    text-shadow: 0px 0px 0px rgba(0,0,0,0.38);
+    background: rgb(248,248,248);
+    width: 16rem;
+    height: 2rem;
+    /* margin-top: 0.675rem; */
+    margin-left: 0.8rem;
+    line-height: 100%;
+    border: none;
+    border-bottom: 0.05rem solid rgba(0,0,0,0.12);
+    -webkit-text-fill-color: transparent;
+}
+.myFavoriteInputBoxArea:focus {
+    border-bottom: 0.05rem solid #3695dd;
+    outline: 0;
+    cursor: text;
+    text-shadow: 0px 0px 0px rgba(0,0,0,0.87);   
+}
+.addOptionsMyFavorite {
+    width: 18rem;
+    height: 3.7rem;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+    border-bottom: solid .05rem rgba(196,196,196,.5);
+    position: relative;
+}
+.addOptionsDisabled {
+    background: #dddddd;
+}
+.favOptionMainText {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 2.1rem;
+    color: rgb(0,0,0);
+}
+.favOptionSubText {
+    margin: 0;
+    font-size: 0.85rem;
+    line-height: 0.85rem;
+    color: #3695dd;
+}
+.floatingAddBtn {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: rgb(54,149,221);
+    border-radius: 2rem;
+    z-index: 1;
+    position: absolute !important;
+    bottom: 0.8rem;
+    right: 0.8rem;
+    box-shadow: 0.0625rem 0.0625rem 0.0625rem rgba(0, 0, 0, 0.3);
+}
+
+.floatingAddBtn:active {
+    background-color: rgba(54,149,221,0.6);
+}
+
+.floatingAddBtn:disabled {
+    background-color: rgba(54,149,221,0.3);
+}
+
+.floatingImage {
+    position: absolute;
+    width: 1.2rem;
+    height: 1.2rem;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.screenWithNoHeader {
+    top: 0rem;
+    height: 100% !important;
+}
+.screenWithNoHeader_V2 {
+    top: 1.2rem;
+    height: 97% !important;
+}
+.favMultiLineFontSize {
+    font-size: 0.85rem; 
+    line-height: 0.85rem;
+    padding-top: 0.5rem;
+    /*margin-bottom: 0.85rem;*/
+}
+
+.bottom_item_color_disabled {
+    color: rgba(54,149,221,0.3);
+}
+.favSpinIconOptionSelection {
+    height: 1.6rem;
+    width: 1.6rem;
+    float: right;
+    /*content: url("../../../common/img/btn_component_expand_down.png");*/
+    /*margin-left: 0.15rem;*/
+    fill: #3695dd;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+.spinIconDisable {
+    fill: rgba(0,0,0,0.3);
+    stroke: rgba(221,221,221,0.3);
+}
+.scheduleItemFav {
+    min-height: 6.6rem;/*7.325rem;*//*8.675rem;*/
+    width: 18rem;
+    /*border-bottom: solid 0.05rem rgba(196, 196, 196, 0.5);*/
+}
+.scheduleItemDrumHistory {
+    height: 10.55rem;
+    width: 18rem;
+    /*border-bottom: solid 0.05rem rgba(196, 196, 196, 0.5);*/
+}
+.DrumHistoryTopText {
+    padding-top: 1.25rem;
+    padding-bottom: .6rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    width: 18rem;
+    font-size: 1rem;
+    line-height: 1rem;
+    color: rgb(64,60,46);
+}
+.DrumHistoryWashingTimesText {
+    height : 2.85rem;
+    padding-bottom: .3rem;
+    text-align: center;
+    color: rgb(0,171,241);
+}
+.DrumHistoryWashingTimesNumber {
+    margin: 0;
+    display: inline-block;
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    margin-right: .3rem;
+    color: inherit;
+}
+.DrumHistoryWashingTimesString {
+    margin: 0;
+    display: inline-block;
+    font-size: 1.4rem;
+    line-height: 1.4rem;
+    color: inherit;
+    vertical-align: bottom;
+    padding-bottom: 0.2rem; 
+}
+.myFavListDetailArea {
+    /*width: 100%;*/
+    height: auto;
+    margin-left: 0.8rem;
+    float: left;
+    margin-top: .6rem;
+}
+.marginLeft_nil {
+   margin-left: 0; 
+}
+.removeListIcon {
+    float: right;
+    margin-left: 1.6rem;
+    /*margin-top: 0.8rem;*/
+}
+.myFavoriteListTitle {
+    /*margin-top: 0.825rem;*/
+    height: 1.2rem;
+    width: 100%;
+    max-height: 2.4rem;
+}
+.myFavoriteListTitleText {
+    font-size: 0.85rem;
+    color: #252525;
+    line-height: 1.2rem;
+    /* white-space: nowrap; */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    float: left;
+    max-height: 2.4rem;
+    width: 13.5rem;
+}
+.myFavoriteListCycle {
+    margin-top: 0.35rem;
+    height: 1.25rem;
+    width: 100%;
+}
+.myFavoriteListCycleText {
+    font-size: 1.25rem;
+    color: #3695dd;
+    line-height: 1.425rem;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    float: left;
+}
+.day {
+    height : 2.05rem;
+    color: #00abf1;
+    margin-top: 0.6rem;
+}
+.favButtonDiv {
+    width: 4.6rem;
+    /* margin-left: 1.375rem; */
+    /* margin-top: 0.6rem; */
+    height: 1.8rem;
+    /* margin-right: 0.8rem; */
+    border-radius: 0.15em;
+    /*background-color: white;*/
+    border: solid 0.0375em rgb(179, 179, 179);
+    float: right;
+    position: absolute;
+    right: 0.8rem;
+}
+.favoriteStartButtonText {
+    margin: 0;
+    font-size: 0.7rem;
+    line-height: 1.8rem;
+    color: #3695dd;/*rgb(0,0,0);*/
+    text-align: center;
+}
+.myFavoriteListBottomBorder {
+    margin-top: 0.925rem;
+    border-bottom: solid 0.0375em rgb(179, 179, 179);
+    float: left;
+    width: 100%;
+}
+.drumCleanHistoryBottomBorder {
+    border-bottom: solid 0.05rem rgba(211, 211, 211,.5);
+    float: left;
+    width: 100%;
+}
+.myFavSub {
+    min-height: 2rem;
+    width: 10.3rem;
+    /*margin-top: 0.6rem;*/
+    clear: both;
+}
+.myFavSubValues {
+    width: auto;
+    float: left;
+    margin-top: .6rem;
+}
+.imagewrap {
+    width: 1rem;
+    height: 1rem;
+}
+.optionValueMyFav {
+    width: auto;
+    font-size: .8rem; 
+    line-height: 1rem;
+    color:#252525;
+}
+.myFavMain {
+    width: 14.4rem;
+    float: left;
+    margin-left: 0.8rem;
+}
+
+.optionDeletePopupConFav {
+    min-width: 5rem;
+    height: auto;
+    position: absolute;
+    top: 0.65rem;
+    right: 0.1375rem;
+    background-color: rgb(255,255,255);
+    box-shadow: .1rem .1rem 0.5rem rgba(0,0,0,0.25);
+    overflow: hidden;
+    -webkit-transform: translateZ(0) scale(1.0, 1.0);
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translateZ(0) scale(1.0, 1.0);
+}
+
+.header_mode_div_myFavorite_selectAll_text {
+    color: #252525;
+    font-size: 0.5rem;
+    border-top: 1rem;
+    /*line-height: .5rem;*/
+}
+
+.header_mode_div_myFavorite_selectAll {
+    width: 1.1rem;
+    margin-top: 1.225rem;
+    margin-left: 0.425rem;
+    clear: both;
+    /*font-size: 0.5rem;*/
+}
+
+.header_mode_text_myFavorite {
+    color: #3695dd;
+    font-size: 0.8rem;
+    /*boarder-top: 1rem;*/
+    line-height: 2.6rem;
+}
+
+.selectAllBlackColor {
+    color: #252525;
+}
+
+.footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
+    margin-right: .9rem;
+    /* color: #f0f0f0; */
+    background-color: #f0f0f0;
+}
+
+.text-right {
+    float: right;
+    padding: 0.8rem;
+    font-size: 0.7rem;
+    line-height: 0.9rem;
+    color: rgba(0,0,0,0.87);
+}
+
+.footer:active {
+    background-color: #3695dd; 
+}
+
+.footer:active .text-right{
+    color: #ffffff;
+}
+
+.footer:disabled {
+    background-color: rgba(240,240,240,0.3); 
+}
+
+.footer:disabled .text-right {
+    color: rgba(0,0,0,0.38);
+}
+
+.optionsRightItem2 {
+    margin-top: .575rem;
+}
+
+.optionLeftItem {
+    /*color: #202020;*/
+    line-height: 1rem;
+    margin-top: .675rem;
+}
+
+.header_mode_text_disabled_myFavorite {
+    color: rgba(54,149,221,0.3);
+}
+.header_mode_div_myFavorite_delete {
+    width : 4.2rem;
+    height : 2.6rem;
+    -webkit-box-pack: initial;
+    padding-left: .75rem;
+    margin: 0rem;
+}
+.align_top {
+    width :4.2rem;
+    height : 2.6rem;
+}
+.PC_UsageLimitCheckBox_Header_MyFavorite.chekbox-unselected {
+/*    border:rgb(255, 255, 255) solid 0.05rem;
+    background-color: #00abf1;
+    box-shadow: none;*/
+}
+
+.PC_UsageLimitCheckBox_Header_MyFavorite.chekbox-selected {
+/*    border:rgb(255, 255, 255) solid 0.05rem;
+    background-color: #00abf1;
+    box-shadow: none;*/
+}
+.header_mode_div_myFavorite_selectAll_checked {
+    margin-top: 0.125rem;
+}
+
+.dividerMyFavorite {
+    height: 0.625rem;
+    margin-top: 0.1875rem;
+    width: 0.05rem;
+    margin-left: 0.325rem;
+    margin-right: 0.325rem;
+    border-right: solid 0.05rem #c4c4c4;
+}
+
+.favpopupCommon {
+    position: absolute;
+    width: auto;
+    height: auto;
+    min-height: 3.6rem;
+    max-height: 10.8rem;
+    min-width: 7.125rem;
+    overflow-y: scroll;
+    display: block;
+    background-color: white;
+    background-color: white;
+    z-index: 999;
+    box-shadow: .1rem .1rem 0.5rem rgba(0,0,0,0.25);
+}
+.favPopUpFullScreenDiv {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 0;
+    background: rgba(0,0,0,0.5);
+}
+.common-btn-text-disabled {
+    color: #252525;
+}
+.common-btn-bg-disabled {
+    background-color: #c2c2c2;
+    opacity: 0.15;
+}
+/*.favpopupforDryLevel {
+    position: fixed;
+    top: 14.45rem;
+    width: 7.125rem;
+    max-height: 12.2rem;
+    display:block;
+    padding-top: .4rem;
+    padding-bottom: .4rem;
+    background-color: white;
+    margin-left: 0.75rem;
+    box-shadow: .1rem .1rem 0.5rem rgba(0,0,0,0.25);
+}*/
+/*.popupboxgapforDryLevel {
+    position: fixed;
+    top: 14.45rem;
+    margin-top: 0.4rem;
+    margin-right: 0.35rem;
+    margin-bottom: 0.4rem;
+    max-height: 11.4rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 6.675rem;
+    background: rgba(255,255,255,1);
+}*/
+
+.favpopupforTemp {
+    position: fixed;
+    top: 18.45rem;
+    width:11.4rem;
+    max-height: 12.2rem;
+    display:block;
+    padding-top: .4rem;
+    padding-bottom: .4rem;
+    background-color: white;
+    margin-left: 0.75rem;
+    box-shadow: .1rem .1rem 0.5rem rgba(0,0,0,0.25);
+}
+.popupboxgapforTemp {
+    position: fixed;
+    top: 18.45rem;
+    margin-top: 0.4rem;
+    margin-right: 0.35rem;
+    margin-bottom: 0.4rem;
+    max-height: 11.4rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width:10.95rem;
+    background: rgba(255,255,255,1);
+ 
+}
+.favpopupforDryTime {
+    position: fixed;
+    top : 18.05rem;
+    width :7.125rem;
+    max-height : 12.2rem;
+    display:block;
+    padding-top: .4rem;
+    padding-bottom: .4rem;
+    background-color: white;
+    margin-left: 0.75rem;
+    box-shadow: .1rem .1rem 0.5rem rgba(0,0,0,0.25);
+}
+.popupboxgapforDryTime {
+    position: fixed;
+    top: 18.05rem;
+    margin-top: 0.4rem;
+    margin-right: 0.35rem;
+    margin-bottom: 0.4rem;
+    max-height: 11.4rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 6.675rem;
+    background: rgba(255,255,255,1);
+
+}
+.favpopupforwrinkleprevent {
+    position: fixed;
+    top : 21.75rem;
+    width :7.125rem;
+    max-height: 12.2rem;
+    display:block;
+    padding-top: .4rem;
+    padding-bottom: .4rem;
+    background-color: white;
+    margin-left: 0.75rem;
+    box-shadow: .1rem .1rem 0.5rem rgba(0,0,0,0.25);
+}
+.popupboxgapforwrinkleprevent {
+    position: fixed;
+    top: 21.75rem;
+    margin-top: 0.4rem;
+    margin-bottom: 0.4rem;
+    margin-right: 0.35rem;
+    max-height: 11.4rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 6.675rem;
+    background: rgba(255,255,255,1);
+
+}
+.favpopupforMiexedBell {
+    position: fixed;
+    top : 25.45rem;
+    width :7.125rem;
+    max-height : 12.2rem;
+    display:block;
+    padding-top: .4rem;
+    padding-bottom: .4rem;
+    background-color: white;
+    margin-left: 0.75rem;
+    box-shadow: .1rem .1rem 0.5rem rgba(0,0,0,0.25);
+}
+.popupboxgapforMiexedBell {
+    position: fixed;
+    top: 25.45rem;
+    margin-top: 0.4rem;
+    margin-bottom: 0.4rem;
+    margin-right: 0.35rem;
+    max-height: 11.4rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 6.675rem;
+    background: rgba(255,255,255,1);
+
+}
+.myFavOptionPopUpDiv {
+    width: 100%;
+    height: 2.7rem;
+}
+.myFavOptionPopUpText {
+    margin: 0;
+    width: 100%;
+    font-size: 1rem;
+    text-align: left;
+    line-height: 2.7rem;
+    color: rgba(0,0,0,0.8);
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.popuptemptextHighlight {
+    color: rgb(54, 149, 221);
+}
+
+.favCycleBorder {
+    border-bottom: solid .05rem rgba(196,196,196,.5);
+}
+.popupcycleFav {
+    width: 99.5%;
+}
+
+.popupmodeiconFav {
+    width :1.95rem;
+    height :1.95rem;
+    fill: #3695dd; /*#252525*/
+    stroke: #3695dd; 
+    background : rgb(255,255,255);
+}
+.disabledTextColor {
+    color: rgba(0,0,0,0.3);
+}
+.switch {
+    margin-top: 0;
+    padding-top: 0.9rem;
+}
+.switch_margin_right {
+    margin-right: 0.9rem;
+}
+/*.bottem_item_image {
+    width: 2.32rem;
+}*/
+/*.forceRender {
+    transform: translate3d(0, 0, 0);
+}*/
+/*.bottom_item_multiline {
+    width: 12rem;
+}*/
+.drumHistoryScrollableArea{
+    overflow-y : scroll; 
+    width : 100%;
+    max-height: 100%;
+}
+.drumCleanHistoryEmptyLog {
+    margin-top:.95rem;
+    margin-bottom: .95rem;
+    margin-left: .8rem;
+    margin-right: .8rem;
+    font-size: .85rem;
+    color: rgb(116,116,116);
+}
+.drumCleanHistorySubHeader {
+    background: rgb(236,236,236);
+    height: 1.4rem;
+}
+.drumCleanHistorySubHeaderText {
+    margin: 0;
+    font-size: 0.8rem;
+    line-height: 1.4rem;
+    color: rgb(101,101,101);
+    margin-left: 0.8rem;
+    text-align: left;
+}
+.addOptionsDrumCleanHistory {
+    width: 18rem;
+    height: 3.35rem;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+    border-bottom: solid .05rem rgba(196,196,196,.5);
+    position: relative;
+}
+.drumCleanHistoryMainText {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1rem;
+    color: black;
+    padding-top: 1.175rem;
+    padding-bottom: 1.175rem;
+}
+.drumHistoryDisplay {
+    width:18rem;
+    height: 2.5rem;
+    padding-left:1rem;
+    padding-right:1rem;
+}
+.drumHistoryDisplayImage {
+    height:2.5rem;
+}
+.drumHistoryDisplayText {
+    height:1.75rem;
+    padding-bottom:.95rem;
+    margin-top:.55rem;
+    font-size: .75rem;
+}
+.drumHistoryDisplayTextWashingTimes {
+    text-align: center;
+    width:1.28rem;
+    position: absolute;
+}
+.drumHistoryDisplayTextProposalTimes {
+    text-align: center;
+    width:1.28rem;
+    position: absolute;
+    color: rgb(255,82,82);
+}
+
+.drumCleanBold
+{
+    font-weight: bold; 
+}
+
+.filterImage
+{
+	margin-top:1rem
+}
+.filterlayer3
+{
+        width: 0rem;
+}
+.filterresetalert {
+    color: rgb(255,255,255);
+    font-size: 0.9rem;
+    line-height: 2.5rem;
+    text-align: center;
+}
+.filtercontainer {
+    /*    height:200px;*/
+    /*border:1px solid pink;*/
+    width: 100%;
+    position: relative;
+}
+.filterline {
+    float: left;
+    width: 10%;
+    height: 2.5rem;
+    border-right: rgba(255,255,255,0.3) solid 1px;
+    top: 0;
+}
+.replaceFilterMark {
+	border-right:rgb(255,82,82) dashed .05rem
+}
+.replaceFiltertext {
+	font-size:.75rem;
+	line-height:1;
+	color:rgb(255,82,82);
+	margin-top:.55rem;
+	text-align:right
+}
+.multi-img-AdditionalWash {
+    margin-left: 3.925rem;
+    width:10.35rem;
+}
+.modesDisable{
+    opacity : 0.3;
+}
+/*my favorite page ends*/
+
+/*Drain Filter Start*/
+.drainFilterMargin {
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+}
+.drainFilterDescDiv {
+    height: auto;
+    /*margin-top: 0.8rem;*/
+    margin-bottom: 0.8rem;
+    /*border: solid 1px black;*/
+}
+.drainFilterDesc {
+   font-size: 0.8rem;
+   line-height: 1rem; 
+   color: #252525;
+}
+.drainFilterDivider {
+    margin-left: -1rem;
+    margin-right: -1rem;
+    border-bottom: solid 0.05rem rgba(196, 196, 196, 0.5);
+}
+.drainFilterMsg1 {
+   margin-top: 1rem;
+   font-size: 0.8rem;
+   line-height: 1rem;
+   color: #252525;
+}
+.drainFilterImg1Div {
+    height: 7.5rem;
+    margin-top: 0.8rem;
+}
+.drainFilterImg1 {
+    width: 16.4rem;
+    height: 7.5rem;
+    content: url("../../../Washer/assets/img/washer_img_drain_filter_01.png");
+}
+.drainFilterMsg2 {
+    margin-top: 2rem;
+    font-size: 0.8rem;
+    line-height: 1rem;
+    color: #252525;
+}
+.drainFilterImg2Div {
+    height: 8.75rem;
+    margin-top: 0.8rem;
+}
+.drainFilterImg2 {
+    width: 16.4rem;
+    height: 8.75rem;
+    content: url("../../../Washer/assets/img/washer_img_drain_filter_02.png");
+}
+.drainFilterMsg3 {
+    margin-top: 2rem;
+    font-size: 0.8rem;
+    line-height: 1rem;
+    color: #252525;
+}
+.drainFilterImg3Div {
+    height: 8.75rem;
+    margin-top: 0.8rem;
+}
+.drainFilterImg3 {
+    width: 16.4rem;
+    height: 8.75rem;
+    content: url("../../../Washer/assets/img/washer_img_drain_filter_03.png");
+}
+.drainFilterMsg4 {
+    margin-top: 2rem;
+    font-size: 0.8rem;
+    line-height: 1rem;
+    color: #252525;
+}
+.drainFilterImg4Div {
+    height: 8.75rem;
+    margin-top: 0.8rem;
+    margin-bottom: 2rem;
+}
+.drainFilterImg4 {
+    width: 16.4rem;
+    height: 8.75rem;
+    content: url("../../../Washer/assets/img/washer_img_drain_filter_04.png");
+}
+/*Drain Filter End*/
+
+/* Start of eCotton in courses */
+.marginTopeCotton {
+    margin-top: 0.4rem;
+}
+.marginTopeCottonFav {
+    margin-top: 0.6rem;
+}
+.noLeftMargin {
+    margin-left: 0;
+}
+.nilMargin {
+    margin: 0rem;
+}
+/* End of eCotton in courses */
+
+@media screen and (max-width: 360px) {
+    .borderOptions {
+        height: 1px;
+    }
+    .errorTutorial {
+        border: solid 1px rgb(179, 179, 179);
+    }
+    .errorTutorial:active {
+        border: solid 1px gray;
+    }
+    .errorservice {
+        border: solid 1px rgb(179, 179, 179);
+    }
+    .errorservice:active {
+        border: solid 1px gray;
+    }
+    .dividerMyFavorite {        
+            width: 1px;        
+            border-right: solid 1px rgb(0, 171, 241);
+    }
+    .addWashItem{        
+        border-bottom: solid 1px #dfdfdf;        
+    }
+}
+@media screen and (max-width: 480px) {
+    .help-page-dual-mainWasher-div{
+        border: solid 1px rgb(188,188,188);
+    }
+}
+/* iPhone 4 height is not proper, last item is not displayed totally */
+@media screen and (device-width: 320px) and (device-height: 480px) {
+    .erroractionText {
+        max-height: 5.8rem;
+        overflow-y: scroll;
+    }
+    .washerHeadingText {
+        line-height: 1.35rem;
+    }
+}
+
+/* iPhone 4 height is not proper, last item is not displayed totally */
+@media screen and (max-width: 320px) {
+
+    .cancelButton {
+        border:solid 1px gray;
+    }
+    .cancelButton:active {
+        border:solid 1px gray;
+    }
+    .errorcycleconfirm {
+        border: solid 1px rgb(179, 179, 179);
+    }
+    .progressPatch {
+        width: 5px;
+    }
+    .dualLoader-progressPatch {
+        width: 5px;
+    }
+    .progress-wrapper {
+        margin-left: 0.4999rem;
+    } 
+}
+@media screen and (device-width: 720px) {
+    .BottomPopupItem {
+        height: 3rem;
+    }    
+}
+@media screen and (device-width: 1600px) {
+    .bg_white {
+        height: 100%;
+    }
+    .main_header-text {
+        width: auto !important;
+        color: white;
+    }
+}
+/* huawei phone issue */
+@media screen and (device-width: 360px) and (device-height: 598px) {
+    .erroractionText {
+        max-height: 7.8rem;
+        overflow-y: scroll;
+    }
+}
