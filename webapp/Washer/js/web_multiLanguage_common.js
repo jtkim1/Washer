@@ -198,7 +198,9 @@ var LANGUAGE_FILE_COMMON = {
             "WEBMOB_common_search": "Search",
             "WEBMOB_common_device_information_legacy_smarthome": "This device is connected to Samsung Smart Home.",
             "WEBMOB_common_device_information_legacy_knox": "Your connected life is protected by Knox Life",
-            "WEBMOB_common_select": "Select"
+            "WEBMOB_common_select": "Select",
+            "CONV_familycommunication_unknown_user": "Unknown",
+            "WEBMOB_common_unknown": "Unknown"
         },
         "KO": {
             "WEBMOB_common_TB_navigate_up": "위로 이동",
@@ -398,7 +400,9 @@ var LANGUAGE_FILE_COMMON = {
             "WEBMOB_common_search": "검색",
             "WEBMOB_common_device_information_legacy_smarthome": "삼성 Smart Home에 연결된 디바이스입니다.",
             "WEBMOB_common_device_information_legacy_knox": "기기와 연결된 생활은 Knox Life가 보호합니다.",
-            "WEBMOB_common_select": "선택"
+            "WEBMOB_common_select": "선택",
+            "CONV_familycommunication_unknown_user": "알 수 없음",
+            "WEBMOB_common_unknown": "정보없음"
         },
         "FR-CA": {
             "WEBMOB_common_TB_navigate_up": "Précédent",
@@ -598,7 +602,9 @@ var LANGUAGE_FILE_COMMON = {
             "WEBMOB_common_search": "Rechercher",
             "WEBMOB_common_device_information_legacy_smarthome": "Cet appareil est connecté à Samsung Smart Home.",
             "WEBMOB_common_device_information_legacy_knox": "Votre vie connectée est protégée par Knox Life",
-            "WEBMOB_common_select": "Sélectionner"
+            "WEBMOB_common_select": "Sélectionner",
+            "CONV_familycommunication_unknown_user": "Inconnu",
+            "WEBMOB_common_unknown": "Inconnu"
         },
         "ES-MX": {
             "WEBMOB_common_TB_navigate_up": "Ir arriba",
@@ -798,7 +804,9 @@ var LANGUAGE_FILE_COMMON = {
             "WEBMOB_common_search": "Search",
             "WEBMOB_common_device_information_legacy_smarthome": "Este dispositivo está conectado a Samsung Smart Home.",
             "WEBMOB_common_device_information_legacy_knox": "Knox Life protege toda su vida conectada a dispositivos",
-            "WEBMOB_common_select": "Select"
+            "WEBMOB_common_select": "Select",
+            "CONV_familycommunication_unknown_user": "Desconocido",
+            "WEBMOB_common_unknown": "Unknown"
         },
         "PT-BR": {
             "WEBMOB_common_TB_navigate_up": "Navegar acima",
@@ -998,7 +1006,9 @@ var LANGUAGE_FILE_COMMON = {
             "WEBMOB_common_search": "Procurar",
             "WEBMOB_common_device_information_legacy_smarthome": "Este dispositivo está ligado ao Samsung Smart Home.",
             "WEBMOB_common_device_information_legacy_knox": "Sua vida conectada é protegida por Knox Life",
-            "WEBMOB_common_select": "Select"
+            "WEBMOB_common_select": "Select",
+            "CONV_familycommunication_unknown_user": "Desconhecido",
+            "WEBMOB_common_unknown": "Unknown"
         },
         "SQ": {
             "WEBMOB_common_TB_navigate_up": "Kthehu pas",
@@ -1198,7 +1208,9 @@ var LANGUAGE_FILE_COMMON = {
             "WEBMOB_common_search": "Kërko",
             "WEBMOB_common_device_information_legacy_smarthome": "Kjo pajisje është lidhur me Samsung Smart Home.",
             "WEBMOB_common_device_information_legacy_knox": "Jeta juaj në lidhje me pajisjet mbrohet nga &quot;Knox Life&quot;",
-            "WEBMOB_common_select": "Zgjidh"
+            "WEBMOB_common_select": "Zgjidh",
+            "CONV_familycommunication_unknown_user": "I panjohur",
+            "WEBMOB_common_unknown": ""
         },
         "BG": {
             "WEBMOB_common_TB_navigate_up": "Навигиране нагоре",
@@ -1398,7 +1410,9 @@ var LANGUAGE_FILE_COMMON = {
             "WEBMOB_common_search": "Търсене",
             "WEBMOB_common_device_information_legacy_smarthome": "Това устройство е свързано към Samsung Smart Home.",
             "WEBMOB_common_device_information_legacy_knox": "Вашата свързаност на устройствата е защитена от Knox Life",
-            "WEBMOB_common_select": "Избери"
+            "WEBMOB_common_select": "Избери",
+            "CONV_familycommunication_unknown_user": "Неизвестен",
+            "WEBMOB_common_unknown": "Неизвестно"
         },
         "HR": {
             "WEBMOB_common_TB_navigate_up": "Navigacija prema gore",
@@ -1598,7 +1612,9 @@ var LANGUAGE_FILE_COMMON = {
             "WEBMOB_common_search": "Traženje",
             "WEBMOB_common_device_information_legacy_smarthome": "Ovaj je uređaj povezan na Samsung Smart Home.",
             "WEBMOB_common_device_information_legacy_knox": "Knox Life omogućuje vam povezanost s uređajima.",
-            "WEBMOB_common_select": "Odaberi"
+            "WEBMOB_common_select": "Odaberi",
+            "CONV_familycommunication_unknown_user": "Nepoznato",
+            "WEBMOB_common_unknown": ""
         },
         "CS": {
             "WEBMOB_common_TB_navigate_up": "Zpět",
@@ -1798,7 +1814,9 @@ var LANGUAGE_FILE_COMMON = {
             "WEBMOB_common_search": "Vyhledat",
             "WEBMOB_common_device_information_legacy_smarthome": "Zařízení je připojeno ke službě Samsung Smart Home.",
             "WEBMOB_common_device_information_legacy_knox": "Vaše připojená zařízení jsou chráněna aplikací Knox Life",
-            "WEBMOB_common_select": "Zvolit"
+            "WEBMOB_common_select": "Zvolit",
+            "CONV_familycommunication_unknown_user": "Neznámý",
+            "WEBMOB_common_unknown": "Neznámý"
         },
         "DA": {
             "WEBMOB_common_TB_navigate_up": "Naviger op",
@@ -1998,7 +2016,9 @@ var LANGUAGE_FILE_COMMON = {
             "WEBMOB_common_search": "Søg",
             "WEBMOB_common_device_information_legacy_smarthome": "Denne enhed har forbindelse til Samsung Smart Home.",
             "WEBMOB_common_device_information_legacy_knox": "Dine opkoblinger er beskyttet af Knox Life",
-            "WEBMOB_common_select": "Vælg"
+            "WEBMOB_common_select": "Vælg",
+            "CONV_familycommunication_unknown_user": "Ukendt",
+            "WEBMOB_common_unknown": "Ukendt"
         },
         "NL": {
             "WEBMOB_common_TB_navigate_up": "Omhoog navigeren",
@@ -2198,7 +2218,9 @@ var LANGUAGE_FILE_COMMON = {
             "WEBMOB_common_search": "Zoeken",
             "WEBMOB_common_device_information_legacy_smarthome": "Dit apparaat is verbonden met Samsung Smart Home.",
             "WEBMOB_common_device_information_legacy_knox": "U bent altijd verbonden dankzij Knox Life",
-            "WEBMOB_common_select": "Selecteren"
+            "WEBMOB_common_select": "Selecteren",
+            "CONV_familycommunication_unknown_user": "Onbekend",
+            "WEBMOB_common_unknown": "Onbekend"
         },
         "FI": {
             "WEBMOB_common_TB_navigate_up": "Siirry ylös",
@@ -2398,7 +2420,9 @@ var LANGUAGE_FILE_COMMON = {
             "WEBMOB_common_search": "Etsi",
             "WEBMOB_common_device_information_legacy_smarthome": "Laite on yhdistetty Samsung Smart Homeiin.",
             "WEBMOB_common_device_information_legacy_knox": "Knox Life suojaa elämäsi laitteet",
-            "WEBMOB_common_select": "Valitse"
+            "WEBMOB_common_select": "Valitse",
+            "CONV_familycommunication_unknown_user": "Tuntematon",
+            "WEBMOB_common_unknown": "Tuntematon"
         },
         "FR": {
             "WEBMOB_common_TB_navigate_up": "Revenir",
@@ -2598,7 +2622,9 @@ var LANGUAGE_FILE_COMMON = {
             "WEBMOB_common_search": "Rechercher",
             "WEBMOB_common_device_information_legacy_smarthome": "Cet appareil est connecté à Samsung Smart Home.",
             "WEBMOB_common_device_information_legacy_knox": "Votre vie connectée est protégée par Knox Life",
-            "WEBMOB_common_select": "Sélectionner"
+            "WEBMOB_common_select": "Sélectionner",
+            "CONV_familycommunication_unknown_user": "Inconnu",
+            "WEBMOB_common_unknown": "Inconnu"
         },
         "DE": {
             "WEBMOB_common_TB_navigate_up": "Zurück navigieren",
@@ -2798,7 +2824,9 @@ var LANGUAGE_FILE_COMMON = {
             "WEBMOB_common_search": "Suchen",
             "WEBMOB_common_device_information_legacy_smarthome": "Dieses Gerät ist mit Samsung Smart Home verbunden.",
             "WEBMOB_common_device_information_legacy_knox": "Ihr mit Geräten verbundenes Leben ist durch Knox Life geschützt",
-            "WEBMOB_common_select": "Auswählen"
+            "WEBMOB_common_select": "Auswählen",
+            "CONV_familycommunication_unknown_user": "Unbekannt",
+            "WEBMOB_common_unknown": "Unbekannt"
         },
         "EL": {
             "WEBMOB_common_TB_navigate_up": "Περιήγηση προς πίσω",
@@ -2998,7 +3026,9 @@ var LANGUAGE_FILE_COMMON = {
             "WEBMOB_common_search": "Αναζήτηση",
             "WEBMOB_common_device_information_legacy_smarthome": "Αυτή η συσκευή συνδέθηκε στο Samsung Smart Home.",
             "WEBMOB_common_device_information_legacy_knox": "Οι συνδεδεμένες σας συσκευές προστατεύονται από την Knox Life",
-            "WEBMOB_common_select": "Επιλογή"
+            "WEBMOB_common_select": "Επιλογή",
+            "CONV_familycommunication_unknown_user": "Άγνωστος",
+            "WEBMOB_common_unknown": "Άγνωστο"
         },
         "HU": {
             "WEBMOB_common_TB_navigate_up": "Vissza",
@@ -3198,7 +3228,9 @@ var LANGUAGE_FILE_COMMON = {
             "WEBMOB_common_search": "Keresés",
             "WEBMOB_common_device_information_legacy_smarthome": "Az eszköz kapcsolódik a Samsung Smart Home szolgáltatáshoz.",
             "WEBMOB_common_device_information_legacy_knox": "Az Ön csatlakoztatott eszközökkel megkönnyített életét a Knox Life biztosítja",
-            "WEBMOB_common_select": "Kijelölés"
+            "WEBMOB_common_select": "Kijelölés",
+            "CONV_familycommunication_unknown_user": "Ismeretlen",
+            "WEBMOB_common_unknown": "Ismeretlen"
         },
         "IT": {
             "WEBMOB_common_TB_navigate_up": "Vai su",
@@ -3398,7 +3430,9 @@ var LANGUAGE_FILE_COMMON = {
             "WEBMOB_common_search": "Cerca",
             "WEBMOB_common_device_information_legacy_smarthome": "Questo dispositivo è connesso a Samsung Smart Home.",
             "WEBMOB_common_device_information_legacy_knox": "La vostra vita connessa ai dispositivi è protetta da Knox Life",
-            "WEBMOB_common_select": "Seleziona"
+            "WEBMOB_common_select": "Seleziona",
+            "CONV_familycommunication_unknown_user": "Sconosciuto",
+            "WEBMOB_common_unknown": "Sconosciuto"
         },
         "NB": {
             "WEBMOB_common_TB_navigate_up": "Naviger opp",
@@ -3598,7 +3632,9 @@ var LANGUAGE_FILE_COMMON = {
             "WEBMOB_common_search": "Søk",
             "WEBMOB_common_device_information_legacy_smarthome": "Denne enheten er nå koblet til Samsung Smart Home.",
             "WEBMOB_common_device_information_legacy_knox": "Ditt tilkoblede liv er beskyttet av Knox Life",
-            "WEBMOB_common_select": "Velg"
+            "WEBMOB_common_select": "Velg",
+            "CONV_familycommunication_unknown_user": "Ukjent",
+            "WEBMOB_common_unknown": "Ukjent"
         },
         "EN-GB": {
             "WEBMOB_common_TB_navigate_up": "Navigate up",
@@ -3798,7 +3834,9 @@ var LANGUAGE_FILE_COMMON = {
             "WEBMOB_common_search": "Search",
             "WEBMOB_common_device_information_legacy_smarthome": "This device is connected to Samsung Smart Home.",
             "WEBMOB_common_device_information_legacy_knox": "Your connected life is protected by Knox Life",
-            "WEBMOB_common_select": "Select"
+            "WEBMOB_common_select": "Select",
+            "CONV_familycommunication_unknown_user": "Unknown",
+            "WEBMOB_common_unknown": "Unknown"
         },
         "PL": {
             "WEBMOB_common_TB_navigate_up": "Wróć",
@@ -3998,7 +4036,9 @@ var LANGUAGE_FILE_COMMON = {
             "WEBMOB_common_search": "Wyszukaj",
             "WEBMOB_common_device_information_legacy_smarthome": "To urządzenie zostało połączone z rozwiązaniem Samsung Smart Home.",
             "WEBMOB_common_device_information_legacy_knox": "Knox Life chroni urządzenia, z których korzystasz",
-            "WEBMOB_common_select": "Wybierz"
+            "WEBMOB_common_select": "Wybierz",
+            "CONV_familycommunication_unknown_user": "Nieznany",
+            "WEBMOB_common_unknown": "Nieznane"
         },
         "PT": {
             "WEBMOB_common_TB_navigate_up": "Ir para cima",
@@ -4198,7 +4238,9 @@ var LANGUAGE_FILE_COMMON = {
             "WEBMOB_common_search": "Procurar",
             "WEBMOB_common_device_information_legacy_smarthome": "Este dispositivo está ligado ao Samsung Smart Home.",
             "WEBMOB_common_device_information_legacy_knox": "O seu estilo de vida sempre ligado está protegido pela Knox Life",
-            "WEBMOB_common_select": "Seleccionar"
+            "WEBMOB_common_select": "Seleccionar",
+            "CONV_familycommunication_unknown_user": "Desconhecido",
+            "WEBMOB_common_unknown": "Desconhecido"
         },
         "RO": {
             "WEBMOB_common_TB_navigate_up": "Navigare în sus",
@@ -4398,7 +4440,9 @@ var LANGUAGE_FILE_COMMON = {
             "WEBMOB_common_search": "Căutare",
             "WEBMOB_common_device_information_legacy_smarthome": "Dispozitivul este conectat acum la Samsung Smart Home.",
             "WEBMOB_common_device_information_legacy_knox": "Viaţa dvs. conectată la dispozitive va fi protejată de Knox Life",
-            "WEBMOB_common_select": "Selectare"
+            "WEBMOB_common_select": "Selectare",
+            "CONV_familycommunication_unknown_user": "Necunoscut",
+            "WEBMOB_common_unknown": "Necunoscut"
         },
         "RU": {
             "WEBMOB_common_TB_navigate_up": "Перейти наверх",
@@ -4598,7 +4642,9 @@ var LANGUAGE_FILE_COMMON = {
             "WEBMOB_common_search": "Поиск",
             "WEBMOB_common_device_information_legacy_smarthome": "Это устройство подключено к Samsung Smart Home.",
             "WEBMOB_common_device_information_legacy_knox": "Ваши подключенные устройства защищены Knox Life",
-            "WEBMOB_common_select": "Выбор"
+            "WEBMOB_common_select": "Выбор",
+            "CONV_familycommunication_unknown_user": "Неизвестный",
+            "WEBMOB_common_unknown": "Неизвестно"
         },
         "SR": {
             "WEBMOB_common_TB_navigate_up": "Navigacija nagore",
@@ -4798,7 +4844,9 @@ var LANGUAGE_FILE_COMMON = {
             "WEBMOB_common_search": "Pretraga",
             "WEBMOB_common_device_information_legacy_smarthome": "Ovaj uređaj je povezan na Samsung Smart Home.",
             "WEBMOB_common_device_information_legacy_knox": "Knox Life omogućava vam život povezan sa uređajima",
-            "WEBMOB_common_select": "Izaberi"
+            "WEBMOB_common_select": "Izaberi",
+            "CONV_familycommunication_unknown_user": "Nepoznato",
+            "WEBMOB_common_unknown": ""
         },
         "SK": {
             "WEBMOB_common_TB_navigate_up": "Prejsť nahor",
@@ -4998,7 +5046,9 @@ var LANGUAGE_FILE_COMMON = {
             "WEBMOB_common_search": "Hľadať",
             "WEBMOB_common_device_information_legacy_smarthome": "Toto zariadenie je teraz pripojené k službe Samsung Smart Home.",
             "WEBMOB_common_device_information_legacy_knox": "Váš život pripojený k zariadeniam chráni spoločnosť Knox Life",
-            "WEBMOB_common_select": "Vybrať"
+            "WEBMOB_common_select": "Vybrať",
+            "CONV_familycommunication_unknown_user": "Neznámy",
+            "WEBMOB_common_unknown": ""
         },
         "SL": {
             "WEBMOB_common_TB_navigate_up": "Pomakni se gor",
@@ -5198,7 +5248,9 @@ var LANGUAGE_FILE_COMMON = {
             "WEBMOB_common_search": "Išči",
             "WEBMOB_common_device_information_legacy_smarthome": "Ta naprava je povezana s storitvijo Samsung Smart Home.",
             "WEBMOB_common_device_information_legacy_knox": "Življenje, povezano z napravami, varuje Knox Life",
-            "WEBMOB_common_select": "Izberite"
+            "WEBMOB_common_select": "Izberite",
+            "CONV_familycommunication_unknown_user": "Neznan",
+            "WEBMOB_common_unknown": ""
         },
         "ES": {
             "WEBMOB_common_TB_navigate_up": "Ir arriba",
@@ -5398,7 +5450,9 @@ var LANGUAGE_FILE_COMMON = {
             "WEBMOB_common_search": "Buscar",
             "WEBMOB_common_device_information_legacy_smarthome": "Este dispositivo está conectado a Samsung Smart Home.",
             "WEBMOB_common_device_information_legacy_knox": "Knox Life protege toda su vida conectada a dispositivos",
-            "WEBMOB_common_select": "Seleccionar"
+            "WEBMOB_common_select": "Seleccionar",
+            "CONV_familycommunication_unknown_user": "Desconocido",
+            "WEBMOB_common_unknown": "Desconocido"
         },
         "SV": {
             "WEBMOB_common_TB_navigate_up": "Gå tillbaka",
@@ -5598,7 +5652,9 @@ var LANGUAGE_FILE_COMMON = {
             "WEBMOB_common_search": "Sök",
             "WEBMOB_common_device_information_legacy_smarthome": "Nu är enheten ansluten till Samsung Smart Home.",
             "WEBMOB_common_device_information_legacy_knox": "Dina anslutna enheter skyddas av Knox Life",
-            "WEBMOB_common_select": "Välj"
+            "WEBMOB_common_select": "Välj",
+            "CONV_familycommunication_unknown_user": "Okänd",
+            "WEBMOB_common_unknown": "Okänd"
         },
         "TR": {
             "WEBMOB_common_TB_navigate_up": "Yukarı git",
@@ -5798,7 +5854,9 @@ var LANGUAGE_FILE_COMMON = {
             "WEBMOB_common_search": "Ara",
             "WEBMOB_common_device_information_legacy_smarthome": "Bu enjam Samsung Smart Home-e birigen.",
             "WEBMOB_common_device_information_legacy_knox": "Cihazlarınızla bağlantınız Knox Life&apos;la korunur",
-            "WEBMOB_common_select": "Seç"
+            "WEBMOB_common_select": "Seç",
+            "CONV_familycommunication_unknown_user": "Bilinmiyor",
+            "WEBMOB_common_unknown": "Bilinmiyor"
         },
         "ZH": {
             "WEBMOB_common_TB_navigate_up": "导航至上一层",
@@ -5998,7 +6056,9 @@ var LANGUAGE_FILE_COMMON = {
             "WEBMOB_common_search": "搜索",
             "WEBMOB_common_device_information_legacy_smarthome": "此设备已连接至 Samsung Smart Home。",
             "WEBMOB_common_device_information_legacy_knox": "Knox Life 保护您与设备连接的生活",
-            "WEBMOB_common_select": "选择"
+            "WEBMOB_common_select": "选择",
+            "CONV_familycommunication_unknown_user": "未知",
+            "WEBMOB_common_unknown": "未知"
         },
         "TH": {
             "WEBMOB_common_TB_navigate_up": "ขึ้น",
@@ -6198,7 +6258,9 @@ var LANGUAGE_FILE_COMMON = {
             "WEBMOB_common_search": "ค้นหา",
             "WEBMOB_common_device_information_legacy_smarthome": "อุปกรณ์นี้เชื่อมต่ออยู่กับ Samsung Smart Home",
             "WEBMOB_common_device_information_legacy_knox": "ชีวิตที่เชื่อมต่อกับทุกอุปกรณ์ของคุณได้รับการปกป้องโดย Knox Life",
-            "WEBMOB_common_select": "เลือก"
+            "WEBMOB_common_select": "เลือก",
+            "CONV_familycommunication_unknown_user": "ไม่รู้จัก",
+            "WEBMOB_common_unknown": "ไม่ทราบ"
         }
     }
 };

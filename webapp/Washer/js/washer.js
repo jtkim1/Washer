@@ -29,6 +29,10 @@ app.controller("WSController", function ($scope, SHPService) {
     }
     data = LOADING_STRING["language"]["DEFAULT"];
     $scope.translation = data;
+    $scope.appClosed = false;
+    $scope.errorConnFailure = false;
+    
+    $scope.errorList = [];
 
     $scope.updateDeviceData = updateDeviceData;
     $scope.parseRequestResponse = parseRequestResponse;
@@ -36,12 +40,25 @@ app.controller("WSController", function ($scope, SHPService) {
     $scope.callGetDevice = callGetDevice;
     $scope.parseRequestAccepted = parseRequestAccepted;
     $scope.handleInitialResponse = handleInitialResponse;
+    $scope.showConnectionFailurePopup = showConnectionFailurePopup;
+    $scope.connectionFailureOKClicked = connectionFailureOKClicked;
     
-    function updateDeviceData(data) {
-        SHPService.updateDeviceData($scope, data);
+    function updateDeviceData(response) {
+        if (response["type"] === "requestResponse") {
+            if (angular.isDefined(response["status"]) && response["status"] === STCONST.STATUS_99000) {
+                debugMessage("what the f!!!!!!!!");
+                $scope.showConnectionFailurePopup();
+                return;
+            }
+        }
+        SHPService.updateDeviceData($scope, response);
     }
 
     function parseRequestResponse(response) {
+        if (angular.isDefined(response["status"]) && response["status"] === 99000) {
+            debugMessage("show connection failure");
+            showConnectionFailurePopup();
+        }
         if (angular.isDefined(response["data"]) && angular.isDefined(response["data"]["Devices"]) && angular.isDefined(response["data"]["Devices"][0]) && angular.isDefined(response["data"]["Devices"][0]["Mode"]) && angular.isDefined(response["data"]["Devices"][0]["Mode"]["options"])) {
             var modeOptionsArray = response["data"]["Devices"][0]["Mode"]["options"];
             var ret = modeOptionsArray.indexOf("SpecialFunction_1");
@@ -71,6 +88,31 @@ app.controller("WSController", function ($scope, SHPService) {
     
     function handleInitialResponse() {
         ;// Dummy method created to avoid error
+    }
+    
+    function showConnectionFailurePopup() {
+        debugMessage("In the connection failure pop-up");
+        if ($scope.appClosed || $scope.errorConnFailure) {
+            return;
+        }
+        $scope.errorConnFailure = true;
+        while ($scope.errorList.length !== 0) {
+            $scope.errorList.pop();
+        }
+        $scope.errorList.push({
+            title: 'Connection End',
+            msg: 'Please check the power cord connection and the network connection status of the device.',
+            btnOkTxt: 'OK',
+            btnOkHandler: function () {
+                connectionFailureOKClicked();
+            },
+            closeDialog: true
+        });
+    }
+    
+    function connectionFailureOKClicked() {
+        $scope.appClosed = true;
+        nativeInterface.runOnNative("closeWebApp", "");
     }
 
 });

@@ -894,7 +894,7 @@
             this.options.sliderType = type;
         },
         _updateStartEnd: function () {
-            this.options.startAngle = 90;
+            //this.options.startAngle = 90;
         },
         _validateStartEnd: function () {
             this._start = this._validateStartAngle();

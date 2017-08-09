@@ -36,7 +36,12 @@ var WASHERSCREENS = {
     OPENSOURCE: 22,
     COUNTRYLIST: 23,
     DRAINFILTEROPTION: 24,
-    DRAINFILTERGUIDEPAGE: 25
+    DRAINFILTERGUIDEPAGE: 25,
+    AUTOREPLENISHMENTPAGE: 26,
+    AUTOREPLENISHMENTSETTINGPAGE: 27,
+    LAUNDRYRECIPEPAGESTAGEONE: 28,
+    LAUNDRYRECIPEPAGESTAGETWO: 29,
+    LAUNDRYRECIPEPAGESTAGETHREE: 30
 };
 
 var WASHER_DEVICEINFO = {
@@ -403,7 +408,8 @@ var WASHER_COMMANDS = {
     "syncTime": "syncTime",
     "PARSE_CONFIGURATION": "PARSE_CONFIGURATION",
     "SAEMLESS_CONTROL": "SAEMLESS_CONTROL",
-    "FREEZE_PROTECTION_ALARM": "FREEZE_PROTECTION_ALARM"
+    "FREEZE_PROTECTION_ALARM": "FREEZE_PROTECTION_ALARM",
+    "AUTO_REPLENISHMENT_SERVICE": "AUTO_REPLENISHMENT_SERVICE"
 };
 
 var WASHER_DETERGENT = {
@@ -481,6 +487,12 @@ var BUBBLE_SOAK = {
     NOTUSED: 0,
     ON: 1,
     OFF: 2
+};
+
+var APS_DETTYPE = {
+    NONE: 0,
+    POD: 1,
+    LIQUID: 2
 };
 
 var SA_WASHER = {
@@ -728,6 +740,7 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
     var startCommandFromFavIndex = -1;
     var cHeight = 0, cWidth = 0, base = 0;
     var setEndTimerDrag = $("#setEndTimerDrag");
+    var modeAnimateInterval = null; //modeAnimate
     var scroll_middle_area = document.getElementById("scrollSettings");
     $scope.circleWidth = document.getElementById("circularProgress").offsetWidth;
     $scope.circleHeight = document.getElementById("circularProgress").offsetHeight;
@@ -779,7 +792,6 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
     $scope.translation;
     $scope.enrgyMonitorTab;
     $scope.tempSlide = document.getElementById('tempSlider');
-    $scope.initSelectValue = 0;
     $scope.FavID = null;
     $scope.isNoti = !true;
     $scope.addWash = false;
@@ -812,7 +824,9 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
     //$scope.showSyncTimeMain = false;
     $scope.washNotIncluded = false;
     $scope.rinseremove0102 = false;
+    $scope.showCountryList = false;
     $scope.descHasDongleSub = false;
+    $scope.custReorderPopUp = false;
     $scope.descHasDongleMain = false;
     $scope.indicatorExpanded = false;
     $scope.samrtControlPopup = false;
@@ -829,26 +843,34 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
     $scope.remoteControlEnabled = false;
     $scope.rinseOnlyAtSetCourse = false;
     $scope.remoteControlEnabledSub = true;
+    $scope.autoReplenishmentValue = false;
     $scope.remoteControlEnabledMain = true;
     $scope.rinseOnlyAtSetCourseSub = false;
     $scope.rinseOnlyAtSetCourseMain = false;
+    $scope.currentDetergentAmountPopup = false;
     $scope.countrySelectionPopupVisible = false;
     $scope.setFreezeProtectionCommandComing = false;
-    $scope.showCountryList = false;
-    $scope.countryListDetail = [];
 
     $scope.max = 100;
+    $scope.stroke = 20;
+    $scope.podValue = 10;
     $scope.iterations = 50;
+    $scope.reOrderValue = 0;
+    $scope.setEndTimeStart = 0;
     $scope.setEndTimeValue = 0;
     $scope.callServiceIndex = 0;
     $scope.koreanComboIndex = 0;
     $scope.mostUsedItemIndex = 0;
     $scope.dialCallNumLength = 1;
+    $scope.curValSettingPopUp = 0;
     $scope.koreanComboSubIndex = 0;
     $scope.incrementProgress = 0.1;
     $scope.countrySelectedIndex = 0;
+    $scope.garmentTypeSelected = -1;
+    $scope.numOfSelectedLaundryRecipes = 0;
+    $scope.currentReorderSelectedIndex = 0;
+    $scope.currentNoOfPodSelectedIndex = 0;
     $scope.radius = $scope.circleHeight / 2;
-    $scope.stroke = 20;//Math.ceil($scope.circleHeight / 2); // for progress bar height //20
     $scope.diameter = $scope.applePhone ? $scope.radius * 2 + 2 : $scope.radius * 2;
 
     $scope.switchON = 'I';
@@ -857,11 +879,14 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
     $scope.bgColor = '#FAFAFA00';
     $scope.smartControlDesc = "";
     $scope.smartControlTitle = "";
+    $scope.curDetAmtUnitValue = "ml";
     $scope.deviceStatusMain = 'Ready';
     $scope.deviceStatusSub = 'Ready';
     $scope.BottomPopupDivCls = '';
     $scope.containSubCl = "containSub";
     $scope.ModeSelectionPopupDivCls = '';
+    $scope.apsDetType = APS_DETTYPE.NONE;
+    $scope.detergentName = "Main Detergent";
     $scope.currentAnimation = 'easeOutCubic';
     $scope.BottomPopupDimBackgroundDiv = '';
     $scope.washerToUpdate = WASHERTOUPDATE.NONE;
@@ -876,17 +901,20 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
     $scope.smartControlOnOffText = $scope.translation.WEBMOB_device_washer_comm_off_CL;
     $scope.addWashAlarm = $scope.translation.WEBMOB_device_washer_settings_addwash_alarm;
     $scope.freezeProtectionAlarmOnOFf = $scope.translation.WEBMOB_device_washer_comm_off_CL;
+    $scope.autoReplenishmentTextValue = $scope.autoReplenishmentValue === true ? "ON" : "OFF";
     $scope.progressColor = 'rgb(54,149,221)';
     /*if ($scope.appVersionInitial === '' || $scope.appVersionInitial === undefined) {
      $scope.appVersionInitial = "WW(D).1.0.6";
      }*/
-    $scope.appVersion = "WW(D).SC.0.59";
+    $scope.appVersion = "WW(D).SC.0.60";
     $scope.errorList = [];
     $scope.dialCallNum = [];
     $scope.checkResponse = [];
     $scope.countryToSelect = [];
+    $scope.countryListDetail = [];
     $scope.arrImages = ["washer"];
     $scope.topLoaderModelArray = ['0145'];
+    $scope.listCurDetAmtUnit = ["ml", "L", "CC"];
     $scope.optionsMenu = [{
             id: 0,
             title: $scope.translation.WEBMOB_common_settings
@@ -937,6 +965,34 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
         }, {
             id: 5,
             title: 'Sixth option'
+        }];
+    
+    $scope.reorderOptionList = [{
+            id: 0,
+            title: 'When 5 pods left'
+        }, {
+            id: 1,
+            title: 'When 10 pods left'
+        }, {
+            id: 2,
+            title: 'When 15 pods left'
+        }, {
+            id: 3,
+            title: 'Customize'
+        }];
+    
+    $scope.numOfPodsUsedForLaundry = [{
+            id: 0,
+            title: '0 (Default)'
+        }, {
+            id: 1,
+            title: '1'
+        }, {
+            id: 2,
+            title: '2'
+        }, {
+            id: 2,
+            title: '3'
         }];
 
     $scope.koreanComboSubOptions = [{
@@ -1041,6 +1097,185 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
         "WEBMOB_device_washer_error_title_ddc",
         "WEBMOB_device_washer_error_title_dc3"
     ];
+    
+    $scope.LRGarmentType = [{
+            id: 0,
+            title: "ORDINARY",
+            isSelected: false,
+            options: [{
+                    name: "Towel",
+                    img: "Towel",
+                    isOptionChecked: false,
+                    isOptionDisabled: false
+            }, {
+                    name: "Jean",
+                    img: "Jean",
+                    isOptionChecked: false,
+                    isOptionDisabled: false
+            }, {
+                    name: "Pants",
+                    img: "Pants",
+                    isOptionChecked: false,
+                    isOptionDisabled: false
+            }, {
+                    name: "T-Shirts",
+                    img: "Tshirts",
+                    isOptionChecked: false,
+                    isOptionDisabled: false
+            }, {
+                    name: "Shirts",
+                    img: "Shirts",
+                    isOptionChecked: false,
+                    isOptionDisabled: false
+            }, {
+                    name: "Underpants",
+                    img: "Underpants",
+                    isOptionChecked: false,
+                    isOptionDisabled: false
+            }, {
+                    name: "Socks",
+                    img: "Socks",
+                    isOptionChecked: false,
+                    isOptionDisabled: false
+            }, {
+                    name: "Hat",
+                    img: "Hat",
+                    isOptionChecked: false,
+                    isOptionDisabled: false
+            }]
+        }, {
+            id: 1,
+            title: "HEAVY CLOTHING",
+            isSelected: false,
+            options: [{
+                    name: "Cardigan",
+                    img: "Cardigan",
+                    isOptionChecked: false,
+                    isOptionDisabled: false
+            }, {
+                    name: "Sweater",
+                    img: "Sweater",
+                    isOptionChecked: false,
+                    isOptionDisabled: false
+            }, {
+                    name: "Knit",
+                    img: "Knit",
+                    isOptionChecked: false,
+                    isOptionDisabled: false
+            }]
+        }, {
+            id: 2,
+            title: "UNDERWEAR",
+            isSelected: false,
+            options: [{
+                    name: "Blouse",
+                    img: "Blouse",
+                    isOptionChecked: false,
+                    isOptionDisabled: false
+            }, {
+                    name: "Lingrie",
+                    img: "Lingrie",
+                    isOptionChecked: false,
+                    isOptionDisabled: false
+            }, {
+                    name: "Bra",
+                    img: "Bra",
+                    isOptionChecked: false,
+                    isOptionDisabled: false
+            }, {
+                    name: "Scarf",
+                    img: "Scarf",
+                    isOptionChecked: false,
+                    isOptionDisabled: false
+            }, {
+                    name: "Stocking",
+                    img: "Stocking",
+                    isOptionChecked: false,
+                    isOptionDisabled: false
+            }]
+        }, {
+            id: 3,
+            title: "ACTIVE WEAR",
+            isSelected: false,
+            options: [{
+                    name: "Sports",
+                    img: "Sports",
+                    isOptionChecked: false,
+                    isOptionDisabled: false
+            }, {
+                    name: "Outdoor",
+                    img: "Outdoor",
+                    isOptionChecked: false,
+                    isOptionDisabled: false
+            }, {
+                    name: "Waterproof",
+                    img: "Waterproof",
+                    isOptionChecked: false,
+                    isOptionDisabled: false
+            }] 
+        }, {
+            id: 4,
+            title: "SLEEPING GEAR",
+            isSelected: false,
+            options: [{
+                    name: "Bed Cover",
+                    img: "Bedcover",
+                    isOptionChecked: false,
+                    isOptionDisabled: false
+            }, {
+                    name: "Bed Sheet",
+                    img: "Bedsheet",
+                    isOptionChecked: false,
+                    isOptionDisabled: false
+            }, {
+                    name: "Curtain",
+                    img: "Curtain",
+                    isOptionChecked: false,
+                    isOptionDisabled: false
+            }]
+    }];
+
+    $scope.LRGarmentColor = [{
+            id: 0,
+            title: "COLOR",
+            isSelected: false,
+            options: [{
+                    name: "White",
+                    img: "white",
+                    isOptionChecked: false,
+                    isOptionDisabled: false
+            }, {
+                    name: "Dark",
+                    img: "colors_darks",
+                    isOptionChecked: false,
+                    isOptionDisabled: false
+            }, {
+                    name: "Colored",
+                    img: "color_cloth",
+                    isOptionChecked: false,
+                    isOptionDisabled: false
+            }]
+        }, {
+            id: 0,
+            title: "SOIL",
+            isSelected: false,
+            options: [{
+                    name: "Light",
+                    img: "light",
+                    isOptionChecked: false,
+                    isOptionDisabled: false
+            }, {
+                    name: "Normal",
+                    img: "normal_laundry",
+                    isOptionChecked: false,
+                    isOptionDisabled: false
+            }, {
+                    name: "Heavy",
+                    img: "heavy",
+                    isOptionChecked: false,
+                    isOptionDisabled: false
+            }]
+        }];
 
     $scope.countryToSelect.push({'Country': 'Belgium'});
     $scope.countryToSelect.push({'Country': 'Belgium(F)'});
@@ -1050,6 +1285,8 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
             console.log(Debug_tag + message);
         }
     }
+    
+    updatePodValueArray();
 
     //Tutorial arrays
     $scope.arrHeader = [$scope.translation.WEBMOB_device_washer_error_title_5e];
@@ -1092,6 +1329,7 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
     $scope.getColor = getColor;
     $scope.closeApp = closeApp;
     $scope.settings = settings;
+    $scope.toggleARS = toggleARS;
     $scope.openAbout = openAbout;
     $scope.closeNoti = closeNoti;
     $scope.isChecked = isChecked;
@@ -1109,6 +1347,7 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
     $scope.isMainHeader = isMainHeader;
     $scope.saveFavorite = saveFavorite;
     $scope.showOTNPopup = showOTNPopup;
+    $scope.selectDetUnit = selectDetUnit;
     $scope.getCancelText = getCancelText;
     $scope.callGetDevice = callGetDevice;
     $scope.showDailyData = showDailyData;
@@ -1155,9 +1394,6 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
     $scope.getmodeSelected = getmodeSelected;
     $scope.getModeDisabled = getModeDisabled;
     $scope.doCancelWashing = doCancelWashing;
-    $scope.selectIndexTemp = selectIndexTemp;
-    $scope.selectIndexSpin = selectIndexSpin;
-    $scope.selectIndexSpinValue = selectIndexSpinValue;
     $scope.showMonthlyData = showMonthlyData;
     $scope.showOptionPopup = showOptionPopup;
     $scope.onAddWashSwitch = onAddWashSwitch;
@@ -1167,20 +1403,22 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
     $scope.clickOpenSource = clickOpenSource;
     $scope.handleKeyAction = handleKeyAction;
     $scope.openLaundryPage = openLaundryPage;
+    $scope.goToAmazonPrime = goToAmazonPrime;
+    $scope.setReorderPopup = setReorderPopup;
     $scope.isMostUsedCourse = isMostUsedCourse;
     $scope.getRinseConstant = getRinseConstant;
     $scope.onCloseTempPopup = onCloseTempPopup;
     $scope.updateDeviceData = updateDeviceData;
     $scope.onSettingsUpdate = onSettingsUpdate;
     $scope.openPopoverRinse = openPopoverRinse;
-    $scope.selectIndexRinse = selectIndexRinse;
     $scope.getEcottonCourse = getEcottonCourse;
-    $scope.setTempSelectValue = setTempSelectValue;
     $scope.showNextDaysData = showNextDaysData;
     $scope.closeOptionPopUp = closeOptionPopUp;
     $scope.sendResetCommand = sendResetCommand;
     $scope.setSelectAllText = setSelectAllText;
     $scope.cancelSetEndTime = cancelSetEndTime;
+    $scope.increasePodValue = increasePodValue;
+    $scope.decreasePodValue = decreasePodValue;
     $scope.cancelMultiSelect = cancelMultiSelect;
     $scope.parseNotification = parseNotification;
     $scope.onCountrySelected = onCountrySelected;
@@ -1190,6 +1428,8 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
     $scope.openAddWashScreen = openAddWashScreen;
     $scope.numOfCheckedItems = numOfCheckedItems;
     $scope.isAllItemsChecked = isAllItemsChecked;
+    $scope.selectCurIndexTemp = selectCurIndexTemp;
+    $scope.selectCurIndexSpin = selectCurIndexSpin;
     $scope.openPopoverTempFav = openPopoverTempFav;
     $scope.openPopoverSpinFav = openPopoverSpinFav;
     $scope.parseConfiguration = parseConfiguration;
@@ -1202,6 +1442,7 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
     $scope.hasFavoriteChanged = hasFavoriteChanged;
     $scope.cancelSaveFavorite = cancelSaveFavorite;
     $scope.toggleAllCheckList = toggleAllCheckList;
+    $scope.selectCurIndexRinse = selectCurIndexRinse;
     $scope.openSetEndTimePopUp = openSetEndTimePopUp;
     $scope.goToInformationPage = goToInformationPage;
     $scope.selectIndexDryLevel = selectIndexDryLevel;
@@ -1217,6 +1458,7 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
     $scope.setSelectOptionText = setSelectOptionText;
     $scope.setDeleteOptionText = setDeleteOptionText;
     $scope.setCancelOptionText = setCancelOptionText;
+    $scope.popUpOkClickHandler = popUpOkClickHandler;
     //$scope.getDeviceTypeInitial = getDeviceTypeInitial;
     $scope.getSmartControlImage = getSmartControlImage;
     $scope.showDrumCleanHistory = showDrumCleanHistory;
@@ -1229,6 +1471,8 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
     $scope.getTempSelectedPopUp = getTempSelectedPopUp;
     $scope.getSpinSelectedPopUp = getSpinSelectedPopUp;
     $scope.getSoilSelectedPopUp = getSoilSelectedPopUp;
+    $scope.setCurDetAmountPopup = setCurDetAmountPopup;
+    $scope.showAmazonServiePopUp = showAmazonServiePopUp;
     $scope.handleInitialResponse = handleInitialResponse;
     $scope.showDrainFilterOption = showDrainFilterOption;
     $scope.showMultiSelectHeader = showMultiSelectHeader;
@@ -1239,6 +1483,11 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
     $scope.isEnergyResetDisabled = isEnergyResetDisabled;
     $scope.selectMyFavoriteCycle = selectMyFavoriteCycle;
     $scope.updateSetEndTimeValue = updateSetEndTimeValue;
+    $scope.openLaundryPageStage1 = openLaundryPageStage1;
+    $scope.openLaundryPageStage2 = openLaundryPageStage2;
+    $scope.openLaundryPageStage3 = openLaundryPageStage3;
+    $scope.isReorderSelectedIndex = isReorderSelectedIndex;
+    $scope.getDetergentTypeString = getDetergentTypeString;
     $scope.changeBubbleSoakOption = changeBubbleSoakOption;
     $scope.getDryComboDisabledFav = getDryComboDisabledFav;
     $scope.selectIndexDryLevelFav = selectIndexDryLevelFav;
@@ -1248,40 +1497,53 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
     $scope.selectTempFromSettings = selectTempFromSettings;
     $scope.selectSoilFromSettings = selectSoilFromSettings;
     $scope.selectSpinFromSettings = selectSpinFromSettings;
+    $scope.openCurDetAmtUnitPopUp = openCurDetAmtUnitPopUp;
+    $scope.getDetUnitSelectedValue = getDetUnitSelectedValue;
     $scope.selectRinseFromSettings = selectRinseFromSettings;
     $scope.disableTempContentsFunc = disableTempContentsFunc;
     $scope.disableSoilContentsFunc = disableSoilContentsFunc;
     $scope.openPopoverSoilLevelFav = openPopoverSoilLevelFav;
     $scope.disableSpinContentsFunc = disableSpinContentsFunc;
+    $scope.closeCurDetAmtUnitPopUp = closeCurDetAmtUnitPopUp;
+    $scope.isNumOfPodSelectedIndex = isNumOfPodSelectedIndex;
+    $scope.selectCurIndexSoilLevel = selectCurIndexSoilLevel;
     $scope.numberOfEnableDryOptions = numberOfEnableDryOptions;
     $scope.openDryComboLevelPageFav = openDryComboLevelPageFav;
     $scope.getDryComboLevelConstant = getDryComboLevelConstant;
     $scope.callServiceIndexSelected = callServiceIndexSelected;
-    $scope.selectIndexTempSoilLevel = selectIndexTempSoilLevel;
     $scope.toggleSmartControlButton = toggleSmartControlButton;
     $scope.removeItemFromMyFavorite = removeItemFromMyFavorite;
+    $scope.autoReplenishmentClicked = autoReplenishmentClicked;
     $scope.disableFavoriteHeaterSpec = disableFavoriteHeaterSpec;
     $scope.openDrainFilterUsageGuide = openDrainFilterUsageGuide;
     $scope.getSpinDisableKoreanSpecs = getSpinDisableKoreanSpecs;
     $scope.handleEnergyMonitorErrors = handleEnergyMonitorErrors;
     $scope.selectIndexFromOptionMenu = selectIndexFromOptionMenu;
+    $scope.reorderOptionItemSelected = reorderOptionItemSelected;
+    $scope.selectLRGarmentTypeOption = selectLRGarmentTypeOption;
+    $scope.selectLRGarmentColorOption = selectLRGarmentColorOption;
     $scope.showConnectionFailurePopup = showConnectionFailurePopup;
     $scope.onCountrySelectedOkClicked = onCountrySelectedOkClicked;
     $scope.closeCountrySelectionPopup = closeCountrySelectionPopup;
     $scope.toggleSelectAllListCheckBox = toggleSelectAllListCheckBox;
     $scope.deleteItemsFromFavoriteList = deleteItemsFromFavoriteList;
     $scope.toggleWashIndicatorInfoArea = toggleWashIndicatorInfoArea;
+    $scope.getLRGarmentColorOptionIcon = getLRGarmentColorOptionIcon;
     $scope.onKoreanComboOptionsSelected = onKoreanComboOptionsSelected;
     $scope.onFreezeProtectionAlarmToggle = onFreezeProtectionAlarmToggle;
     $scope.confirmDeleteItemsFromFavorite = confirmDeleteItemsFromFavorite;
     $scope.getSpinDisableKoreanSpecsMyFav = getSpinDisableKoreanSpecsMyFav;
+    $scope.ifSoilSelectedForLaundryRecipe = ifSoilSelectedForLaundryRecipe;
     $scope.onKoreanComboOptionsSelectedFav = onKoreanComboOptionsSelectedFav;
     $scope.selectIndexKoreanComboSubOption = selectIndexKoreanComboSubOption;
     $scope.longPressOnItemFromFavoritePage = longPressOnItemFromFavoritePage;
     $scope.openFreezeProtectionAlarmScreen = openFreezeProtectionAlarmScreen;
+    $scope.openCurrentDetergentAmountPopup = openCurrentDetergentAmountPopup;
+    $scope.gotoAutoRepelnishmentSettingPage = gotoAutoRepelnishmentSettingPage;
     $scope.onCloseKoreanComboSubOptionPopup = onCloseKoreanComboSubOptionPopup;
     $scope.selectIndexKoreanComboSubOptionFav = selectIndexKoreanComboSubOptionFav;
     $scope.cancelButtonPressedFromMultiSelect = cancelButtonPressedFromMultiSelect;
+    $scope.numOfPodsUsedForLaundryItemSelected = numOfPodsUsedForLaundryItemSelected;
     $scope.onCloseKoreanComboSubOptionPopupFav = onCloseKoreanComboSubOptionPopupFav;
 
     CountryService.getCountryList();
@@ -1603,7 +1865,7 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
     }
     
     function showCancelSave() {
-        return $scope.addFavoritePage;
+        return $scope.addFavoritePage || $scope.autoReplenishmentPage;
     }
 
     function hasFavoriteChanged() {
@@ -1611,13 +1873,62 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
     }
 
     function saveFavorite() {
-        sendSAData(SA_WASHER.ADD_EDIT_MY_FAVORITE_PAGE.SCREEN, SA_WASHER.ADD_EDIT_MY_FAVORITE_PAGE.SAVE_BTN, "", "");
-        saveButtonFavorite();
+        switch($scope.currentScreen) {
+            case WASHERSCREENS.ADDFAVORITE :
+                sendSAData(SA_WASHER.ADD_EDIT_MY_FAVORITE_PAGE.SCREEN, SA_WASHER.ADD_EDIT_MY_FAVORITE_PAGE.SAVE_BTN, "", "");
+                saveButtonFavorite();
+                break;
+            case WASHERSCREENS.AUTOREPLENISHMENTPAGE :
+                saveDetName();
+                sendReplenishmentInfo();
+                //Write code for sending data to set
+                $scope.currentScreen = WASHERSCREENS.SETTINGS;
+                changeScreen();
+                break;
+            default:
+                break;
+        }
     }
 
     function cancelFavorite() {
-        sendSAData(SA_WASHER.ADD_EDIT_MY_FAVORITE_PAGE.SCREEN, SA_WASHER.ADD_EDIT_MY_FAVORITE_PAGE.CANCEL_BTN, "", "");
-        cancelSaveFavorite();
+        switch($scope.currentScreen) {
+            case WASHERSCREENS.ADDFAVORITE :
+                sendSAData(SA_WASHER.ADD_EDIT_MY_FAVORITE_PAGE.SCREEN, SA_WASHER.ADD_EDIT_MY_FAVORITE_PAGE.CANCEL_BTN, "", "");
+                cancelSaveFavorite();
+                break;
+            case WASHERSCREENS.AUTOREPLENISHMENTPAGE :
+                $scope.currentScreen = WASHERSCREENS.SETTINGS;
+                changeScreen();
+                break;
+            default:
+                break;
+        }
+        
+    }
+    
+    function sendReplenishmentInfo() {
+        $scope.checkResponse.push(WASHER_COMMANDS.AUTO_REPLENISHMENT_SERVICE);
+        SHPService.sendSHPCommand(CONSTANTS.PUT, getAutoReplenishmentServiceCommand(), "/" + $scope.peerId + "/devices/0");
+    }
+    
+    function getAutoReplenishmentServiceCommand() {
+        var data = '{"Device":{"Mode":{"options":[';
+        
+        if ($scope.podValue !== $scope.detergentAmt) {
+            data = data + '"DetergentLeft_' + $scope.podValue+'"';
+        }
+        if ($scope.autoReplenishmentValue) {
+            if ($scope.detAlarm === "Off") {
+                data = data + ',"DetergentAlarm_' + $scope.detergentAlarm+'"';
+            }
+            if ($scope.detBase !== $scope.reOrderValue) {
+                data = data + ',"DetergentBase_' + $scope.reOrderValue+'"';
+            }
+            if ($scope.detOnce !== $scope.currentNoOfPodSelectedIndex) {
+                data = data + ',"DetergentOnce_' + $scope.currentNoOfPodSelectedIndex+'"';
+            }
+        }
+        data = data + ']}}}';
     }
 
     function getSaveText() {
@@ -2779,47 +3090,27 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
     }
 
     function onCloseTempPopup() {
-        console.log("onCloseTempPopup");
-        $scope.setTemp = $scope.initSelectValue ;
         $scope.tempPopup = false;
         toggleBottomPopUpClass($scope.tempPopup);
         changePopUpClass($scope.tempPopup);
     }
 
     function closeSpinPopup() {
-        console.log("closeSpinPopup");
-        $scope.setSpin = $scope.initSelectValue;
         $scope.spinPopup = false;
         toggleBottomPopUpClass($scope.spinPopup);
         changePopUpClass($scope.spinPopup);
         
-        for(var i=0; i<5; i++){
+        for(var i=0; i<6; i++){
             $(".BottomPopUpImageSpin").removeClass('spinAnimate'+i);
         }
     }
 
-    function closeRinsePopup(bool) {
-        console.log("closeRinsePopup : "+bool);
-        
-        if(bool)//OK 일때
-        {
-            if ($scope.specialCaseRinse !== $scope.setRinse) {
-                $scope.rinseChanged = true;
-                $scope.specialCaseRinse = $scope.setRinse;
-                debugMessage("Rinse changed" + $scope.rinseChanged);
-            }
-        }
-        else //CANCEL 일때
-        {
-            
-        }
-        
+    function closeRinsePopup() {
         $scope.rinsePopup = false;
         toggleBottomPopUpClass($scope.rinsePopup);
         changePopUpClass($scope.rinsePopup);
-        checkSpecialCase();
         
-        for(var i=0; i<5; i++){
+        for(var i=0; i<6; i++){
             $(".BottomPopUpImageWave").removeClass('waveAnimate'+i);
         }
     }
@@ -4828,6 +5119,41 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
             if (value.indexOf("BubbleSoak") !== -1) {
                 $scope.bubbleSoakValue = value.split("_")[1] === "On" ? true : false;
             }
+            
+            if (value.indexOf("DetergentType") !== -1) {
+                $scope.detType = Number(value.split("_")[1]);
+            }
+            
+            if (value.indexOf("DetergentLeft") !== -1) {
+                if ($scope.checkResponse.indexOf(WASHER_COMMANDS.AUTO_REPLENISHMENT_SERVICE) !== -1) {
+                    dismissLoadingBar(WASHER_COMMANDS.AUTO_REPLENISHMENT_SERVICE);
+                }
+                $scope.detergentAmt = Number(value.split("_")[1]);
+                $scope.podValue = $scope.detergentAmt;
+            }
+            
+            if (value.indexOf("DetergentAlarm_O") !== -1) {
+                if ($scope.checkResponse.indexOf(WASHER_COMMANDS.AUTO_REPLENISHMENT_SERVICE) !== -1) {
+                    dismissLoadingBar(WASHER_COMMANDS.AUTO_REPLENISHMENT_SERVICE);
+                }
+                $scope.detAlarm = value.split("_")[1];
+                $scope.autoReplenishmentValue = $scope.detAlarm === "On" ? true : false;
+                $scope.autoReplenishmentTextValue = $scope.autoReplenishmentValue === true ? "ON" : "OFF";
+            }
+            if (value.indexOf("DetergentBase") !== -1) {
+                if ($scope.checkResponse.indexOf(WASHER_COMMANDS.AUTO_REPLENISHMENT_SERVICE) !== -1) {
+                    dismissLoadingBar(WASHER_COMMANDS.AUTO_REPLENISHMENT_SERVICE);
+                }
+                $scope.detBase = Number(value.split("_")[1]);
+                updateReorderOptionItemSelected();
+            }
+            if (value.indexOf("DetergentOnce") !== -1) {
+                if ($scope.checkResponse.indexOf(WASHER_COMMANDS.AUTO_REPLENISHMENT_SERVICE) !== -1) {
+                    dismissLoadingBar(WASHER_COMMANDS.AUTO_REPLENISHMENT_SERVICE);
+                }
+                $scope.detOnce = Number(value.split("_")[1]);
+                updateNoOfPodSelected();
+            }
 
         });
     }
@@ -4999,6 +5325,16 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
             if (locVal === null) {
                 setLocalStorageData('WASHERsyncTime1', JSON.stringify(true));
                 return true;
+            }
+            return locVal;
+        }
+    }
+    
+    function getLocalStorageDataForDetName(item) {
+        if (typeof (Storage) !== "undefined") {
+            var locVal = localStorage.getItem(item);
+            if (locVal === null) {
+                return "Main Detergent";
             }
             return locVal;
         }
@@ -6295,17 +6631,16 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
     }
 
     function updateOperation(operationValues) {
+        console.log("updateOperation");
         debugMessage("power value is::" + operationValues.power);
         console.log("updateOperation::: "+JSON.stringify(operationValues));
-        if(operationValues.progress == "Wash") {
+/*        if(operationValues.progress == "Wash") {
             console.log("operationValues.progress::: "+operationValues.progress);
             var count = 0;
             $(".pulsatorImg").css("display","block");
             $(".drumImg").css("display","block");
-
-           
-
-        }
+            $(".bubbleAnimationClass").css("display","block");
+        }*/
         if (!$scope.isDualWasher && operationValues.power === "Off") {
             powerOffPopUp = true;
             $scope.errorList.push({
@@ -6687,10 +7022,13 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
     }
 
     function updateStatus(progressString) {
+        console.log("progressString="+progressString)
         console.log("updateStatus :: " + JSON.stringify(progressString));
 //        if ($scope.cycFinish) {
 //            return;
 //        }
+        modeAnimateFunc(progressString);
+
         if (isDeviceUpdateRequired($scope.washerToUpdate === WASHERTOUPDATE.SUBWASHER ? 1 : 0) && !$scope.cycFinish) {
             var ret = getStatusString(progressString);
             if (ret !== "-") {
@@ -6709,18 +7047,25 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
                         $scope.disableLaundry = true;
                     }
                     break;
+                case WASHER_PROGRESSDISPLAY.Wash:
+                    console.log("washer11");
+                    break;
                 default:
                     break;
             }
             if ($scope.deviceStatus === "Pause") {
+                console.log("pause");
                 $scope.dispStatus = $scope.translation.WEBMOB_device_washer_progressing_paused;
             } else if ($scope.deviceStatus === "Run" && $scope.dispStatus === $scope.translation.WEBMOB_device_washer_progressing_paused) {
+                console.log("run");
                 $scope.dispStatus = getStatusString($scope.Device.Operation.progress);
             } else {
+                console.log("else_$scope.stringDisplay="+$scope.stringDisplay)
                 $scope.dispStatus = $scope.stringDisplay;
             }
         }
         if ($scope.isDualWasher && $scope.washerToUpdate === WASHERTOUPDATE.MAINWASHER && !$scope.cycFinishMain) {
+            console.log("123")
             var ret = getStatusString(progressString);
             if (ret !== "-") {
                 $scope.stringDisplayMain = ret;
@@ -6749,6 +7094,7 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
                 $scope.dispStatusMain = $scope.stringDisplayMain;
             }
         } else if ($scope.isDualWasher && $scope.washerToUpdate === WASHERTOUPDATE.SUBWASHER && !$scope.cycFinishSub) {
+            console.log("678")
             var ret = getStatusString(progressString);
             if (ret !== "-") {
                 $scope.stringDisplaySub = ret;
@@ -6891,6 +7237,85 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
         }
     }
 
+    function modeAnimateFunc(progressString ){
+        var washCount = 0;
+        var rinseCount = 0;
+
+        console.log("modeAnimateFunc :: " + JSON.stringify(progressString));
+        if(modeAnimateInterval != null){
+            clearInterval(modeAnimateInterval);
+            modeAnimateInterval = null;
+        }
+
+        if(progressString === "Wash"){
+            console.log("[update Status //Wash] INIT CHECK ::")
+            $(".pulsatorImg").css("display","block");
+            $(".drumImg").css("display","block");
+            $(".bubbleAnimationClass").css("display","block");
+            modeAnimateInterval = setInterval(function(){
+                $("#washMode").children().eq(0).children().css({visibility : 'hidden'});
+                $("#washMode").children().eq(0).children().eq(washCount).css({visibility : 'hidden'});
+                washCount++;
+                washCount %= 42;
+                $("#washMode").children().eq(0).children().eq(washCount).css({visibility : 'visible'});
+            }, 40);
+        }
+        else if(progressString === "Rinse"){
+            console.log("[update Status //Wash] INIT CHECK ::")
+            $(".pulsatorImg").css("display","block");
+            $(".drumImg").css("display","block");
+            modeAnimateInterval = setInterval(function(){
+                $("#washMode").children().eq(0).children().css({visibility : 'hidden'});
+                $("#washMode").children().eq(0).children().eq(washCount).css({visibility : 'hidden'});
+                washCount++;
+                washCount %= 42;
+                $("#washMode").children().eq(0).children().eq(washCount).css({visibility : 'visible'});
+
+                $("#rinseMode").children().eq(0).children().css({visibility : 'hidden'});
+                $("#rinseMode").children().eq(0).children().eq(rinseCount).css({visibility : 'hidden'});
+                rinseCount++;
+                rinseCount %= 62;
+                $("#rinseMode").children().eq(0).children().eq(rinseCount).css({visibility : 'visible'});
+            }, 40)
+/*            modeAnimateInterval = setInterval(function(){
+                //console.log("[update Statuis // Wash] count : " + count);
+                $scope.modeWashAnimate = {
+                    'background-image': 'url("Washer/assets/img/main_wave/main_wave_' + washCount + '.png")',
+                    'background-size': '100% 100%',
+                    'background-repeat': 'no-repeat',
+                    '-webkit-animation-name': 'washModeAnimation',
+                    //'-webkit-transition': 'background-image .15s linear',
+                    '-webkit-animation-iteration-count': 'infinite'
+                    //'-webkit-animation': '.15s linear',
+                    //'-webkit-animation-timing-function': 'linear',
+                    //'will-change': 'transform',
+                    //'-webkit-animation-fill-mode': 'forwards',
+                }
+                $scope.modeRinseAnimate = {
+                    'background-image': 'url("Washer/assets/img/main_rinsing_spray/main_rinsing_spray_' + rinseCount + '.png")',
+                    'background-size': '100% 100%',
+                    'background-repeat': 'no-repeat',
+                    '-webkit-animation-name': 'modeAnimation',
+                    //'-webkit-transition': 'backgound-image .15s linear',
+                    '-webkit-animation-iteration-count': 'infinite'
+                    //'-webkit-animation': '.15s linear',
+                    //'-webkit-animation-timing-function': 'linear',
+                    //'will-change': 'transform',
+                    //'-webkit-animation-fill-mode': 'forwards',
+                }
+                $scope.$apply();
+
+                washCount++;
+                rinseCount++;
+                if(washCount == 41)
+                    washCount = 0;
+
+                if(rinseCount == 62)
+                    rinseCount = 0;
+            }, 40);*/
+        }
+    }
+
     function startFavorite(index) {
         sendSAData(SA_WASHER.MY_FAVORITE_PAGE.SCREEN, SA_WASHER.MY_FAVORITE_PAGE.START_NOW, $scope.myFavoriteList[index].courseEnum, 1);
         if ($scope.isStatic) {
@@ -6955,6 +7380,8 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
     }
 
     function startProgress(washerId) {
+        console.log("startProgress="+washerId)
+        console.log("$scope.isStatic="+$scope.isStatic)
         if (!$scope.isDualWasher) {
             washerId = 0;
         }
@@ -7117,7 +7544,9 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
                 }
             }
         } else {
+            console.log("e;se")
             if (washerId === 0 && $scope.homePage) {
+                console.log("onpause3")
                 $scope.onPauseMain = !$scope.onPauseMain;
                 if ($scope.onPauseMain) {
                     $scope.dispStatusMain = $scope.translation.WEBMOB_device_washer_progressing_paused;
@@ -7129,6 +7558,7 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
                     $scope.dispStatusMain = $scope.translation.WEBMOB_device_washer_progressing_ready;
                 }
             } else if (washerId === 1 && $scope.homePage) {
+                console.log("onpause2")
                 $scope.onPauseSub = !$scope.onPauseSub;
                 if ($scope.onPauseSub) {
                     $scope.dispStatusSub = $scope.translation.WEBMOB_device_washer_progressing_paused;
@@ -7140,6 +7570,7 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
                     $scope.dispStatusSub = $scope.translation.WEBMOB_device_washer_progressing_ready;
                 }
             } else {
+                console.log("onpause="+$scope.onPause)
                 if ($scope.onPause) {
                     $scope.textDisplay = true;
                     $scope.wrinkleStart = true;
@@ -7159,6 +7590,11 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
                         $scope.disablesoftnerOff = true;
                     }
                     //updateStatus('Finish'); //commented for checking progress bar status
+                }else{
+                    console.log("pause else")
+                    //$(".pulsatorImg").css("display","block");
+                    //$(".drumImg").css("display","block");
+                    $(".bubbleAnimationClass").addClass("bubbleAnimationPauseClass");
                 }
                 $scope.onPause = !$scope.onPause;
             }
@@ -7928,13 +8364,18 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
         $scope.opensourcePage = false;
         $scope.informationPage = false;
         $scope.addFavoritePage = false;
+        $scope.showCountryList = false;
         $scope.energyMonitorPage = false;
         $scope.drainFilterOption = false;
+        $scope.laundryRecipePage1 = false;
+        $scope.laundryRecipePage2 = false;
+        $scope.laundryRecipePage3 = false;
         $scope.korComboSettingPage = false;
         $scope.drumCleanHistoryPage = false;
+        $scope.autoReplenishmentPage = false;
         $scope.korComboSettingPageFav = false;
         $scope.selectCycleForFavoritePage = false;
-        $scope.showCountryList = false;
+        $scope.autoReplenishmentSettingPage = false;
 
         var scrollAreaClass;
         if ($scope.isAppV2) {
@@ -8078,6 +8519,25 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
                 $scope.drainFilterGuidePage = true;
                 $scope.backText = $scope.translation.WEBMOB_device_washer_usageguide_drain_filter;
                 break;
+            case WASHERSCREENS.AUTOREPLENISHMENTPAGE:
+                $scope.autoReplenishmentPage = true;
+                break;
+            case WASHERSCREENS.AUTOREPLENISHMENTSETTINGPAGE:
+                $scope.backText = "Auto Replenishment";
+                $scope.autoReplenishmentSettingPage = true;
+                break;
+            case WASHERSCREENS.LAUNDRYRECIPEPAGESTAGEONE:
+                $scope.backText = "Laundry Recipe";
+                $scope.laundryRecipePage1 = true;
+                break;
+            case WASHERSCREENS.LAUNDRYRECIPEPAGESTAGETWO:
+                $scope.backText = "Laundry Recipe";
+                $scope.laundryRecipePage2 = true;
+                break;
+            case WASHERSCREENS.LAUNDRYRECIPEPAGESTAGETHREE:
+                $scope.backText = "Laundry Recipe";
+                $scope.laundryRecipePage3 = true;
+                break;
             default:
                 $scope.backText = $scope.translation.WEBMOB_common_device_washer;
                 break;
@@ -8157,6 +8617,18 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
             if ($scope.setEndTimePopUpVisible) {
                 $scope.setEndTimePopUpVisible = false;
                 return;
+            }
+            if ($scope.amazonServiePopUp) {
+                $scope.amazonServiePopUp = false;
+            }
+            if ($scope.currentDetergentAmountPopup) {
+                $scope.currentDetergentAmountPopup = false;
+            }
+            if ($scope.curDetAmtUnitPopup) {
+                $scope.curDetAmtUnitPopup = false;
+            }
+            if ($scope.custReorderPopUp) {
+                $scope.custReorderPopUp = false;
             }
             if ($scope.bUsageHelpPage) {
                 $scope.bUsageHelpPage = false;
@@ -8359,6 +8831,25 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
                     $scope.currentScreen = WASHERSCREENS.DRAINFILTEROPTION;
                     changeScreen();
                     break;
+                case WASHERSCREENS.AUTOREPLENISHMENTPAGE:
+                    $scope.currentScreen = WASHERSCREENS.SETTINGS;
+                    changeScreen();
+                    break;
+                case WASHERSCREENS.AUTOREPLENISHMENTSETTINGPAGE:
+                    $scope.currentScreen = WASHERSCREENS.AUTOREPLENISHMENTPAGE;
+                    changeScreen();
+                    break;
+                case WASHERSCREENS.LAUNDRYRECIPEPAGESTAGEONE:
+                    goToHome();
+                    break;
+                case WASHERSCREENS.LAUNDRYRECIPEPAGESTAGETWO:
+                    $scope.currentScreen = WASHERSCREENS.LAUNDRYRECIPEPAGESTAGEONE;
+                    changeScreen();
+                    break;
+                case WASHERSCREENS.LAUNDRYRECIPEPAGESTAGETHREE:
+                    $scope.currentScreen = WASHERSCREENS.LAUNDRYRECIPEPAGESTAGETWO;
+                    changeScreen();
+                    break;
                 default:
                     break;
             }
@@ -8466,6 +8957,18 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
         }
         if ($scope.setEndTimePopUpVisible) {
             $scope.setEndTimePopUpVisible = false;
+        }
+        if ($scope.amazonServiePopUp) {
+            $scope.amazonServiePopUp = false;
+        }
+        if ($scope.currentDetergentAmountPopup) {
+            $scope.currentDetergentAmountPopup = false;
+        }
+        if ($scope.curDetAmtUnitPopup) {
+            $scope.curDetAmtUnitPopup = false;
+        }
+        if ($scope.custReorderPopUp) {
+            $scope.custReorderPopUp = false;
         }
         closeMyFavPopUps();
         changePopUpClass(false);
@@ -8698,7 +9201,6 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
                 break;
 
         }
-        $scope.initSelectValue = $scope.setTemp;
 
         if ($scope.currentWasherSelected === WASHERCURRENTSEL.MAIN_SELECTED) {
             sendSAData(SA_WASHER.TOP_LOAD_DETAIL_PAGE.SCREEN, SA_WASHER.TOP_LOAD_DETAIL_PAGE.BOTTOM_TEMP_OPTION, "", "");
@@ -8753,6 +9255,7 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
             if (disableTempContentsFunc() || steamTempDisable) {
                 return;
             }
+            $scope.setCurIndexTemp = $scope.setTemp;
             $scope.tempPopup = true;
             toggleBottomPopUpClass($scope.tempPopup);
             changePopUpClass($scope.tempPopup);
@@ -8760,7 +9263,6 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
     }
 
     function openPopoverSpin() {
-        $scope.initSelectValue =  $scope.setSpin;
         if ($scope.currentWasherSelected === WASHERCURRENTSEL.MAIN_SELECTED) {
             sendSAData(SA_WASHER.TOP_LOAD_DETAIL_PAGE.SCREEN, SA_WASHER.TOP_LOAD_DETAIL_PAGE.BOTTOM_SPIN_OPTION, "", "");
         } else {
@@ -8812,6 +9314,7 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
             if ($scope.disablespinContents && $scope.disableSpinContentsSubstitue) {
                 return;
             }
+            $scope.setCurIndexSpin = $scope.setSpin;
             $scope.spinPopup = true;
             toggleBottomPopUpClass($scope.spinPopup);
             changePopUpClass($scope.spinPopup);
@@ -8870,7 +9373,7 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
             if ($scope.disablesoilContents || soilDisable) {
                 return;
             }
-
+            $scope.setCurIndexSoil = $scope.setSoil;
             $scope.soilPopup = true;
             toggleBottomPopUpClass($scope.soilPopup);
             changePopUpClass($scope.soilPopup);
@@ -8924,6 +9427,7 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
             if ($scope.disablerinseContents) {
                 return;
             }
+            $scope.setCurIndexRinse = $scope.setRinse;
             $scope.rinsePopup = true;
             toggleBottomPopUpClass($scope.rinsePopup);
             changePopUpClass($scope.rinsePopup);
@@ -9422,8 +9926,8 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
     }
 
     function isTempSelected(selectedItem) {
-        console.log("isTempSelected")
-        if ($scope.setTemp === selectedItem) {
+        //console.log("isTempSelected")
+        if ($scope.setCurIndexTemp === selectedItem) {
             return true;
         } else {
             return false;
@@ -9460,7 +9964,7 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
     }
 
     function isSpinSelected(selectedItem) {
-        if ($scope.setSpin === selectedItem) {
+        if ($scope.setCurIndexSpin === selectedItem) {
             return true;
         } else {
             return false;
@@ -9492,7 +9996,7 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
     }
 
     function isRinseSelected(selectedItem) {
-        if ($scope.setRinse === selectedItem) {
+        if ($scope.setCurIndexRinse === selectedItem) {
             return true;
         } else {
             return false;
@@ -9511,7 +10015,7 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
     }
 
     function isSoilSelected(selectedItem) {
-        if ($scope.setSoil === selectedItem) {
+        if ($scope.setCurIndexSoil === selectedItem) {
             return true;
         } else {
             return false;
@@ -10191,11 +10695,10 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
         }
         return false;
     }
-    function setTempSelectValue(item){
-        console.log("setTempSelectValue")
-        $scope.setTemp = item;
-
-        switch(item){
+   
+    function selectCurIndexTemp(selectedItem) {
+    console.log("selectCurIndexTemp");
+     switch(selectedItem){
             case "90":
                 $scope.tempSlide.noUiSlider.set(100);
                 break;
@@ -10216,56 +10719,55 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
                 break;
 
         }
-    }
-    function selectIndexTemp() {
-        var selectedItem = $scope.setTemp;
-
-        sendSAData(SA_WASHER.TEMP_SELECTION_POPUP.SCREEN, SA_WASHER.TEMP_SELECTION_POPUP.TEMP_SELECTED, selectedItem.toString(), 1);
-
         if ($scope.currentTempList.indexOf(selectedItem) < 0) {
             return;
         }
-        $scope.tempPopup = false;
-        toggleBottomPopUpClass($scope.tempPopup);
-        changePopUpClass($scope.tempPopup);
-        //$scope.setTemp = selectedItem;
+        $scope.setCurIndexTemp = selectedItem;
+    }
+   function selectIndexTemp(selectedItem) {
+       console.log("selectIndexTemp")
+        sendSAData(SA_WASHER.TEMP_SELECTION_POPUP.SCREEN, SA_WASHER.TEMP_SELECTION_POPUP.TEMP_SELECTED, selectedItem.toString(), 1);
+        $scope.setTemp = selectedItem;
         checkSpecialCase();
+       //$(".BottomPopUpImageSpin").removeClass('spinAnimate'+$scope.spinTempVal);
+       //setTimeout("$('.BottomPopUpImageSpin').addClass('spinAnimate"+$scope.currentSpinList.indexOf(selectedItem)+"');",100);
+       //$scope.spinTempVal = $scope.currentSpinList.indexOf(selectedItem);
     }
-    function selectIndexSpinValue(selectedItem){
-        $scope.setSpin = selectedItem;
+    function selectCurIndexSpin(selectedItem) {
 
-        $(".BottomPopUpImageSpin").removeClass('spinAnimate'+$scope.spinTempVal);
-        setTimeout("$('.BottomPopUpImageSpin').addClass('spinAnimate"+$scope.currentSpinList.indexOf(selectedItem)+"');",100);
-        $scope.spinTempVal = $scope.currentSpinList.indexOf(selectedItem);
-    }
-    function selectIndexSpin() {
+          console.log("selectedItem="+selectedItem);
+          console.log(" $scope.currentSpinList.indexOf(selectedItem)="+ $scope.currentSpinList.indexOf(selectedItem));
         console.log("selectIndexRinse = "+$scope.currentSpinList.indexOf($scope.setSpin) +"spinTempVal = "+$scope.spinTempVal);
         $(".BottomPopUpImageSpin").removeClass('spinAnimate'+$scope.spinTempVal);
-        if ($scope.currentSpinList.indexOf($scope.setSpin) < 0) {
+       setTimeout("$('.BottomPopUpImageSpin').addClass('spinAnimate"+$scope.currentSpinList.indexOf(selectedItem)+"');",100);
+       $scope.spinTempVal = $scope.currentSpinList.indexOf(selectedItem);
+        if ($scope.currentSpinList.indexOf(selectedItem) < 0) {
             return;
         }
-        if (($scope.spinOnly && !rinseSelected) && ($scope.setSpin === "None" || $scope.setSpin === "RinseHold") && (tempDisable === undefined || (tempDisable))) {
+        if (($scope.spinOnly && !rinseSelected) && (selectedItem === "None" || selectedItem === "RinseHold") && (tempDisable === undefined || (tempDisable))) {
             return true;
         }
-        $scope.spinPopup = false;
-        toggleBottomPopUpClass($scope.spinPopup);
-        changePopUpClass($scope.spinPopup);
-//        $scope.setSpin = selectedItem;
-        checkSpecialCase();
+        $scope.setCurIndexSpin = selectedItem;
     }
 
-    function selectIndexTempSoilLevel(selectedItem) {
+    function selectIndexSpin(selectedItem) {
+        $scope.setSpin = selectedItem;
+        checkSpecialCase();
+    }
+    
+    function selectCurIndexSoilLevel(selectedItem) {
         if ($scope.currentSoilList.indexOf(selectedItem) < 0) {
             return;
         }
-        $scope.soilPopup = false;
-        toggleBottomPopUpClass($scope.soilPopup);
-        changePopUpClass($scope.soilPopup);
+        $scope.setCurIndexSoil = selectedItem;
+    }
+
+    function selectIndexSoilLevel(selectedItem) {
         $scope.setSoil = selectedItem;
         checkSpecialCase();
     }
 
-    function selectIndexRinse(selectedItem, index) {
+     function selectCurIndexRinse(selectedItem, index) {
         console.log("selectIndexRinse = "+selectedItem + "waveTempVal = "+$scope.waveTempVal);
         
         $(".BottomPopUpImageWave").removeClass('waveAnimate'+$scope.waveTempVal);
@@ -10281,20 +10783,16 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
         if ($scope.rinseremove01 && (selectedItem === "0" || selectedItem === "1")) {
             return;
         }
-        
-//        $scope.rinsePopup = false;
-//        toggleBottomPopUpClass($scope.rinsePopup);
-//        changePopUpClass($scope.rinsePopup);
-        $scope.setRinse = selectedItem; //여기 있어야 함
-        debugMessage($scope.specialCaseRinse + "Rinse changed" + $scope.setRinse);
-        
-//        if ($scope.specialCaseRinse !== $scope.setRinse) {
-//            $scope.rinseChanged = true;
-//            $scope.specialCaseRinse = $scope.setRinse;
-//            debugMessage("Rinse changed" + $scope.rinseChanged);
-//        }
-//        checkSpecialCase();
-        
+        $scope.setCurIndexRinse = selectedItem;
+    }
+
+    function selectIndexRinse(selectedItem) {
+        $scope.setRinse = selectedItem;
+        if ($scope.specialCaseRinse !== $scope.setRinse) {
+            $scope.rinseChanged = true;
+            $scope.specialCaseRinse = selectedItem;
+        }
+        checkSpecialCase();
     }
 
     function selectIndexDryLevel(selectedItem) {
@@ -10489,6 +10987,7 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
     }
 
     function onOkClicked(checkok) {
+        console.log("[onOkClicked INIT CHECK] ::")
         $timeout(function () {
             debugMessage("$scope.alertState ::" + $scope.alertState);
             debugMessage("$scope.alertState ::" + $scope.alertState + ":::::" + $scope.currentScreen);
@@ -10498,6 +10997,14 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
             }
 
             if (checkok) {
+                if(modeAnimateInterval != null){
+                    $(".pulsatorImg").css("display","none");
+                    $(".drumImg").css("display","none");
+                    $(".bubbleAnimationClass").css("display","none");
+                    clearInterval(modeAnimateInterval);
+                    modeAnimateInterval = null;
+                }
+
                 if (angular.isDefined(poppedObj) && angular.isDefined(poppedObj.id)) {
                     switch (poppedObj.id) {
                         case WASHER_ALERT_ID.OTN_POPUP:
@@ -12062,6 +12569,7 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
     }
 
     function updateHomePageDataForDualWasher() {
+        console.log("updateHomePageDataForDualWasher");
         if ($scope.currentWasherSelected === WASHERCURRENTSEL.MAIN_SELECTED) {
             $scope.deviceStatusMain = $scope.deviceStatus;
             //$scope.cycFinishMain = $scope.cycFinish;
@@ -12200,10 +12708,10 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
             if (angular.isDefined($scope.mostUsed)) {
                 if (i === 0) {
                     index = $scope.mostUsedItemIndex;
-                } else if (i < $scope.mostUsedItemIndex) {
+                } else if (i <= $scope.mostUsedItemIndex) {
                     index = i-1;
-                } else if (i === $scope.mostUsedItemIndex) {
-                    index = 0;
+                } else {
+                    ;//Do Nothing
                 }
             }
             var soakValue = bubbleSoakSetValue.substring(index*2, index*2+2);
@@ -12548,11 +13056,31 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
     /******watch for scrollable area resize END******/
     
     function openLaundryPage() {
-        console.log("Laundry Page Button Clicked!");
+        $scope.numOfSelectedLaundryRecipes = 0;
+        enableAllTypeOptions();
+        enableAllColorOptions();
+        openLaundryPageStage1();
+    }
+    
+    function openLaundryPageStage1() {
+        $scope.currentScreen = WASHERSCREENS.LAUNDRYRECIPEPAGESTAGEONE;
+        changeScreen();
+    }
+    
+    function openLaundryPageStage2() {
+        $scope.currentScreen = WASHERSCREENS.LAUNDRYRECIPEPAGESTAGETWO;
+        changeScreen();
+    }
+    
+    function openLaundryPageStage3() {
+        $scope.currentScreen = WASHERSCREENS.LAUNDRYRECIPEPAGESTAGETHREE;
+        changeScreen();
     }
     
     function openSetEndTimePopUp() {
-        setEndTimerDrag.roundSlider({width: 2, value: $scope.setEndTimeValue, sliderType: "min-range", max: 24*60});
+        var currentMin = new Date().getHours() * 60 + new Date().getMinutes();
+        $scope.setEndTimeStart = (360 * currentMin )/1440 + 90;
+        setEndTimerDrag.roundSlider({width: 2, value: $scope.setEndTimeValue, sliderType: "min-range", max: 24*60, startAngle: $scope.setEndTimeStart});
         updateSetEndTimeValue($scope.setEndTimeValue);
         $scope.setEndTimePopUpVisible = true;
         changePopUpClass($scope.setEndTimePopUpVisible);
@@ -12574,6 +13102,300 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
     function saveSetEndTime() {
         console.log("saveSetEndTime called");
         closeAllPopups();
+    }
+    
+    function autoReplenishmentClicked() {
+        if (!$scope.isStatic) {
+            nativeInterface.runOnNative("AmazonDRS", "http://www.amazon.com");
+        }
+    }
+    
+    function goToAmazonPrime() {
+        closeAllPopups();
+        if (!$scope.isStatic) {
+            nativeInterface.runOnNative("AmazonDRS", "http://www.amazon.com");
+        }
+    }
+    
+    function goToAutoReplenishmentPage() {
+        $scope.podValue = $scope.detergentAmt;
+        $scope.detergentName = getLocalStorageDataForDetName('DetName');
+        closeAllPopups();
+        $scope.currentScreen = WASHERSCREENS.AUTOREPLENISHMENTPAGE;
+        changeScreen();
+    }
+    
+    function showAmazonServiePopUp() {
+        if ($scope.popUpShowedOnce) {
+            goToAutoReplenishmentPage();
+            return;
+        }
+        $scope.popUpShowedOnce = true;
+        $scope.amazonServiePopUp = true;
+        changePopUpClass($scope.amazonServiePopUp);
+    }
+    
+    function getDetergentTypeString() {
+        switch($scope.apsDetType) {
+            case APS_DETTYPE.POD:
+                return "POD";
+            case APS_DETTYPE.LIQUID:
+                return "LIQUID";
+            default:
+                return "Detergent Type";
+        }
+    }
+    
+    function openCurrentDetergentAmountPopup() {
+        $scope.podValue = $scope.detergentAmt;
+        $scope.podValueTemp = $scope.podValue;
+        $scope.curDetAmtUnitPopup = false;
+        $scope.currentDetergentAmountPopup = true;
+        changePopUpClass($scope.currentDetergentAmountPopup);
+    }
+    
+    function updatePodValueArray() {
+        $scope.podValueArray = [];
+        
+        var tempString = $scope.podValue.toString();
+        for(var i=0; i<tempString.length; i++) {
+            $scope.podValueArray[i] = tempString[i];
+        }
+    }
+    
+    function setCurDetAmountPopup() {
+        $scope.podValue = $scope.podValueTemp;
+        closeAllPopups();
+    }
+    
+    function increasePodValue() {
+        $scope.podValueTemp++;
+    }
+    
+    function decreasePodValue() {
+        $scope.podValueTemp--;
+    }
+    
+    $scope.$watch(function () {
+        return $scope.podValue;
+    }, function () {
+        if (angular.isDefined($scope.podValue)) {
+            updatePodValueArray();
+        }
+    });
+    
+    function openCurDetAmtUnitPopUp() {
+        $scope.curDetAmtUnitPopup = true;
+    }
+    
+    function closeCurDetAmtUnitPopUp() {
+        $scope.curDetAmtUnitPopup = false;
+    }
+    
+    function selectDetUnit(val) {
+        $scope.curDetAmtUnitValue = val;
+        closeCurDetAmtUnitPopUp();
+    }
+    
+    function getDetUnitSelectedValue(val) {
+        return val === $scope.curDetAmtUnitValue;
+    }
+    
+    function gotoAutoRepelnishmentSettingPage() {
+        closeAllPopups();
+        updateReorderOptionItemSelected();
+        updateNoOfPodSelected();
+        $scope.currentScreen = WASHERSCREENS.AUTOREPLENISHMENTSETTINGPAGE;
+        changeScreen();
+    }
+    
+    function toggleARS() {
+        $scope.autoReplenishmentValue = !$scope.autoReplenishmentValue;
+        $scope.autoReplenishmentTextValue = $scope.autoReplenishmentValue === true ? "ON" : "OFF";
+    }
+    
+    function reorderOptionItemSelected(val) {
+        if ($scope.currentReorderSelectedIndex !== 3 && val === 3) {
+            showCustomizedReorderPopUp();
+        } else if ($scope.currentReorderSelectedIndex !== 3) {
+            $scope.reOrderValue = val*5;
+        }
+        $scope.currentReorderSelectedIndex = val;
+    }
+    
+    function isReorderSelectedIndex(index) {
+        return index === $scope.currentReorderSelectedIndex;
+    }
+    
+    function updateReorderOptionItemSelected() {
+        switch($scope.detBase) {
+            case 5:
+                $scope.currentReorderSelectedIndex = 0;
+                $scope.reOrderValue = 5;
+                break;
+            case 10:
+                $scope.currentReorderSelectedIndex = 1;
+                $scope.reOrderValue = 10;
+                break;
+            case 15:
+                $scope.currentReorderSelectedIndex = 2;
+                $scope.reOrderValue = 15;
+                break;
+            default:
+                $scope.currentReorderSelectedIndex = 3;
+                $scope.reOrderValue = $scope.detBase;
+                break;
+        }
+    }
+    
+    function numOfPodsUsedForLaundryItemSelected(val) {
+        $scope.currentNoOfPodSelectedIndex = val;
+    }
+    
+    function isNumOfPodSelectedIndex(index) {
+        return index === $scope.currentNoOfPodSelectedIndex;
+    }
+    
+    function updateNoOfPodSelected() {
+        $scope.currentNoOfPodSelectedIndex = $scope.detOnce;
+        if ($scope.detOnce > 3) {
+            $scope.currentNoOfPodSelectedIndex = 3;
+        }
+    }
+    
+    function showCustomizedReorderPopUp() {
+        $scope.curValSettingPopUp = $scope.reOrderValue;
+        $scope.custReorderPopUp = true;
+        changePopUpClass($scope.custReorderPopUp);
+    }
+    function setReorderPopup() {
+        $scope.reOrderValue = $scope.curValSettingPopUp;
+        closeAllPopups();
+    }
+    
+    function saveDetName() {
+        setLocalStorageData('DetName', $scope.detergentName);
+    }
+    
+    function popUpOkClickHandler(val) {
+        switch(val) {
+            case "TEMP":
+                if ($scope.setCurIndexTemp !== $scope.setTemp) {
+                    selectIndexTemp($scope.setCurIndexTemp);
+                }
+                $scope.tempPopup = false;
+                toggleBottomPopUpClass($scope.tempPopup);
+                changePopUpClass($scope.tempPopup);
+                break;
+            case "RINSE":
+                 for(var i=0; i<6; i++){
+                    $(".BottomPopUpImageWave").removeClass('waveAnimate'+i);
+                }
+                if ($scope.setCurIndexRinse !== $scope.setRinse) {
+                    selectIndexRinse($scope.setCurIndexRinse);
+                }
+                $scope.rinsePopup = false;
+                toggleBottomPopUpClass($scope.rinsePopup);
+                changePopUpClass($scope.rinsePopup);
+                break;
+            case "SPIN":
+            console.log("$scope.setTemp="+$scope.setTemp);
+            console.log(" $scope.spinTempVal="+ $scope.spinTempVal);
+                for(var i=0; i<6; i++){
+                    $(".BottomPopUpImageSpin").removeClass('spinAnimate'+i);
+                }
+                $scope.spinTempVal = $scope.currentSpinList.indexOf($scope.spinTempVal);
+                if ($scope.setCurIndexSpin !== $scope.setSpin) {
+                    selectIndexSpin($scope.setCurIndexSpin);
+                }
+                $scope.spinPopup = false;
+                toggleBottomPopUpClass($scope.spinPopup);
+                changePopUpClass($scope.spinPopup);
+                break;
+            case "SOIL":
+                if ($scope.setCurIndexSoil !== $scope.setSpin) {
+                    selectIndexSoilLevel($scope.setCurIndexSoil);
+                }
+                $scope.soilPopup = false;
+                toggleBottomPopUpClass($scope.soilPopup);
+                changePopUpClass($scope.soilPopup);
+                break;
+            case "CYCLEMODE":
+                break;
+            default:
+                break;
+        }
+    }
+    
+    function selectLRGarmentTypeOption(parentIndex, childIndex) {
+        $scope.LRGarmentType[parentIndex].options[childIndex].isOptionChecked = !$scope.LRGarmentType[parentIndex].options[childIndex].isOptionChecked;
+        
+        if (getIndexOf($scope.LRGarmentType[parentIndex].options, "isOptionChecked", true) > -1) {
+            disableOtherTypeOptions(parentIndex);
+            $scope.garmentTypeSelected = parentIndex;
+        } else {
+            enableAllTypeOptions();
+            $scope.garmentTypeSelected = -1;
+        }
+    }
+    
+    function getIndexOf(object, key, value) {
+        var index = 0;
+
+        for (var item in object) {
+            if (object[item][key] === value) {
+                return index;
+            }
+
+            index++;
+        }
+        return -1;
+    }
+    
+    function enableAllTypeOptions() {
+        for (var i=0; i<$scope.LRGarmentType.length; i++) {
+            for (var j=0; j<$scope.LRGarmentType[i].options.length; j++) {
+                $scope.LRGarmentType[i].options[j].isOptionChecked = false;
+                $scope.LRGarmentType[i].options[j].isOptionDisabled = false;
+            }
+        }
+    }
+    
+    function enableAllColorOptions() {
+        for (var i=0; i<$scope.LRGarmentColor.length; i++) {
+            for (var j=0; j<$scope.LRGarmentColor[i].options.length; j++) {
+                $scope.LRGarmentColor[i].options[j].isOptionChecked = false;
+                $scope.LRGarmentColor[i].options[j].isOptionDisabled = false;
+            }
+        }
+    }
+    
+    function disableOtherTypeOptions(index) {
+        for (var i=0; i<$scope.LRGarmentType.length; i++) {
+            if (i !== index) {
+                for (var j=0; j<$scope.LRGarmentType[i].options.length; j++) {
+                    $scope.LRGarmentType[i].options[j].isOptionChecked = false;
+                    $scope.LRGarmentType[i].options[j].isOptionDisabled = true;
+                }
+            }
+        }
+    }
+    
+    function getLRGarmentColorOptionIcon(parentIndex, childIndex) {
+        return $scope.LRGarmentColor[parentIndex].options[childIndex].img;
+    }
+    
+    function selectLRGarmentColorOption(parentIndex, childIndex) {
+        $scope.LRGarmentColor[parentIndex].options[childIndex].isOptionChecked = !$scope.LRGarmentColor[parentIndex].options[childIndex].isOptionChecked;
+    }
+    
+    function ifSoilSelectedForLaundryRecipe() {
+        for (var i=0; i<$scope.LRGarmentColor[1].options.length; i++) {
+            if ($scope.LRGarmentColor[1].options[i].isOptionChecked) {
+                return true;
+            }
+        }
+        return false;
     }
     
 });
