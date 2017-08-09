@@ -1522,8 +1522,12 @@ function isNextDataAvilable(dataType) {
     var yearStr, monthStr, dayStr;
 
     if (dataType === 'month') {
-        if (monthLeftCount > 0)
+        if (monthLeftCount > 0){
             return true;
+        }
+        else{
+            return false;
+        }
         if (lastMonthValueOnX.length > 0) {
             var monthDateStartVal = lastMonthValueOnX[0].split("-");
             yearStr = monthDateStartVal[1].substring(0, 4);
@@ -1958,7 +1962,9 @@ function makeEnergyDataFromEnergyDictionary(date, optionCodeValue, deviceUuid, d
         });
         lastValueWeekStored = lastWeekValueOnX[0];
         var wData = {energyData: energyData, dayDisplayBottom: dayDisplayBottom, dayDisplayTop: dayDisplayTop, energyDatalength: energyData.length, averagePowerUsage: averagePowerUsage, firstDate: firstDate, lastValueWeekStored: lastValueWeekStored, lastWeekValueOnX: lastWeekValueOnX};
-        lastWeekData.push(wData);
+        if (lastWeekData.length === 0 || !(lastValueWeekStored === lastWeekData[lastWeekData.length - 1].lastValueWeekStored)) {
+            lastWeekData.push(wData);
+        }
         console.log("sizeDictionary, totaldays", daysVal, dayDisplayTop, dayDisplayBottom, energyData);
 
     } else if (dataType === 'month') {
@@ -1974,7 +1980,7 @@ function makeEnergyDataFromEnergyDictionary(date, optionCodeValue, deviceUuid, d
             var meterDay = meter;
             var currDay = currDate.substring(6, 8);
             var fromDay, toDay;
-            if (currDay > meterDay) {
+            if (currDay >= meterDay) {
                 var mDay = setMeterCornerDate(Number(currDate.substring(0, 4)), Number(currDate.substring(4, 6)) - 1, Number(meterDay));
                 fromDay = new Date(currDate.substring(0, 4), Number(currDate.substring(4, 6)) - 1, Number(mDay));
                 toDay = new Date(currDate.substring(0, 4), Number(currDate.substring(4, 6)) - 1, Number(currDay));
@@ -2092,7 +2098,9 @@ function makeEnergyDataFromEnergyDictionary(date, optionCodeValue, deviceUuid, d
 
 
         var mData = {energyData: energyData, dayDisplayBottom: dayDisplayBottom, dayDisplayTop: dayDisplayTop, energyDatalength: energyData.length, averagePowerUsage: averagePowerUsage, firstDate: firstDate, lastValueMonthStored: lastValueMonthStored, lastMonthValueOnX: lastMonthValueOnX};
-        lastMonthData.push(mData);
+        if (lastMonthData.length === 0 || !(lastValueMonthStored === lastMonthData[lastMonthData.length - 1].lastValueMonthStored)) {
+            lastMonthData.push(mData);
+        }
     } else if (dataType === 'year') {
         isDaySelected = false;
         isWeekSelected = false;

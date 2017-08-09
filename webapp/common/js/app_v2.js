@@ -14,7 +14,6 @@ var longPressTimer = null;
 var svgTitle = document.createElementNS("http://www.w3.org/2000/svg", "title");
 var enableSA = true;
 var ctrlKey = false;
-var nativeCallBackTimer = null;
 
 var CONSTANTS = {
     "MAX_TIME_INTERVAL": 20000,
@@ -693,10 +692,7 @@ app.service('DBService', function ($q) {
 // call back from native
 function nativeCallback(response) {
     //console.log('Response ::: ' + response);
-    if (nativeCallBackTimer) {
-        clearTimeout(nativeCallBackTimer);
-    }
-    nativeCallBackTimer = setTimeout(function () {
+    setTimeout(function () {
         var scope = angular.element(document.getElementById("bodyTag")).scope();
         if (!!scope) {
             scope.$apply(function () {
