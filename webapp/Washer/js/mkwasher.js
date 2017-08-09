@@ -7274,7 +7274,7 @@ app.controller("mkWSController", function ($scope, SHPService, $timeout, CourseP
                 $("#rinseMode").children().eq(0).children().css({visibility : 'hidden'});
                 $("#rinseMode").children().eq(0).children().eq(rinseCount).css({visibility : 'hidden'});
                 rinseCount++;
-                rinseCount %= 62;
+                rinseCount %= 42;
                 $("#rinseMode").children().eq(0).children().eq(rinseCount).css({visibility : 'visible'});
             }, 40)
 /*            modeAnimateInterval = setInterval(function(){
