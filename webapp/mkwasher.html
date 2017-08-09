@@ -410,14 +410,55 @@
                             <div class="centralAreaProgressDiv">
                                 <div class="div-progress-outer">
                                     <div class="div-progress-inner">
-                                        <div class="modeButtonBox" ng-class="{'transparentBackColor no_click': deviceStatus !== 'Ready'}" ng-click="openPopovermode($event)">
-                                            <p class="modeButotnText Bold">{{translation[currentCourseEnum]}}</p>
+                                        <div class="maskBox">
+                                            <div class="drumImg"></div>
+                                            <div class="pulsatorImg"></div>
+                                            <!--<div class="bubbleAnimationClass"></div>-->
+                                            <div class="bubbleAnimationClass"></div>
+                                            <div id="washMode" ng-show="deviceStatus !== 'Ready'">
+                                                <div>
+                                                    <div class="washModeFormat"></div><div class="washModeFormat"></div><div class="washModeFormat"></div><div class="washModeFormat"></div>
+                                                    <div class="washModeFormat"></div><div class="washModeFormat"></div><div class="washModeFormat"></div><div class="washModeFormat"></div>
+                                                    <div class="washModeFormat"></div><div class="washModeFormat"></div><div class="washModeFormat"></div><div class="washModeFormat"></div>
+                                                    <div class="washModeFormat"></div><div class="washModeFormat"></div><div class="washModeFormat"></div><div class="washModeFormat"></div>
+                                                    <div class="washModeFormat"></div><div class="washModeFormat"></div><div class="washModeFormat"></div><div class="washModeFormat"></div>
+                                                    <div class="washModeFormat"></div><div class="washModeFormat"></div><div class="washModeFormat"></div><div class="washModeFormat"></div>
+                                                    <div class="washModeFormat"></div><div class="washModeFormat"></div><div class="washModeFormat"></div><div class="washModeFormat"></div>
+                                                    <div class="washModeFormat"></div><div class="washModeFormat"></div><div class="washModeFormat"></div><div class="washModeFormat"></div>
+                                                    <div class="washModeFormat"></div><div class="washModeFormat"></div><div class="washModeFormat"></div><div class="washModeFormat"></div>
+                                                    <div class="washModeFormat"></div><div class="washModeFormat"></div><div class="washModeFormat"></div><div class="washModeFormat"></div>
+                                                    <div class="washModeFormat"></div><div class="washModeFormat"></div>
+                                                </div>
+                                            </div>
+                                            <div id="rinseMode" ng-show="deviceStatus !== 'Ready'">
+                                                <div>
+                                                    <div class="rinseModeFormat"></div><div class="rinseModeFormat"></div><div class="rinseModeFormat"></div><div class="rinseModeFormat"></div>
+                                                    <div class="rinseModeFormat"></div><div class="rinseModeFormat"></div><div class="rinseModeFormat"></div><div class="rinseModeFormat"></div>
+                                                    <div class="rinseModeFormat"></div><div class="rinseModeFormat"></div><div class="rinseModeFormat"></div><div class="rinseModeFormat"></div>
+                                                    <div class="rinseModeFormat"></div><div class="rinseModeFormat"></div><div class="rinseModeFormat"></div><div class="rinseModeFormat"></div>
+                                                    <div class="rinseModeFormat"></div><div class="rinseModeFormat"></div><div class="rinseModeFormat"></div><div class="rinseModeFormat"></div>
+                                                    <div class="rinseModeFormat"></div><div class="rinseModeFormat"></div><div class="rinseModeFormat"></div><div class="rinseModeFormat"></div>
+                                                    <div class="rinseModeFormat"></div><div class="rinseModeFormat"></div><div class="rinseModeFormat"></div><div class="rinseModeFormat"></div>
+                                                    <div class="rinseModeFormat"></div><div class="rinseModeFormat"></div><div class="rinseModeFormat"></div><div class="rinseModeFormat"></div>
+                                                    <div class="rinseModeFormat"></div><div class="rinseModeFormat"></div><div class="rinseModeFormat"></div><div class="rinseModeFormat"></div>
+                                                    <div class="rinseModeFormat"></div><div class="rinseModeFormat"></div><div class="rinseModeFormat"></div><div class="rinseModeFormat"></div>
+                                                    <div class="rinseModeFormat"></div><div class="rinseModeFormat"></div><div class="rinseModeFormat"></div><div class="rinseModeFormat"></div>
+                                                    <div class="rinseModeFormat"></div><div class="rinseModeFormat"></div><div class="rinseModeFormat"></div><div class="rinseModeFormat"></div>
+                                                    <div class="rinseModeFormat"></div><div class="rinseModeFormat"></div><div class="rinseModeFormat"></div><div class="rinseModeFormat"></div>
+                                                    <div class="rinseModeFormat"></div><div class="rinseModeFormat"></div><div class="rinseModeFormat"></div><div class="rinseModeFormat"></div>
+                                                    <div class="rinseModeFormat"></div><div class="rinseModeFormat"></div><div class="rinseModeFormat"></div><div class="rinseModeFormat"></div>
+                                                    <div class="rinseModeFormat"></div>
+                                                </div>
+                                            </div>
+                                            <div class="textboxClass">
+                                                <p class="setEndTimeText Bold" ng-click="openSetEndTimePopUp()" ng-show="deviceStatus === 'Ready'">SET END TIME</p>
+                                                <div class="drawBottomLineForSetEndTime" ng-show="deviceStatus === 'Ready'"></div>
+												<div class="modeButtonBox" ng-class="{'modeButtonBoxReady': deviceStatus === 'Ready','transparentBackColor no_click': deviceStatus !== 'Ready'}" ng-click="openPopovermode($event)">
+                                                     <p class="modeButotnText Bold">{{translation[currentCourseEnum]}}</p>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <p class="setEndTimeText Bold" ng-click="openSetEndTimePopUp()" ng-show="deviceStatus === 'Ready'">SET END TIME</p>
-                                        <div class="drawBottomLineForSetEndTime" ng-show="deviceStatus === 'Ready'"></div>
                                     </div>
-                                    <div class="drumImg"></div>
-                                    <div class="pulsatorImg"></div>
                                     <div id="circularProgress" class="progress-wrapper" ng-show="deviceStatus !== 'Ready'">
                                         <div 
                                             round-progress
@@ -946,6 +987,10 @@
             
             <!-- SettingPage-->
             <div class="screenAreaDiv" ng-show="settingPage">
+                <div class="settingsBroder settingsBroderForAutoRepenishment" ng-click="showAmazonServiePopUp()" role="button">
+                    <p class="settingsAutoRepenishmentHeaderText Regular">Auto Replenishment Service</p>
+                    <p class="settingsAutoRepenishmentInfoText">Add your detergent reorder option here. You can save current detergent amount and reorder amount with detergent name.</p>
+                </div>
                 <div class="settingsBroder" ng-class="{'no_click':(!remoteControlEnabled || kidsLock)}" ng-show="isDetergentEnabled" aria-labelledby="detergent_id0 detergent_id1" role="button">
                     <p resize-text 
                        rt-target-pct="0.6"
@@ -1252,6 +1297,199 @@
                     <div class="borderOptions"></div> 
                 </div>
             </div>
+            
+            <div class="screenAreaDiv" ng-show="autoReplenishmentPage" ng-click="closeAllPopups()">
+                <div class="autoReplenishmentPageDetNameDiv" ng-click="closeAllPopups()">
+                    <p class="autoReplenishmentPageDetNameText Regular">DETERGENT NAME</p>
+                    <input type="text" id="inputDetName" class="autoReplenishmentPageDetNameInputBox" spellcheck="false" maxlength="32" ng-model="detergentName" value="{{detergentName}}" onblur='this.value = this.value.replace(/(^\s*)|(\s*$)/g, "")' required select-text textarea-loaded>
+                </div>
+                <div class="autoReplenishmentPageInfoArea">
+                    <p class="apsInfoDetTypeText">{{getDetergentTypeString()}}</p>
+                    <div class="apsInfoPODDiv" ng-show="detType === 2 && podValue > 0">
+                        <p class="msgSetNoOfPODText Regular">Current Detergent</p>
+                        <div class="podNumbernBox">
+                            <div class="podNumberValueIcon podNumberValueIcon_{{item}}" ng-repeat="item in podValueArray track by $index"></div>
+                        </div>
+                        <div class="podNumbernBoxMsgDiv">
+                            <p class="podsLeftText Regular">Pods Left</p>
+                            <p class="podsLeftTextEdit Regular" ng-click="openCurrentDetergentAmountPopup()">Edit</p>
+                        </div>
+                    </div>
+                    <div class="apsInfoNoPODDiv" ng-show="detType === 2 && podValue === 0">
+                        <p class="msgSetNoOfPODText Regular">Please set the number of pods.</p>
+                        <div class="addPodButtonBox">
+                            <svg viewBox="0 0 210 210" class="addPodButton nextIcon" ng-click="openCurrentDetergentAmountPopup()">
+                                <use xlink:href="Washer/assets/img/ws_ic_add.svg#Layer_1"></use>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="apsInfoLiquidDiv" ng-show="detType === 1">
+                        <p class="msgSetNoOfPODText Regular">Current Detergent</p>
+                        <div class="liquidIcon"></div>
+                        <div class="liquidDetEditBtnBox" ng-click="openCurrentDetergentAmountPopup()">
+                            <p class="liquidDetEditBtn">Edit</p>
+                        </div>
+                    </div>
+                    <p class="autoReplenishmentPageInfoAreaMsgText Regular">Amazon will automatically ship new detergent before it run out.</p>
+                    <div class="manageAutoReplenishmentButton">
+                        <round-button 
+                            btn-text="MANAGE AUTO REPLENISHMENT"
+                            class="BoldCondensed common-btn-text"
+                            if-font-style="true"
+                            ng-touchstart="autoReplenishmentClicked()" 
+                            ng-touchend="startProgress()"
+                            ></round-button>
+                    </div>
+                </div>
+                <bottom-options
+                    if-disabled="false"
+                    text-info-main="Auto Replenishment"
+                    text-info-sub="{{autoReplenishmentTextValue}}"
+                    ng-click="gotoAutoRepelnishmentSettingPage()"
+                    ></bottom-options>
+            </div>
+            
+            <div class="screenAreaDiv" ng-show="autoReplenishmentSettingPage" ng-click="closeAllPopups()">
+                <div class="settingsBroder" role="button">
+                    <p resize-text 
+                       rt-target-pct="0.6" 
+                       rt-font-class="Regular" 
+                       rt-multiline-cls="optionLeftItem_multi_line" 
+                       rt-singleline-cls="optionLeftItem">Auto Replenishment</p>
+                    <div class="toggle-button-margin">
+                        <img class="toggle-button-off" ng-class="{'toggle-button-on': autoReplenishmentValue}" ng-click="toggleARS()"/>
+                    </div>
+                </div>
+                <p class="apsSettingMsgText">If you select Auto replenishment On, you can use auto replenishment service from Amazon. Amazon will automatically ship new detergent before it runs out.</p>
+                <div class="reorderDiv" ng-show="autoReplenishmentValue">
+                    <div class="reorderOptionTextDiv">
+                        <p class="reorderText">RE-ORDER OPTIONS</p>
+                        <div class="reorderLineBox"></div>
+                    </div>
+                    <p class="apsSettingMsgText">Please set re-order amount of detergent. New detergent will be shipped automatically when your current detergent reaches the amount you set below</p>
+                    <div class="ap-search-list locationItem waves-effect press-basic-radio-btn" ng-repeat="items in reorderOptionList track by $index" ng-click="reorderOptionItemSelected($index)" role="button">
+                        <img class="radio-button-off " ng-class="{'radio-button-on radio-btn-offset': isReorderSelectedIndex($index) , ' radio-btn-offset' : !isReorderSelectedIndex($index)}" >                    
+                        <span class="listSearchTxt" ng-class="{'listSearchTxtSelected': isReorderSelectedIndex($index)}">{{items.title}}</span>
+                        <span class="listSearchBottomSeprator"> </span>
+                    </div>
+                    <div class="reorderOptionTextDiv">
+                        <p class="reorderText">PODS USAGE</p>
+                        <div class="reorderLineBox"></div>
+                    </div>
+                    <p class="apsSettingMsgText">Enter the number of pods you use when you do the laundry</p>
+                    <div class="ap-search-list locationItem waves-effect press-basic-radio-btn" ng-repeat="items in numOfPodsUsedForLaundry track by $index" ng-click="numOfPodsUsedForLaundryItemSelected($index)" role="button">
+                        <img class="radio-button-off " ng-class="{'radio-button-on radio-btn-offset': isNumOfPodSelectedIndex($index) , ' radio-btn-offset' : !isNumOfPodSelectedIndex($index)}" >                    
+                        <span class="listSearchTxt" ng-class="{'listSearchTxtSelected': isNumOfPodSelectedIndex($index)}">{{items.title}}</span>
+                        <span class="listSearchBottomSeprator"> </span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="screenAreaDiv" ng-show="laundryRecipePage1">
+                <p class="LRTitleMsgText">Pick your garment types</p>
+                <div class="LRlaundryCircleAreaStage1">
+                    <div class="LRlaundryCircleStage1">
+                    </div>
+                </div>
+                <div class="LRRecommendationMsgAreaIcon" ng-show="true"></div>
+                <div class="LRRecommendationMsgArea" ng-show="true">
+                    <p class="LRRecommendationMsgTitleText">TOWEL</p>
+                    <p class="LRRecommendationMsgDetailText">Recommend washing the towels separately with other laundry.</p>
+                </div>
+                <div class="LRGarmentTypeDiv" ng-repeat="items in LRGarmentType">
+                    <p class="LRGarmentTitleText Bold">{{items.title}}</p>
+                    <div class="LRGarmentOptionsDiv LRGarmentOptionsDivBackImg{{options.img}}" ng-class="{'no_click bottom_item_image_disabled':options.isOptionDisabled, 'LRGarmentOptionsDivRow2': $index > 2, 'LRGarmentOptionsDivCol1': $index % 3 === 0}" ng-repeat="options in items.options track by $index" ng-click="selectLRGarmentTypeOption($parent.$index, $index)">
+                        <p class="LGGarmentOptionText">{{options.name}}</p>
+                        <div class="LRGarmentOptionsDivSelected" ng-class="{'LRGarmentOptionsDivCol1': $index % 3 === 0}" ng-show="options.isOptionChecked">
+                            <div class="LRGarmentOptionsIsCheckedIcon"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="centralAreaButtonDivReady">
+                    <div class="readyButtonBoxatReadyScreen">
+                        <round-button 
+                            btn-text="SEGET RECIPE"
+                            class="BoldCondensed common-btn-text"
+                            if-font-style="true"
+                            if-disabled="!remoteControlEnabled || kidsLock"
+                            ng-class="{'no_click showDisabled':(!remoteControlEnabled || kidsLock || garmentTypeSelected === -1)}"
+                            ng-touchstart="powerButtonPressed()" 
+                            ng-touchend="openLaundryPageStage3()"
+                            ></round-button>
+                    </div>
+                </div>
+                <div class="LRBottomButtonBox new_back_color">
+                    <svg viewBox="0 0 88 88" class="bottom_item_rightOptionArrow nextIcon LRBottomButtonIconNext right" ng-class="{'no_click showDisabled':(garmentTypeSelected === -1)}" ng-click="openLaundryPageStage2()">
+                        <use xlink:href="common/img/ws_list_ic_next.svg#Layer_1"></use>
+                    </svg>
+                    <p class="LRBottomButtonText right Bold" ng-class="{'no_click showDisabled':(garmentTypeSelected === -1)}" ng-click="openLaundryPageStage2()">NEXT</p>
+                </div>
+            </div>
+            
+            <div class="screenAreaDiv" ng-show="laundryRecipePage2">
+                <p class="LRTitleMsgText">Pick your laundry color, soil level.</p>
+                <div class="LRlaundryCircleAreaStage2">
+                    <div class="LRlaundryCircleStage2" ng-class="{'LRlaundryCircleStage2SoilSelected':ifSoilSelectedForLaundryRecipe()}">
+                    </div>
+                </div>
+                <div class="LRGarmentColorDiv" ng-repeat="items in LRGarmentColor">
+                    <p class="LRGarmentTitleText Bold">{{items.title}}</p>
+                    <div class="LRGarmentOptionsColorDiv" ng-class="{'LRGarmentColorDivSelected':options.isOptionChecked, 'LRGarmentOptionsColorDivRow2': $index > 2, 'LRGarmentOptionsDivCol1': $index % 3 === 0}" ng-repeat="options in items.options track by $index" ng-click="selectLRGarmentColorOption($parent.$index, $index)">
+                        <img class="LRColorOptionIcon LRColorOptionIcon_{{options.img}}"/>
+                        <p class="LGColorOptionText Regular">{{options.name}}</p>
+                    </div>
+                </div>
+                <div class="LRBottomButtonBoxFixed new_back_color">
+                    <svg viewBox="0 0 88 88" class="bottom_item_rightOptionArrow nextIcon LRBottomButtonIconPrev left" ng-click="openLaundryPageStage1()">
+                        <use xlink:href="common/img/ws_list_ic_next.svg#Layer_1"></use>
+                    </svg>
+                    <p class="LRBottomButtonText left Bold" ng-click="openLaundryPageStage1()">PREVIOUS</p>
+                    <svg viewBox="0 0 88 88" class="bottom_item_rightOptionArrow nextIcon LRBottomButtonIconNext right" ng-click="openLaundryPageStage3()">
+                        <use xlink:href="common/img/ws_list_ic_next.svg#Layer_1"></use>
+                    </svg>
+                    <p class="LRBottomButtonText LRBottomButtonTextGetRecipe right Bold" ng-click="openLaundryPageStage3()">GET RECIPE</p>
+                </div>
+            </div>
+            
+            <div class="screenAreaDiv" ng-show="laundryRecipePage3">
+                <p class="LRTitleMsgText">Recommend Recipe ({{numOfSelectedLaundryRecipes}})</p>
+                <div class="LRlaundryCircleAreaStage2">
+                </div>
+                <div class="LRGarmentColorDiv" ng-repeat="items in LRGarmentColor">
+                    <p class="LRGarmentTitleText Bold">{{items.title}}</p>
+                    <div class="LRGarmentOptionsColorDiv" ng-class="{'LRGarmentColorDivSelected':options.isOptionChecked, 'LRGarmentOptionsColorDivRow2': $index > 2, 'LRGarmentOptionsDivCol1': $index % 3 === 0}" ng-repeat="options in items.options track by $index" ng-click="selectLRGarmentColorOption($parent.$index, $index)">
+                        <img class="LRColorOptionIcon LRColorOptionIcon_{{options.img}}"/>
+                        <p class="LGColorOptionText Regular">{{options.name}}</p>
+                    </div>
+                </div>
+                <div class="LRBottomButtonBoxFixed new_back_color">
+                    <svg viewBox="0 0 88 88" class="bottom_item_rightOptionArrow nextIcon LRBottomButtonIconPrev left" ng-click="openLaundryPageStage1()">
+                        <use xlink:href="common/img/ws_list_ic_next.svg#Layer_1"></use>
+                    </svg>
+                    <p class="LRBottomButtonText left Bold" ng-click="openLaundryPageStage1()">PREVIOUS</p>
+                    <svg viewBox="0 0 88 88" class="bottom_item_rightOptionArrow nextIcon LRBottomButtonIconNext right" ng-click="openLaundryPageStage3()">
+                        <use xlink:href="common/img/ws_list_ic_next.svg#Layer_1"></use>
+                    </svg>
+                    <p class="LRBottomButtonText LRBottomButtonTextGetRecipe right Bold" ng-click="openLaundryPageStage3()">GET RECIPE</p>
+                </div>
+            </div>
+            
+            <div ng-class="ModeSelectionPopupDivCls" ng-click="closeAllPopups()" ng-show="custReorderPopUp">
+            <div class="mkpopupboxmode center" ng-click="$event.stopPropagation()">
+                <div class="curDetAmtPopUpMsgBox">
+                    <p class="curDetAmtPopupTitleText Bold">Add auto recorder time</p>
+                </div>
+                <div class="reorderPopUpTextBox">
+                    <p class="reorderPopUpText">When</p>
+                    <input type="number" class="reOrderInputBoxArea" spellcheck="false" maxlength="5" ng-model="curValSettingPopUp" value="{{curValSettingPopUp}}" onblur='this.value = this.value.replace(/(^\s*)|(\s*$)/g, "")' required select-text textarea-loaded>
+                    <p class="reorderPopUpText">Pods left</p>
+                </div>
+                <div class ="curDetAmtPopupButtonBox">
+                    <p class="curDetAmtCancelText Regular" ng-click="closeAllPopups()">CANCEL</p>
+                    <p class="curDetAmtCancelText curDetAmtSaveText Regular" ng-click="setReorderPopup()">ADD</p>
+                </div>
+            </div>
+        </div>
 
             <!--Alarm page Start-->
             <div class="screenAreaDiv" ng-show="errormesaeg">
@@ -1416,13 +1654,14 @@
                     </div>
                 </div>
                 <div class="mkModeOtions">
-                    <div class="BottomPopupItem" ng-class="{'no_click' : getTempDisable(items)}" ng-repeat="items in listItemsTemp" ng-click="setTempSelectValue(items)">
-                        <p class="BottomPoupItemTextNoIcon Regular" ng-class="{disabledTextColor:getTempDisable(items),BottomPopupItemTextSelected:isTempSelected(items)}">{{getTempConstant(items, 1)}}</p>
+                    <div class="ap-search-list locationItem waves-effect press-basic-radio-btn" ng-repeat="items in listItemsTemp track by $index" ng-click="selectCurIndexTemp(items)" role="button">
+                        <img class="radio-button-off " ng-class="{'radio-button-on radio-btn-offset': isTempSelected(items) , ' radio-btn-offset' : !isTempSelected(items)}" >                    
+                        <span class="listSearchTxt" ng-class="{'disabledTextColor':getTempDisable(items), 'listSearchTxtSelected': isTempSelected(items)}">{{getTempConstant(items, 1)}}</span>
                     </div>
-                </div>
-                <div class="BottompopupButtonBox">
-                    <div class="BottomPopupButton"    ng-bind-html="translation.WEBMOB_device_washer_comm_ok_CL" ng-click="selectIndexTemp()"></div>
-                    <div class="BottomPopupButton"  ng-bind-html="translation.WEBMOB_device_washer_comm_cancel_CL" ng-click="onCloseTempPopup()"></div>
+                    <div class="commonOKCancelPopUPDiv">
+                        <div class="commonOKCancelPopUPText" ng-click="popUpOkClickHandler('TEMP')" ng-bind-html="translation.WEBMOB_common_ok"></div>
+                        <div class="commonOKCancelPopUPText" ng-click="onCloseTempPopup()" ng-bind-html="translation.WEBMOB_common_cancel_capital"></div> \
+                    </div>
                 </div>
             </div>
         </div>
@@ -1435,13 +1674,14 @@
                 </div>
                 <div class="BottomPopUpImage BottomPopUpImageSpin"></div>
                 <div class="mkModeOtions">
-                    <div class="BottomPopupItem" ng-class="{'no_click' : (getSpinDisable(items) || getSpinDisableKoreanSpecs(items))}" ng-repeat="items in listItemsSpin" ng-click="selectIndexSpinValue(items)">
-                        <p class="BottomPoupItemTextNoIcon Regular" ng-class="{disabledTextColor:(getSpinDisable(items) || getSpinDisableKoreanSpecs(items)),BottomPopupItemTextSelected:isSpinSelected(items)}">{{getSpinConstant(items, 1)}}</p>
+                    <div class="ap-search-list locationItem waves-effect press-basic-radio-btn" ng-class="{'no_click' : (getSpinDisable(items) || getSpinDisableKoreanSpecs(items))}" ng-repeat="items in listItemsSpin track by $index" ng-click="selectCurIndexSpin(items)" role="button">
+                        <img class="radio-button-off " ng-class="{'radio-button-on radio-btn-offset': isSpinSelected(items) , ' radio-btn-offset' : !isSpinSelected(items)}" >                    
+                        <span class="listSearchTxt" ng-class="{'disabledTextColor':(getSpinDisable(items) || getSpinDisableKoreanSpecs(items)), 'listSearchTxtSelected': isSpinSelected(items)}">{{getSpinConstant(items, 1)}}</span>
                     </div>
-                </div>
-                <div class="BottompopupButtonBox">
-                    <div class="BottomPopupButton"    ng-bind-html="translation.WEBMOB_device_washer_comm_ok_CL" ng-click="selectIndexSpin()"></div>
-                    <div class="BottomPopupButton"  ng-bind-html="translation.WEBMOB_device_washer_comm_cancel_CL" ng-click="closeSpinPopup()"></div>
+                    <div class="commonOKCancelPopUPDiv">
+                        <div class="commonOKCancelPopUPText" ng-click="popUpOkClickHandler('SPIN')" ng-bind-html="translation.WEBMOB_common_ok"></div>
+                        <div class="commonOKCancelPopUPText" ng-click="closeSpinPopup()" ng-bind-html="translation.WEBMOB_common_cancel_capital"></div> \
+                    </div>
                 </div>
             </div>
         </div>
@@ -1458,13 +1698,14 @@
                     </div>
                 </div>
                 <div class="mkModeOtions">
-                    <div class="BottomPopupItem" ng-class="{'no_click' : getRinseDisable(items)}" ng-repeat="items in listItemsRinse track by $index" ng-click="selectIndexRinse(items, $index)">
-                        <p class="BottomPoupItemTextNoIcon Regular" ng-class="{disabledTextColor:getRinseDisable(items),popuptemptextHighlight:isRinseSelected(items)}">{{getRinseConstant(items, 1)}}</p>
+                    <div class="ap-search-list locationItem waves-effect press-basic-radio-btn" ng-class="{'no_click' : getRinseDisable(items)}" ng-repeat="items in listItemsRinse track by $index" ng-click="selectCurIndexRinse(items, $index)" role="button">
+                        <img class="radio-button-off " ng-class="{'radio-button-on radio-btn-offset': isRinseSelected(items) , ' radio-btn-offset' : !isRinseSelected(items)}" >                    
+                        <span class="listSearchTxt" ng-class="{'disabledTextColor': getRinseDisable(items), 'listSearchTxtSelected': isRinseSelected(items)}">{{getRinseConstant(items, 1)}}</span>
                     </div>
-                </div>
-                <div class="BottompopupButtonBox">
-                    <div class="BottomPopupButton" ng-bind-html="translation.WEBMOB_device_washer_comm_ok_CL" ng-click="closeRinsePopup(true)"></div>
-                    <div class="BottomPopupButton" ng-bind-html="translation.WEBMOB_device_washer_comm_cancel_CL" ng-click="closeRinsePopup(false)"></div>
+                    <div class="commonOKCancelPopUPDiv">
+                        <div class="commonOKCancelPopUPText" ng-click="popUpOkClickHandler('RINSE')" ng-bind-html="translation.WEBMOB_common_ok"></div>
+                        <div class="commonOKCancelPopUPText" ng-click="closeRinsePopup()" ng-bind-html="translation.WEBMOB_common_cancel_capital"></div> \
+                    </div>
                 </div>
             </div>
         </div>
@@ -1477,51 +1718,40 @@
                 </div>
                 <div class="BottomPopUpImage BottomPopUpImageSoil"></div>
                 <div class="mkModeOtions">
-                    <div class="BottomPopupItem" ng-class="{'no_click' : getSoilDisable(items)}" ng-repeat="items in listItemsSoilLevel track by $index" ng-click="selectIndexTempSoilLevel(items)">
-                        <p class="BottomPoupItemTextNoIcon Regular" ng-class="{'disabledTextColor':getSoilDisable(items),popuptemptextHighlight:isSoilSelected(items)}" ng-bind-html="getSoilConstant(items, 1)"></p>
+                    <div class="ap-search-list locationItem waves-effect press-basic-radio-btn" ng-class="{'no_click' : getSoilDisable(items)}" ng-repeat="items in listItemsSoilLevel track by $index" ng-click="selectCurIndexSoilLevel(items)" role="button">
+                        <img class="radio-button-off " ng-class="{'radio-button-on radio-btn-offset': isSoilSelected(items) , ' radio-btn-offset' : !isSoilSelected(items)}" >                    
+                        <span class="listSearchTxt" ng-class="{'disabledTextColor': getSoilDisable(items), 'listSearchTxtSelected': isSoilSelected(items)}">{{getSoilConstant(items, 1)}}</span>
+                    </div>
+                    <div class="commonOKCancelPopUPDiv">
+                        <div class="commonOKCancelPopUPText" ng-click="popUpOkClickHandler('SOIL')" ng-bind-html="translation.WEBMOB_common_ok"></div>
+                        <div class="commonOKCancelPopUPText" ng-click="closeRinsePopup()" ng-bind-html="translation.WEBMOB_common_cancel_capital"></div> \
                     </div>
                 </div>
             </div>
         </div>
         
-        <!-- Dry Level popup-->
-<!--        <div ng-class="BottomPopupDimBackgroundDiv" ng-click="onCloseDryLevelPopup()" ng-show="dryLevelPopup">
-            <div ng-class="BottomPopupDivCls" ng-click="$event.stopPropagation()">
-                <div class="modePopUpCycleListDiv">
-                    <p class="cycleListText Medium" ng-bind-html="translation.WEBMOB_device_washer_option_drylevel"></p>
-                </div>
-                <div class="mkModeOtions">
-                    <div class="BottomPopupItem waves-effect press-list" ng-repeat="items in listItemsDryLevel track by $index" ng-click="selectIndexDryLevel(items, listItemsDryLevel.length - $index)">
-                        <p class="BottomPoupItemTextNoIcon Regular" ng-class="{'disabledTextColor':getDryLevelDisable(items), popuptemptextHighlight:getDryLevelSelected(items)}">{{getDryComboLevelConstant(items, 1)}}</p>
-                    </div>
-                </div>
-            </div>
-        </div>-->
-
         <!-- Mode Selection popup-->
         <div ng-class="ModeSelectionPopupDivCls" ng-click="closeAllPopups()" ng-show="(modePopup && !showEnergyLevelSet)">
-<!--            <div class="ModeSelectionPopupCon" ng-class="{'ModeSelectionPopupCon_V2' : isAppV2}" ng-click="$event.stopPropagation()">-->
-                <div class="popupboxmode" ng-class="{'popupboxmode_V2' : isAppV2}" ng-click="$event.stopPropagation()">
-                    <div class="popupboxgap"></div>
-                    <div class="popupmodemaindiv waves-effect press-list" ng-class="{'modesDisable' : getModeDisabled($index)}" ng-repeat="items in listItemsModes" ng-click="selectIndex(items, $index)">
-                        <svg viewBox="0 0 156 156" class="popupmodeicon modeNormalIcon" ng-class="{'modeSelectedCircleBg modeSelectedIconBg':getmodeSelected(items,$index)}">
-                        <use xlink:href={{items.courseIcon}}></use>
-                        </svg>
-                        <svg viewBox="0 0 100 100" class="ecotton_svg_image" ng-class="{'ecotton_svg_color':!getmodeSelected(items,$index),'commonSelectedIcon':getmodeSelected(items,$index)}" ng-show="getEcottonCourse(items.courseNameHex)">
-                        <use xlink:href="Washer/assets/img/main_washer_mode_selection_ecotton.svg#Layer_1"></use>
-                        </svg>
-                        <p resize-text 
-                           rt-target-pct="0.6" 
-                           rt-font-class="Regular" 
-                           rt-multiline-cls="popupmodetext_twoline" 
-                           rt-singleline-cls="popupmodetext"
-                           rt-set-width="false"
-                           ng-class="{'popuptemptextHighlight':getmodeSelected(items,$index),'popupmodetext_ecotton':getEcottonCourse(items.courseNameHex)}"
-                           ng-bind-html="translation[items.CourseEnum]"></p>
-                        <img class="washerCycleMostUsedIcon washerCycleMostUsedIconMargin" ng-show="isMostUsedCourse($index)"/>
-                    </div>
-                </div>     
-            <!--  </div>-->
+            <div class="popupboxmode" ng-class="{'popupboxmode_V2' : isAppV2}" ng-click="$event.stopPropagation()">
+                <div class="popupboxgap"></div>
+                <div class="popupmodemaindiv waves-effect press-list" ng-class="{'modesDisable' : getModeDisabled($index)}" ng-repeat="items in listItemsModes" ng-click="selectIndex(items, $index)">
+                    <svg viewBox="0 0 156 156" class="popupmodeicon modeNormalIcon" ng-class="{'modeSelectedCircleBg modeSelectedIconBg':getmodeSelected(items,$index)}">
+                    <use xlink:href={{items.courseIcon}}></use>
+                    </svg>
+                    <svg viewBox="0 0 100 100" class="ecotton_svg_image" ng-class="{'ecotton_svg_color':!getmodeSelected(items,$index),'commonSelectedIcon':getmodeSelected(items,$index)}" ng-show="getEcottonCourse(items.courseNameHex)">
+                    <use xlink:href="Washer/assets/img/main_washer_mode_selection_ecotton.svg#Layer_1"></use>
+                    </svg>
+                    <p resize-text 
+                       rt-target-pct="0.6" 
+                       rt-font-class="Regular" 
+                       rt-multiline-cls="popupmodetext_twoline" 
+                       rt-singleline-cls="popupmodetext"
+                       rt-set-width="false"
+                       ng-class="{'popuptemptextHighlight':getmodeSelected(items,$index),'popupmodetext_ecotton':getEcottonCourse(items.courseNameHex)}"
+                       ng-bind-html="translation[items.CourseEnum]"></p>
+                    <img class="washerCycleMostUsedIcon washerCycleMostUsedIconMargin" ng-show="isMostUsedCourse($index)"/>
+                </div>
+            </div>
         </div>
 
          <!-- Mode Selection popup with energyLevelValue-->
@@ -1590,6 +1820,51 @@
                         <p class="cancelSaveSetEndTimeText" ng-click="cancelSetEndTime()">CANCEL</p>
                         <p class="cancelSaveSetEndTimeText" ng-click="saveSetEndTime()">SAVE</p>
                     </div>
+                </div>
+            </div>
+        </div>
+         
+        <div ng-class="ModeSelectionPopupDivCls" ng-click="closeAllPopups()" ng-show="amazonServiePopUp">
+            <div class="mkpopupboxmode center" ng-click="$event.stopPropagation()">
+                <div class="amazonPopUpMsgBox">
+                    <p class="amazonPopupInfoMsgText">If you use Amazon replenishment Service, need to Amazon prime account. Please make the Amazon prime account.</p>
+                </div>
+                <div class ="amazonPopupButtonBox">
+                    <p class="goToAmazonPrimeCancelText" ng-click="closeAllPopups()">CANCEL</p>
+                    <p class="goToAmazonPrimeCancelText goToAmazonPrimeText" ng-click="goToAmazonPrime()">GO TO AMAZON PRIME</p>
+                </div>
+            </div>
+        </div>
+         
+         <div ng-class="ModeSelectionPopupDivCls" ng-click="closeAllPopups()" ng-show="currentDetergentAmountPopup">
+            <div class="mkpopupboxmode center" ng-click="$event.stopPropagation()">
+                <div class="curDetAmtPopUpMsgBox">
+                    <p class="curDetAmtPopupTitleText Bold">Current Detergent Amount</p>
+                </div>
+                <div class="curDetAmtIconBox">
+                    <svg viewBox="0 0 96 96" class="curDetAmtUpIcon" ng-click="increasePodValue()">
+                        <use xlink:href="Washer/assets/img/ws_timepicker_btn_up.svg#Layer_1"></use>
+                    </svg>
+                </div>
+                <div class="curDetAmtInfoDiv">
+                    <p class="curDetAmtInfoText" ng-model="podValueTemp">{{podValueTemp}}</p>
+                    <p class="curDetAmtInfoUnitText" ng-model="curDetAmtUnitValue" ng-show="detType === 2">Pods</p>
+                    <p class="curDetAmtInfoUnitText" ng-model="curDetAmtUnitValue" ng-show="detType === 1">{{curDetAmtUnitValue}}</p>
+                    <div class="curDetAmtUnitIcon" ng-click="openCurDetAmtUnitPopUp()" ng-show="detType === 1"></div>
+                    <div class="curDetAmtUnitPopUp" ng-show="curDetAmtUnitPopup">
+                        <div class="curDetAmtUnitPopUpEachItemDiv" ng-repeat="item in listCurDetAmtUnit track by $index" ng-click="selectDetUnit(item)">
+                            <p class="curDetAmtUnitPopUpEachItemDivText Regular" ng-class="{'popuptemptextHighlight' : getDetUnitSelectedValue(item)} ">{{item}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="curDetAmtIconBox">
+                    <svg viewBox="0 0 96 96" class="curDetAmtDownIcon" ng-click="decreasePodValue()">
+                        <use xlink:href="Washer/assets/img/ws_timepicker_btn_down.svg#Layer_1"></use>
+                    </svg>
+                </div>
+                <div class ="curDetAmtPopupButtonBox">
+                    <p class="curDetAmtCancelText Regular" ng-click="closeAllPopups()">CANCEL</p>
+                    <p class="curDetAmtCancelText curDetAmtSaveText Regular" ng-click="setCurDetAmountPopup()">SET</p>
                 </div>
             </div>
         </div>
